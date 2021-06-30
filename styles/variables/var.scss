@@ -1,0 +1,20 @@
+@function cmyk($c, $m, $y, $k) {
+  $c: $c / 100;
+  $m: $m / 100;
+  $y: $y / 100;
+  $k: $k / 100;
+
+  $r: 255 * (1 - $c) * (1 - $k);
+  $g: 255 * (1 - $m) * (1 - $k);
+  $b: 255 * (1 - $y) * (1 - $k);
+
+  @return rgb($r, $g, $b);
+}
+
+$Pantone_652_C: cmyk(54, 31, 10, 4);
+$Pantone_7545_C: cmyk(71, 50, 37, 40);
+$Pantone_649_C: cmyk(16, 9, 6, 0);
+$Pantone_4665_C: cmyk(16, 34, 46, 7);
+$Pantone_7524_C: cmyk(20, 71, 63, 24);
+
+$Pantone_732_C: cmyk(29, 69, 91, 61);

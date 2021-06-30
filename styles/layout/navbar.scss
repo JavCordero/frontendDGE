@@ -1,0 +1,74 @@
+@import "../variables/var.scss";
+
+.sidenav {
+  height: 100vh;
+  width: auto;
+  position: fixed;
+  z-index: 1;
+  background-color: $Pantone_7545_C;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  .item-navbar {
+    color: rgba($color: white, $alpha: 0.6);
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.button-expand {
+  height: 100vw;
+  width: 4vw;
+  background-color: $Pantone_7545_C;
+  position: fixed;
+  text-align: center;
+  svg,
+  span {
+    font-size: 2.5vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar-menu {
+    margin-top: 2vw;
+    margin-bottom: 6vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.navbar-icon-collapse,
+.navbar-button-close {
+  float: right;
+  margin-right: 1vw;
+}
+
+.hr-success {
+  border: 0.2vw solid;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.color-icon {
+  color: rgba($color: white, $alpha: 0.6);
+}
+
+.icon-active {
+  color: white;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    .item-navbar {
+      font-size: 1.5vw;
+    }
+  }
+}
