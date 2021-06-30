@@ -6,17 +6,11 @@ import { useState } from "react";
 const NavbarPage = ({ children }: any) => {
   const [modificador, setModificador] = useState(false);
 
-  /* const NavBar = styled.div`
-    width: ${modificador};
-  `; */
-
   function openNav() {
-    document.getElementsByTagName("main")[0].style.marginLeft = "250px";
     setModificador(true);
   }
 
   function closeNav() {
-    document.getElementsByTagName("main")[0].style.marginLeft = "0px";
     setModificador(false);
   }
   return (
@@ -24,7 +18,7 @@ const NavbarPage = ({ children }: any) => {
       <div
         className={"sidenav"}
         css={css`
-          width: ${modificador ? "250px" : "0px"};
+          width: ${modificador ? "20vw" : "0"};
           transition-duration: 0.5s;
           transition-property: width;
         `}
@@ -42,8 +36,9 @@ const NavbarPage = ({ children }: any) => {
         <span onClick={openNav}>&#9776;</span>
       </div>
       <main
+        onClick={closeNav}
         css={css`
-          margin-left: ${modificador ? "250px" : "0px"};
+          margin-left: ${modificador ? "22vw" : "6vw"};
           transition-duration: 1s;
           transition-property: margin-left;
         `}
