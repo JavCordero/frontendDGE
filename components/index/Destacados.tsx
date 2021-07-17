@@ -81,100 +81,126 @@ export const Destacados = () => {
                 />
                 <a href="#!">
                   <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  ></div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay"
+                    className="mask overlay d-flex"
                     style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
                   >
-                    hola hola
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              <div
+                className="bg-image hover-overlay"
+                style={{ maxWidth: "24rem" }}
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
+                  className="img-fluid"
+                />
+                <a href="#!">
+                  <div
+                    className="mask overlay d-flex"
+                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
+                  >
+                    <h4 className="m-2 text-white d-flex align-items-end">
+                      Prueba de texto
+                    </h4>
                   </div>
                 </a>
               </div>
