@@ -1,7 +1,7 @@
 @import "../variables/var.scss";
 
 .sidenav {
-  height: 100vh;
+  height: 100%;
   width: auto;
   position: fixed;
   z-index: 1;
@@ -24,7 +24,7 @@
 }
 
 .button-expand {
-  height: 100vw;
+  height: 100%;
   width: 4vw;
   background-color: $Pantone_7545_C;
   position: fixed;
@@ -32,12 +32,6 @@
   svg,
   span {
     font-size: 2.5vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .navbar-menu {
-    margin-top: 2vw;
-    margin-bottom: 6vw;
     margin-left: auto;
     margin-right: auto;
   }
@@ -64,11 +58,28 @@
   color: white;
 }
 
+main {
+  margin-right: 2% !important;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
     .item-navbar {
       font-size: 1.5vw;
     }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .sidenav {
+    display: none;
+  }
+  main {
+    margin-left: 4% !important;
+    margin-right: 4% !important;
+  }
+  .button-expand {
+    display: none;
   }
 }

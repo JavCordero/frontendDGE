@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import the 
 import {
   faHome,
   faBars,
-  faLaptopMedical,
+  faStarOfLife,
   faGraduationCap,
   faBasketballBall,
   faUniversity,
@@ -14,9 +14,14 @@ import {
   faTimes,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebook,
+  faInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/router";
 import { Button, Collapse } from "react-bootstrap";
+import Header from "./Header";
 
 const NavbarPage = ({ children }: any) => {
   const [modificador, setModificador] = useState(false);
@@ -47,9 +52,8 @@ const NavbarPage = ({ children }: any) => {
     <>
       <div
         className={"sidenav"}
-        onMouseLeave={closeNav}
         css={css`
-          width: ${modificador ? "20vw" : "0"};
+          width: ${modificador ? "20%" : "0%"};
           transition-duration: 0.5s;
           transition-property: width;
         `}
@@ -121,7 +125,7 @@ const NavbarPage = ({ children }: any) => {
         <div className="mx-3">
           <FontAwesomeIcon
             className={color === "/salud" ? "icon-active" : "color-icon"}
-            icon={faLaptopMedical}
+            icon={faStarOfLife}
             size="1x"
           ></FontAwesomeIcon>
           <span
@@ -251,33 +255,71 @@ const NavbarPage = ({ children }: any) => {
           </Collapse>
         </div>
 
-        <a className="item-navbar">Clients</a>
-        <a className="item-navbar">Contact</a>
+        <hr className="mt-1 mb-1 hr-success" />
+
+        <div className="mx-3">
+          <FontAwesomeIcon
+            className={color === "/jardin" ? "icon-active" : "color-icon"}
+            icon={faBabyCarriage}
+            size="1x"
+          ></FontAwesomeIcon>
+          <span
+            onClick={() => setCollapseJardin(!collapseJardin)}
+            className={color === "/jardin" ? "icon-active" : "color-icon"}
+          >
+            {" "}
+            Jardín infantil Taqinki
+          </span>
+          <FontAwesomeIcon
+            className={
+              (color === "/jardin" ? "icon-active" : "color-icon") +
+              " navbar-icon-collapse mt-1"
+            }
+            onClick={() => setCollapseJardin(!collapseJardin)}
+            icon={faChevronDown}
+            size="1x"
+          ></FontAwesomeIcon>
+          <Collapse in={collapseJardin}>
+            <div className="mx-3">
+              <ul className="list-group">
+                <li className="list-group-item bg-transparent border-0">
+                  Link 1
+                </li>
+                <li className="list-group-item  bg-transparent border-0">
+                  Link 2
+                </li>
+                <li className="list-group-item  bg-transparent border-0">
+                  Link 3
+                </li>
+              </ul>
+            </div>
+          </Collapse>
+        </div>
+
+        <hr className="mt-1 mb-1 hr-success" />
       </div>
 
       <div
         css={css`
-          width: ${modificador ? "0vw" : "4vw"};
+          width: ${modificador ? "0%" : "5%"};
           transition-duration: 0.5s;
           transition-property: width;
         `}
         id="button-open-nav"
-        onMouseEnter={openNav}
         className="button-expand"
       >
         <FontAwesomeIcon
-          className="navbar-menu d-block text-center color-icon"
+          className="d-block color-icon mt-3"
           onClick={openNav}
           icon={faBars}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
           className={
-            "mb-3 d-block " + (color === "/" ? "icon-active" : "color-icon")
+            "mb-3 mt-5 d-block " +
+            (color === "/" ? "icon-active" : "color-icon")
           }
           icon={faHome}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
           className={
             "mb-3 d-block " +
@@ -285,15 +327,13 @@ const NavbarPage = ({ children }: any) => {
           }
           icon={faGraduationCap}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
           className={
             "mb-3 d-block " +
             (color === "/salud" ? "icon-active" : "color-icon")
           }
-          icon={faLaptopMedical}
+          icon={faStarOfLife}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
           className={
             "mb-3 d-block " +
@@ -301,35 +341,52 @@ const NavbarPage = ({ children }: any) => {
           }
           icon={faBasketballBall}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
-          className="mb-3 d-block"
+          className={
+            "mb-3 d-block " + (color === "/arte" ? "icon-active" : "color-icon")
+          }
           icon={faUniversity}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
-          className="mb-3 d-block"
+          className={
+            "mb-3 d-block " +
+            (color === "/jardin" ? "icon-active" : "color-icon")
+          }
           icon={faBabyCarriage}
         ></FontAwesomeIcon>
-
         <FontAwesomeIcon
-          className="mb-3 d-block"
+          className={
+            "mb-3 d-block " +
+            (color === "/acceso" ? "icon-active" : "color-icon")
+          }
           icon={faUniversalAccess}
         ></FontAwesomeIcon>
 
         <FontAwesomeIcon
-          className="mb-3 d-block"
+          className="mt-5 d-block color-icon"
           icon={faFacebook}
         ></FontAwesomeIcon>
+
+        <FontAwesomeIcon
+          className="mt-2 d-block color-icon"
+          icon={faInstagram}
+        ></FontAwesomeIcon>
+
+        <FontAwesomeIcon
+          className="mt-2 d-block color-icon"
+          icon={faYoutube}
+        ></FontAwesomeIcon>
       </div>
+
       <main
         onClick={closeNav}
         css={css`
-          margin-left: ${modificador ? "22vw" : "6vw"};
+          margin-left: ${modificador ? "22%" : "6%"};
           transition-duration: 1s;
           transition-property: margin-left;
         `}
       >
+        <Header></Header>
         {children}
       </main>
     </>

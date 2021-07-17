@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "../styles/custom.scss";
 import Head from "next/head";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
