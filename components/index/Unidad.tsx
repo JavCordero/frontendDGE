@@ -137,7 +137,7 @@ export const Unidad = () => {
       <h2 className="mt-5 mb-4">Unidad de servicio y apoyo estudiantil UCN</h2>
 
       <ScrollMenu
-        alignCenter
+        menuClass="w-100"
         data={menu}
         arrowLeft={ArrowLeft}
         arrowRight={ArrowRight}

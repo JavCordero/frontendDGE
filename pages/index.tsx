@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { Destacados } from "../components/index/Destacados";
+import { Direccion } from "../components/index/Direccion";
 import { Unidad } from "../components/index/Unidad";
 
 /* Ejemplo de un styled component */
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <Destacados />
       <Unidad />
+      <Direccion />
     </>
   );
 }
