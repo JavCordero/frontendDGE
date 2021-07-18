@@ -11,7 +11,10 @@ import type { AppProps } from "next/app";
 import * as React from "react";
 import NavbarPage from "../components/layout/NavbarPage";
 
+import { useRouter } from "next/router";
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <>
       {/* --FRAGMENTO CORRESPONDIENTE AL HEAD DE LA PAGINA -- aca se pueden importar estilos css globales. */}
@@ -27,10 +30,18 @@ function MyApp({ Component, pageProps }: AppProps) {
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossOrigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        />
       </Head>
-      <NavbarPage>
+      {router.route === "/login" ? (
         <Component {...pageProps} />
-      </NavbarPage>
+      ) : (
+        <NavbarPage>
+          <Component {...pageProps} />
+        </NavbarPage>
+      )}
     </>
   );
 }
