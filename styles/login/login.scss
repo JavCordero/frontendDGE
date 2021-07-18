@@ -63,12 +63,18 @@
     font-size: 30px;
     font-weight: bold;
     padding: 10px;
-    border: 0.5px solid grey;
+    border: 1px solid grey;
     cursor: pointer;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+      opacity: 0.95;
+    }
+    &:active{
+      border: 0;
+    }
   }
 
   &__footer {
