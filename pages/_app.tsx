@@ -10,28 +10,60 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import type { AppProps } from "next/app";
 import * as React from "react";
 import NavbarPage from "../components/layout/NavbarPage";
+import Footer from "../components/layout/Footer";
+
+import "@fullcalendar/common/main.css";
+import "@fullcalendar/daygrid/main.css";
+import "@fullcalendar/list/main.css";
+import "@fullcalendar/timegrid/main.css";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      {/* --FRAGMENTO CORRESPONDIENTE AL HEAD DE LA PAGINA -- aca se pueden importar estilos css globales. */}
-      <Head>
-        <title>Plataforma DGE</title>
-        <meta name="description" content="Plataforma DGE" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <link rel="icon" href="/dgeico.ico" />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossOrigin="anonymous"
-        />
-      </Head>
-      <NavbarPage>
+  const router = useRouter();
+
+  if (router.route === "/login") {
+    return (
+      <>
+        {/* --FRAGMENTO CORRESPONDIENTE AL HEAD DE LA PAGINA -- aca se pueden importar estilos css globales. */}
+        <Head>
+          <title>Plataforma DGE</title>
+          <meta name="description" content="Plataforma DGE" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="UTF-8" />
+          <link rel="icon" href="/dgeico.ico" />
+          <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossOrigin="anonymous"
+          />
+        </Head>
         <Component {...pageProps} />
-      </NavbarPage>
-    </>
-  );
+      </>
+    );
+  } else {
+    return (
+      <>
+        {/* --FRAGMENTO CORRESPONDIENTE AL HEAD DE LA PAGINA -- aca se pueden importar estilos css globales. */}
+        <Head>
+          <title>Plataforma DGE</title>
+          <meta name="description" content="Plataforma DGE" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="UTF-8" />
+          <link rel="icon" href="/dgeico.ico" />
+          <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossOrigin="anonymous"
+          />
+        </Head>
+        <NavbarPage>
+          <Component {...pageProps} />
+        </NavbarPage>
+        <Footer />
+      </>
+    );
+  }
 }
 export default MyApp;
