@@ -11,7 +11,6 @@ const login = () => {
     const pass = e.target.password.value;
     console.log(user);
     console.log(pass);
-    
   };
 
   return (
@@ -43,6 +42,7 @@ const login = () => {
                   name="username"
                   type="text"
                   placeholder="Usuario"
+                  onChange={() => setError(false)}
                 />
                 <label htmlFor="username" className="fas fa-user" />
               </div>
@@ -53,6 +53,7 @@ const login = () => {
                   name="password"
                   type="password"
                   placeholder="Contraseña"
+                  onChange={() => setError(false)}
                 />
                 <label htmlFor="password" className="fas fa-key" />
               </div>
