@@ -30,6 +30,7 @@
     "bootstrap": "^5.0.0-beta3",
     "fullcalendar": "^5.8.0",
     "mdb-react-ui-kit": "^1.1.0",
+    "mdbreact": "^5.1.0",
     "next": "11.0.1",
     "next-transpile-modules": "^8.0.0",
     "node-sass": "^6.0.1",

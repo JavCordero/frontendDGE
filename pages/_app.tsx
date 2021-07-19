@@ -2,10 +2,14 @@ import "../styles/globals.css";
 import "../styles/custom.scss";
 import Head from "next/head";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
 
 import type { AppProps } from "next/app";
 import * as React from "react";
@@ -16,7 +20,6 @@ import "@fullcalendar/common/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/list/main.css";
 import "@fullcalendar/timegrid/main.css";
-import { useRouter } from "next/router";
 
 import { useRouter } from "next/router";
 
