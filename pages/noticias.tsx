@@ -15,8 +15,7 @@ const noticias = () => {
         <div className="noticias__contenido-texto">
           <h2 className="noticias__titulo">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem harum
-            sequi non! Eligendi culpa officiis et, nesciunt reprehenderit est
-            earum.
+            sequi non! Eligendi culpa officiis et, nesciunt.
           </h2>
           <p className="noticias__descripcion">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. In veniam

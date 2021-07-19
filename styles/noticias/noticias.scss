@@ -18,14 +18,14 @@
 
   &__buscar {
     height: 45px;
-    width: 40%;
+    width: 50%;
     min-width: 173px;
     background-color: burlywood;
   }
 
   &__filtrar {
     height: 45px;
-    width: 100px;
+    width: 125px;
     background-color: cadetblue;
   }
 
@@ -101,6 +101,22 @@
       //center the image
       display: flex;
       justify-content: center;
+    }
+
+    &__head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__buscar {
+      margin-top: 10px;
+    }
+  
+    &__filtrar {
+      margin-top: 10px;
     }
   }
 }
