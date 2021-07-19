@@ -1,0 +1,122 @@
+.noticias {
+  $imagen-width: 20rem;
+  $imagen-height: $imagen-width * 2/3;
+  $titulo: $imagen-width/15;
+  $descripcion: $imagen-width/20;
+
+  grid-gap: $imagen-width / 30;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100px auto;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+  }
+
+  &__buscar {
+    height: 45px;
+    width: 50%;
+    min-width: 173px;
+    background-color: burlywood;
+  }
+
+  &__filtrar {
+    height: 45px;
+    width: 125px;
+    background-color: cadetblue;
+  }
+
+  &__noticia {
+    border-top: 2px solid #e9e9e9;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  &__imagen {
+    margin-top: 5px;
+    width: $imagen-width;
+    height: $imagen-height;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: brown;
+    float: left;
+    display: inline;
+    margin-right: $descripcion;
+  }
+  &__titulo {
+    font-size: $titulo;
+    text-align: center;
+  }
+  &__descripcion {
+    font-size: $descripcion;
+  }
+  @media screen and (max-width: $w-700) {
+    &__imagen {
+      width: $imagen-width/1.2;
+      height: $imagen-height/1.2;
+    }
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 25px;
+    }
+  }
+  @media screen and (max-width: $w-600) {
+    &__imagen {
+      width: $imagen-width/1.44;
+      height: $imagen-height/1.44;
+    }
+  }
+  @media screen and (max-width: $w-550) {
+    &__imagen {
+      width: $imagen-width/1.55;
+      height: $imagen-height/1.55;
+    }
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+    }
+  }
+  @media screen and (max-width: $w-500) {
+    &__imagen {
+      width: $imagen-width/1.65;
+      height: $imagen-height/1.65;
+    }
+  }
+  @media screen and (max-width: $w-450) {
+    &__imagen {
+      width: $imagen-width/1.75;
+      height: $imagen-height/1.75;
+    }
+  }
+
+  @media screen and (max-width: $w-400) {
+    &__contenido-imagen {
+      //center the image
+      display: flex;
+      justify-content: center;
+    }
+
+    &__head {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__buscar {
+      margin-top: 10px;
+    }
+  
+    &__filtrar {
+      margin-top: 10px;
+    }
+  }
+}
