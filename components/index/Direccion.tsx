@@ -12,13 +12,9 @@ import {
 
 export const Direccion = () => {
   return (
-    <MDBContainer
-      fluid
-      className="w-100"
-      style={{ backgroundColor: "rgba(0,0,0,0.05)" }}
-    >
+    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
       <h2 className="mt-5 mb-4">Dirección General Estudiantil DGE</h2>
-      <MDBRow>
+      <MDBRow className="pb-4">
         <MDBCol>
           <MDBCard style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}>
             <Image
