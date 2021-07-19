@@ -22,7 +22,7 @@ export const Destacados = () => {
         <article>
           <MDBContainer fluid className="shadow-5">
             <h2>Destacados</h2>
-            <MDBCarousel showIndicators showControls fade>
+            <MDBCarousel showControls keyboard showIndicators fade>
               <MDBCarouselInner>
                 <MDBCarouselItem itemId={0}>
                   <MDBCarouselElement

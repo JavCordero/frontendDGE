@@ -10,6 +10,13 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 import type { AppProps } from "next/app";
 import * as React from "react";
 import NavbarPage from "../components/layout/NavbarPage";
+import Footer from "../components/layout/Footer";
+
+import "@fullcalendar/common/main.css";
+import "@fullcalendar/daygrid/main.css";
+import "@fullcalendar/list/main.css";
+import "@fullcalendar/timegrid/main.css";
+import { useRouter } from "next/router";
 
 import { useRouter } from "next/router";
 

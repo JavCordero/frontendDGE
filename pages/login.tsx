@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import logoDGE from "../public/Imagen-DGE.jpg";
 import logoUCN from "../public/Escudo-UCN-Full-Color.png";
