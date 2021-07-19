@@ -13,6 +13,7 @@ import {
   MDBContainer,
   MDBRow,
 } from "mdb-react-ui-kit";
+import { MDBMask } from "mdbreact";
 import React from "react";
 
 export const Destacados = () => {
@@ -29,7 +30,10 @@ export const Destacados = () => {
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
                     alt="..."
                   />
-                  <MDBCarouselCaption>
+                  <MDBCarouselCaption
+                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
+                    className="shadow-box-example hoverable"
+                  >
                     <h5>First slide label</h5>
                     <p>
                       Nulla vitae elit libero, a pharetra augue mollis interdum.
@@ -42,10 +46,13 @@ export const Destacados = () => {
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
                     alt="..."
                   />
-                  <MDBCarouselCaption>
+                  <MDBCarouselCaption
+                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
+                    className="shadow-box-example hoverable"
+                  >
                     <h5>Second slide label</h5>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
                     </p>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
@@ -55,11 +62,13 @@ export const Destacados = () => {
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
                     alt="..."
                   />
-                  <MDBCarouselCaption>
-                    <h5>Third slide label</h5>
+                  <MDBCarouselCaption
+                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
+                    className="shadow-box-example hoverable"
+                  >
+                    <h5>slide label</h5>
                     <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
+                      Nulla vitae elit libero, a pharetra augue mollis interdum.
                     </p>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
