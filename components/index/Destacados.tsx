@@ -15,12 +15,23 @@ import {
 } from "mdb-react-ui-kit";
 import { MDBMask } from "mdbreact";
 import React from "react";
+import Slider from "react-slick";
 
 export const Destacados = ({ titulo1, titulo2 }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
+    arrows: false,
+  };
   return (
-    <div>
-      <section className="mt-4 d-md-inline-flex">
-        <article>
+    <MDBContainer fluid>
+      <MDBRow>
+        <MDBCol size="12" sm="9">
           <MDBContainer fluid className="shadow-5">
             <h2>{titulo1}</h2>
             <MDBCarousel showControls keyboard showIndicators fade>
@@ -40,7 +51,6 @@ export const Destacados = ({ titulo1, titulo2 }) => {
                     </p>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
-
                 <MDBCarouselItem itemId={1}>
                   <MDBCarouselElement
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
@@ -75,148 +85,115 @@ export const Destacados = ({ titulo1, titulo2 }) => {
               </MDBCarouselInner>
             </MDBCarousel>
           </MDBContainer>
-        </article>
-        <aside className="w-100  index-noticias index-noticias-scroll">
+        </MDBCol>
+        <MDBCol
+          size="12"
+          sm="3"
+          className="index-noticias index-noticias-scroll"
+        >
           <MDBContainer fluid className="shadow-5">
             <h2>{titulo2}</h2>
-            <MDBRow className="row-cols-3 row-cols-md-1 g-1">
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+            <Slider {...settings}>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+              <MDBCard background="dark" className="text-white">
+                <MDBCardImage
+                  overlay
+                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
+                  alt="..."
                 />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-              <div
-                className="bg-image hover-overlay"
-                style={{ maxWidth: "24rem" }}
-              >
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/new/fluid/city/055.jpg"
-                  className="img-fluid"
-                />
-                <a href="#!">
-                  <div
-                    className="mask overlay d-flex"
-                    style={{ backgroundColor: "rgba(57, 192, 237, 0.2)" }}
-                  >
-                    <h4 className="m-2 text-white d-flex align-items-end">
-                      Prueba de texto
-                    </h4>
-                  </div>
-                </a>
-              </div>
-            </MDBRow>
+                <MDBCardOverlay>
+                  <MDBCardTitle>Card title</MDBCardTitle>
+                  <MDBCardText>
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </MDBCardText>
+                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
+                </MDBCardOverlay>
+              </MDBCard>
+            </Slider>
           </MDBContainer>
-        </aside>
-      </section>
-    </div>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };

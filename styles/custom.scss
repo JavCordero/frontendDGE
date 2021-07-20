@@ -15,6 +15,13 @@
   contain: size;
 }
 
+@media screen and (max-width: 576) {
+  .index-noticias {
+    contain: none !important;
+    width: max-content;
+  }
+}
+
 .mr-auto {
   margin-right: auto;
 }
