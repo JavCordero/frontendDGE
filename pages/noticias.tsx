@@ -5,10 +5,10 @@ import NoticiasFilter from "../components/others/NoticiasFilter";
 
 const noticias = () => {
   const [search, setSearch] = useState("");
+  const [filtro, setFiltro] = useState("Fecha");
   const handdleBuscar = () => {
     console.log("BUSCANDO " + search.trim());
   };
-  const [filtro, setFiltro] = useState("Fecha");
 
   const handdleFilter = (newFiltro) => {
     if (newFiltro === filtro) {
