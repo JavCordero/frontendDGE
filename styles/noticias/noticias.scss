@@ -15,12 +15,33 @@
     align-items: center;
     padding: 0 100px;
   }
-
   &__buscar {
     height: 45px;
     width: 50%;
     min-width: 173px;
-    background-color: burlywood;
+    position: relative;
+  }
+
+  &__buscar > input {
+    height: 45px;
+    width: 100%;
+    min-width: 173px;
+    border-radius: 13px;
+    border: 0;
+    outline: none;
+    //shadow input into
+    &::-webkit-input-placeholder {
+      color: #999;
+    }
+    background-color: $Pantone_649_C;
+    padding-left: 15px;
+  }
+  &__buscar > label {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    font-size: 35px;
+    color: $Pantone_2138_C;
   }
 
   &__filtrar {

@@ -2,10 +2,20 @@ import React from "react";
 import LoadingCircles from "../components/others/LoadingCircles";
 
 const noticias = () => {
+  const handdleBuscar = () => {
+    console.log("BUSCANDO");
+  }
   return (
     <div className="noticias">
       <div className="noticias__head">
-        <div className="noticias__buscar"></div>
+        <div className="noticias__buscar">
+          <input
+            id="noticias__buscar"
+            type="text"
+            placeholder="Buscar Noticia"
+          />
+          <label htmlFor="noticias__buscar" className="fas fa-search" onClick={handdleBuscar}/>
+        </div>    
         <div className="noticias__filtrar"></div>
       </div>
       <div className="noticias__line"></div>
