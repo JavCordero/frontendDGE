@@ -1,8 +1,8 @@
 .noticias {
   $imagen-width: 20rem;
   $imagen-height: $imagen-width * 2/3;
-  $titulo: $imagen-width/15;
-  $descripcion: $imagen-width/16;
+  $titulo: $imagen-width/14;
+  $descripcion: $imagen-width/15;
 
   grid-gap: $imagen-width / 30;
   display: grid;
@@ -49,9 +49,13 @@
   &__titulo {
     font-size: $titulo;
     text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
   }
   &__descripcion {
     font-size: $descripcion;
+    font-style: italic;
+    color: $Pantone_540_C;
   }
   @media screen and (max-width: $w-700) {
     &__imagen {
@@ -114,7 +118,7 @@
     &__buscar {
       margin-top: 10px;
     }
-  
+
     &__filtrar {
       margin-top: 10px;
     }
