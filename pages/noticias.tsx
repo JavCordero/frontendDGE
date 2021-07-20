@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingCircles from "../components/others/LoadingCircles";
 
 const noticias = () => {
   return (
@@ -109,6 +110,9 @@ const noticias = () => {
             <a href="#">(...)</a>
           </p>
         </div>
+      </div>
+      <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+        <LoadingCircles />
       </div>
     </div>
   );
