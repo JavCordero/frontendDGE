@@ -1,10 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import LoadingCircles from "../components/others/LoadingCircles";
 
 const noticias = () => {
+  const [search, setSearch] = useState("");
   const handdleBuscar = () => {
-    console.log("BUSCANDO");
-  }
+    console.log("BUSCANDO " + search.trim());
+  };
   return (
     <div className="noticias">
       <div className="noticias__head">
@@ -13,9 +14,15 @@ const noticias = () => {
             id="noticias__buscar"
             type="text"
             placeholder="Buscar Noticia"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <label htmlFor="noticias__buscar" className="fas fa-search" onClick={handdleBuscar}/>
-        </div>    
+          <label
+            htmlFor="noticias__buscar"
+            className="fas fa-search"
+            onClick={handdleBuscar}
+          />
+        </div>
         <div className="noticias__filtrar"></div>
       </div>
       <div className="noticias__line"></div>
