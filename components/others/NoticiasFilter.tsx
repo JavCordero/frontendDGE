@@ -14,28 +14,28 @@ const NoticiasFilter = (props) => {
 
   const MyFilterContent = styled.div`
     position: relative;
-    height: 45px;
+    height: 35px;
     width: 150px;
     z-index: 100;
-    margin-top: 1.5px;
+    cursor: pointer;
+    & div {
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      display: ${drop ? "flex" : "none"};
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
+    & div:first-child {
+      border-radius: ${drop ? "5px 5px 0px 0px" : "5px"};
+      justify-content: space-between;
+      display: flex;
+    }
     & div:last-child {
       border-radius: 0 0 5px 5px;
     }
-  `;
-
-  const Default = styled.div`
-    color: #2d2926;
-    font-weight: bold;
-    background-color: transparent;
-    border: 2px solid black;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    border-radius: ${drop ? "5px 5px 0px 0px" : "5px"};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     & .fas {
       font-size: 25px;
     }
@@ -47,20 +47,8 @@ const NoticiasFilter = (props) => {
 
   const Option = styled.div`
     font-weight: bold;
-    background-color: transparent;
     border: 2px solid black;
     position: absolute;
-    top: ${props.top};
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    display: ${drop ? "flex" : "none"};
-    & i,
-    span {
-      z-index: -1;
-    }
   `;
 
   const Background = styled.div`
@@ -81,7 +69,7 @@ const NoticiasFilter = (props) => {
 
   return (
     <MyFilterContent>
-      <Default data-value={opcion} onClick={handdleClick}>
+      <Option data-value={opcion} onClick={handdleClick}>
         <Background style={{ background: "#abcff3" }} />
         <i
           className={`far fa-clock ${
@@ -90,9 +78,9 @@ const NoticiasFilter = (props) => {
         ></i>
         <span>{opcion}</span>
         <i className={`fas fa-angle-${drop ? "up" : "down"} mr-2`}></i>
-      </Default>
+      </Option>
 
-      <Option data-value="Fecha" onClick={handdleClick} style={{ top: "45px" }}>
+      <Option data-value="Fecha" onClick={handdleClick} style={{ top: "35px" }}>
         <Background style={{ background: "#cdeff5" }} />
 
         <i className="far fa-clock ml-2 mr-2"></i>
@@ -102,7 +90,7 @@ const NoticiasFilter = (props) => {
       <Option
         data-value="Destacados"
         onClick={handdleClick}
-        style={{ top: "90px" }}
+        style={{ top: "70px" }}
       >
         <Background style={{ background: "#fdf4d7" }} />
         <i className="far fa-star ml-2 mr-2"></i>
