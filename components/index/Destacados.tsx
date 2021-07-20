@@ -16,13 +16,13 @@ import {
 import { MDBMask } from "mdbreact";
 import React from "react";
 
-export const Destacados = () => {
+export const Destacados = ({ titulo1, titulo2 }) => {
   return (
     <div>
       <section className="mt-4 d-md-inline-flex">
         <article>
           <MDBContainer fluid className="shadow-5">
-            <h2>Destacados</h2>
+            <h2>{titulo1}</h2>
             <MDBCarousel showControls keyboard showIndicators fade>
               <MDBCarouselInner>
                 <MDBCarouselItem itemId={0}>
@@ -78,7 +78,7 @@ export const Destacados = () => {
         </article>
         <aside className="w-100  index-noticias index-noticias-scroll">
           <MDBContainer fluid className="shadow-5">
-            <h2>Para tí</h2>
+            <h2>{titulo2}</h2>
             <MDBRow className="row-cols-3 row-cols-md-1 g-1">
               <div
                 className="bg-image hover-overlay"

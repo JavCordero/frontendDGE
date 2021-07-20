@@ -30,9 +30,6 @@ export const Unidad = () => {
     { name: "item4" },
     { name: "item5" },
     { name: "item6" },
-    { name: "item7" },
-    { name: "item8" },
-    { name: "item9" },
   ];
   const Arrow = ({ text, className }) => {
     return <div className={className}>{text}</div>;
@@ -41,7 +38,7 @@ export const Unidad = () => {
   const Menu = (list, selected) => {
     return [
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faGraduationCap}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Beneficios UCN</MDBCardTitle>
@@ -53,7 +50,7 @@ export const Unidad = () => {
         </MDBCard>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center  my-2">
           <FontAwesomeIcon size="6x" icon={faStarOfLife}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Salud</MDBCardTitle>
@@ -65,7 +62,7 @@ export const Unidad = () => {
         </MDBCard>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBasketballBall}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Deportes</MDBCardTitle>
@@ -77,7 +74,7 @@ export const Unidad = () => {
         </MDBCard>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversity}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Arte y Cultura</MDBCardTitle>
@@ -89,7 +86,7 @@ export const Unidad = () => {
         </MDBCard>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBabyCarriage}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Jardin Infantil</MDBCardTitle>
@@ -101,7 +98,7 @@ export const Unidad = () => {
         </MDBCard>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center">
+        <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversalAccess}></FontAwesomeIcon>
           <MDBCardBody>
             <MDBCardTitle>Inclusión</MDBCardTitle>
@@ -137,7 +134,7 @@ export const Unidad = () => {
       <h2 className="mt-5 mb-4">Unidad de servicio y apoyo estudiantil UCN</h2>
 
       <ScrollMenu
-        menuClass="w-100"
+        wrapperClass="w-100"
         data={menu}
         arrowLeft={ArrowLeft}
         arrowRight={ArrowRight}

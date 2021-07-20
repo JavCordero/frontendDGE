@@ -15,12 +15,11 @@ const H1 = styled.h1`
 export default function Home() {
   return (
     <>
-      <Destacados />
+      <Destacados titulo1="Destacados" titulo2="Para tí" />
       <Unidad />
       <Direccion />
       <Calendario />
       <Categoria />
-      <Footer />
     </>
   );
 }

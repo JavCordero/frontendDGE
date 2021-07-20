@@ -22,6 +22,7 @@ import {
 import { useRouter } from "next/router";
 import { Button, Collapse } from "react-bootstrap";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const NavbarPage = ({ children }: any) => {
   const [modificador, setModificador] = useState(false);
@@ -388,6 +389,7 @@ const NavbarPage = ({ children }: any) => {
       >
         <Header></Header>
         {children}
+        <Footer />
       </main>
     </>
   );

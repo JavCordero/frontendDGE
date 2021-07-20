@@ -16,7 +16,10 @@ export const Direccion = () => {
       <h2 className="mt-5 mb-4">Dirección General Estudiantil DGE</h2>
       <MDBRow className="pb-4">
         <MDBCol>
-          <MDBCard style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}>
+          <MDBCard
+            className="my-2"
+            style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
+          >
             <Image
               className="rounded-circle border border-5 border-primary"
               src={imageProfile}
@@ -31,7 +34,10 @@ export const Direccion = () => {
           </MDBCard>
         </MDBCol>
         <MDBCol>
-          <MDBCard style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}>
+          <MDBCard
+            className="my-2"
+            style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
+          >
             <Image
               className="rounded-circle border border-5 border-primary"
               src={imageProfile}
@@ -46,7 +52,10 @@ export const Direccion = () => {
           </MDBCard>
         </MDBCol>
         <MDBCol>
-          <MDBCard style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}>
+          <MDBCard
+            className="my-2"
+            style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
+          >
             <Image
               className="rounded-circle border border-5 border-primary"
               src={imageProfile}
@@ -61,7 +70,10 @@ export const Direccion = () => {
           </MDBCard>
         </MDBCol>
         <MDBCol>
-          <MDBCard style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}>
+          <MDBCard
+            className="my-2"
+            style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
+          >
             <Image
               className="rounded-circle border border-5 border-primary"
               src={imageProfile}

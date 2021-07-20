@@ -1,6 +1,5 @@
-
 import React, { useState } from "react";
-import logoDGE from "../public/Imagen-DGE.jpg";
+/* import logoDGE from "../public/Imagen-DGE.jpg"; */
 import logoUCN from "../public/Escudo-UCN-Full-Color.png";
 import Image from "next/image";
 const login = () => {
@@ -27,7 +26,7 @@ const login = () => {
               className="login__imagen"
             ></Image>
             <Image
-              src={logoDGE}
+              src="/Imagen-DGE.jpg"
               alt="Logo DGE"
               width="100px"
               height="100px"

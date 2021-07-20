@@ -12,12 +12,14 @@ const events: any = [
     start: new Date(),
     end: `2021-07-20`,
     info: "lorem loooooooremmmmfdsgdfsm",
+    color: "#989",
   },
   {
     id: 2,
     title: "event 2",
-    start: "2021-07-16T13:00:00",
-    end: "2021-07-16T18:00:00",
+    start: "2021-07-20T13:00:00",
+    end: "2021-07-22T18:00:00",
+    color: "#378006",
     info: "lorem loooooooremmmmm",
     foto: "",
     gfdgfd: "fdgfd",
@@ -38,6 +40,7 @@ export const Calendario = () => {
           <Calendar
             locale={esLocale}
             hiddenDays={[0]}
+            contentHeight={"auto"}
             plugins={[dayGridPlugin]}
             initialView="dayGridMonth"
             events={events}
@@ -58,19 +61,19 @@ export const Calendario = () => {
           />
         </MDBCol>
         <MDBCol className="mt-5" size="5">
-          {
-            <Calendar
-              locale={esLocale}
-              hiddenDays={[0]}
-              initialView="listWeek"
-              plugins={[listPlugin]}
-              events={events}
-              headerToolbar={{ end: "", left: "" }}
-              eventClick={(info) => {
-                console.log(JSON.stringify(info.event.extendedProps));
-              }}
-            />
-          }
+          <h5 className="m-0 p-0">Esta Semana</h5>
+          <Calendar
+            locale={esLocale}
+            contentHeight={"auto"}
+            hiddenDays={[0]}
+            initialView="listWeek"
+            plugins={[listPlugin]}
+            events={events}
+            headerToolbar={{ end: "", left: "" }}
+            eventClick={(info) => {
+              console.log(JSON.stringify(info.event.extendedProps));
+            }}
+          />
         </MDBCol>
       </MDBRow>
     </MDBContainer>
