@@ -1,11 +1,21 @@
 import { useState } from "react";
 import LoadingCircles from "../components/others/LoadingCircles";
 import SearchInput from "../components/others/SearchInput";
+import NoticiasFilter from "../components/others/NoticiasFilter";
 
 const noticias = () => {
   const [search, setSearch] = useState("");
   const handdleBuscar = () => {
     console.log("BUSCANDO " + search.trim());
+  };
+  const [filtro, setFiltro] = useState("Fecha");
+
+  const handdleFilter = (newFiltro) => {
+    if (newFiltro === filtro) {
+      return;
+    }
+    setFiltro(newFiltro);
+    console.log("FILTRANDO POR " + newFiltro);
   };
   return (
     <div className="noticias">
@@ -16,7 +26,7 @@ const noticias = () => {
           setValue={setSearch}
           fn={handdleBuscar}
         />
-        <div className="noticias__filtrar"></div>
+        <NoticiasFilter fn={handdleFilter} />
       </div>
       <div className="noticias__line"></div>
       <div className="noticias__noticia">
