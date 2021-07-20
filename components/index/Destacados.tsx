@@ -27,6 +27,7 @@ export const Destacados = ({ titulo1, titulo2 }) => {
     verticalSwiping: true,
     swipeToSlide: true,
     arrows: false,
+    autoplay: true,
   };
   return (
     <MDBContainer fluid>
@@ -36,11 +37,12 @@ export const Destacados = ({ titulo1, titulo2 }) => {
             <h2>{titulo1}</h2>
             <MDBCarousel showControls keyboard showIndicators fade>
               <MDBCarouselInner>
-                <MDBCarouselItem itemId={0}>
-                  <MDBCarouselElement
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                    alt="..."
-                  />
+                <MDBCarouselItem
+                  className="text-center img-container"
+                  itemId={0}
+                >
+                  <img src="/deportes/deporte/Aikido 1.jpg" alt="" />
+
                   <MDBCarouselCaption
                     style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
                     className="shadow-box-example hoverable"
@@ -51,10 +53,11 @@ export const Destacados = ({ titulo1, titulo2 }) => {
                     </p>
                   </MDBCarouselCaption>
                 </MDBCarouselItem>
-                <MDBCarouselItem itemId={1}>
-                  <MDBCarouselElement
+                <MDBCarouselItem className="text-center" itemId={1}>
+                  <img
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                    alt="..."
+                    alt=""
+                    className="img-fluid"
                   />
                   <MDBCarouselCaption
                     style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
