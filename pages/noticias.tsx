@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LoadingCircles from "../components/others/LoadingCircles";
+import SearchInput from "../components/others/SearchInput";
 
 const noticias = () => {
   const [search, setSearch] = useState("");
@@ -9,20 +10,12 @@ const noticias = () => {
   return (
     <div className="noticias">
       <div className="noticias__head">
-        <div className="noticias__buscar">
-          <input
-            id="noticias__buscar"
-            type="text"
-            placeholder="Buscar Noticia"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <label
-            htmlFor="noticias__buscar"
-            className="fas fa-search"
-            onClick={handdleBuscar}
-          />
-        </div>
+        <SearchInput
+          placeholder="Buscar Noticia"
+          value={search}
+          setValue={setSearch}
+          fn={handdleBuscar}
+        />
         <div className="noticias__filtrar"></div>
       </div>
       <div className="noticias__line"></div>
