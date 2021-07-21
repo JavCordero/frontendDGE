@@ -1,8 +1,8 @@
 .noticias {
   $imagen-width: 20rem;
   $imagen-height: $imagen-width * 2/3;
-  $titulo: $imagen-width/15;
-  $descripcion: $imagen-width/16;
+  $titulo: $imagen-width/14;
+  $descripcion: $imagen-width/15;
 
   grid-gap: $imagen-width / 30;
   display: grid;
@@ -14,19 +14,51 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 100px;
-  }
-
-  &__buscar {
-    height: 45px;
-    width: 50%;
-    min-width: 173px;
-    background-color: burlywood;
+    margin-top: 10px;
   }
 
   &__filtrar {
+    position: relative;
     height: 45px;
     width: 125px;
+  }
+
+  &__filtrar-default {
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background-color: cadetblue;
+    top: 0px;
+    border-radius: 5px 5px 0px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    & .fas{
+      font-size: 25px;
+    }
+  }
+
+  &__filtrar-1 {
+    position: absolute;
+    top: 45px;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__filtrar-2 {
+    position: absolute;
+    top: 90px;
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   &__noticia {
@@ -49,9 +81,13 @@
   &__titulo {
     font-size: $titulo;
     text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 1px black;
   }
   &__descripcion {
     font-size: $descripcion;
+    font-style: italic;
+    color: $Pantone_540_C;
   }
   @media screen and (max-width: $w-700) {
     &__imagen {
@@ -114,7 +150,7 @@
     &__buscar {
       margin-top: 10px;
     }
-  
+
     &__filtrar {
       margin-top: 10px;
     }
