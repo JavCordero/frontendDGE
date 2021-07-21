@@ -21,7 +21,7 @@ export const ActividadPresentacion = () => {
           >
             <img
               className="rounded-circle border border-5 border-primary"
-              src={"/deportes/equipo/RicardoJuicaSalinas.png"}
+              src={"/deportes/equipo/Eduardo.png"}
               alt="..."
             />
             <MDBCardBody className="text-center">
