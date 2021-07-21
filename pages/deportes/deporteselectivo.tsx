@@ -1,10 +1,10 @@
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
 import React from "react";
-import Direccion from "../../components/Deportes/Direccion";
-import { MisionVisionObjetivo } from "../../components/Deportes/MisionVisionObjetivo";
+import { Ramas } from "../../components/Deportes/Ramas";
+import { SelectivoPresentacion } from "../../components/Deportes/SelectivoPresentacion";
 
-const nosotros = () => {
+const deporteselectivo = () => {
   return (
     <>
       <MDBBreadcrumb>
@@ -14,12 +14,12 @@ const nosotros = () => {
         <MDBBreadcrumbItem>
           <Link href="/deportes">Deportes</Link>
         </MDBBreadcrumbItem>
-        <MDBBreadcrumbItem active>Nosotros</MDBBreadcrumbItem>
+        <MDBBreadcrumbItem active>Deporte Selectivo</MDBBreadcrumbItem>
       </MDBBreadcrumb>
-      <Direccion />
-      <MisionVisionObjetivo />
+      <SelectivoPresentacion />
+      <Ramas />
     </>
   );
 };
 
-export default nosotros;
+export default deporteselectivo;

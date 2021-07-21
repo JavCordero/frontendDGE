@@ -65,7 +65,9 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBasketballBall}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Deportes</MDBCardTitle>
+            <MDBCardTitle>
+              <Link href="/deportes">Deportes</Link>
+            </MDBCardTitle>
             <MDBCardText>Deporte Selectivo</MDBCardText>
             <MDBCardText>Deporte interno</MDBCardText>
             <MDBCardText>Actividades complementarias</MDBCardText>

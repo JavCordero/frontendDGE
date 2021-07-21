@@ -39,13 +39,15 @@ export const Secciones = () => {
   const Menu = (list, selected) => {
     return [
       <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faUser}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Nuestro Equipo</MDBCardTitle>
-            <MDBCardTitle>&nbsp; </MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <Link href="/deportes/nosotros">
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <FontAwesomeIcon size="3x" icon={faUser}></FontAwesomeIcon>
+            <MDBCardBody>
+              <MDBCardTitle>Nuestro Equipo</MDBCardTitle>
+              <MDBCardTitle>&nbsp; </MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </Link>
       </MDBCol>,
       <MDBCol>
         <MDBCard className="align-items-center text-center  py-2 my-2">
