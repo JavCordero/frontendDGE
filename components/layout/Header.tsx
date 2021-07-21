@@ -51,7 +51,7 @@ const Header = () => {
             placeholder=""
             aria-label="Search"
           />
-          <MDBBtn color="primary">
+          <MDBBtn color="primary" size="sm" className="m-0">
             <FontAwesomeIcon icon={faSearch} size="1x"></FontAwesomeIcon>
           </MDBBtn>
         </form>
