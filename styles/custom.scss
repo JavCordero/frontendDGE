@@ -1,7 +1,11 @@
 @import "./layout/navbar.scss";
 @import "./login/login.scss";
 @import "./noticias/noticias.scss";
+
 @import "./deportes/deportes.scss";
+
+@import "./others/LoadingCircles.scss";
+@import "./others/SearchInput.scss";
 
 .index-noticias-scroll {
   overflow-y: scroll;

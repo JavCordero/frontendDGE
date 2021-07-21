@@ -1,11 +1,32 @@
-import React from "react";
+import { useState } from "react";
+import LoadingCircles from "../components/others/LoadingCircles";
+import SearchInput from "../components/others/SearchInput";
+import NoticiasFilter from "../components/others/NoticiasFilter";
 
 const noticias = () => {
+  const [search, setSearch] = useState("");
+  const [filtro, setFiltro] = useState("Fecha");
+  const handdleBuscar = () => {
+    console.log("BUSCANDO " + search.trim());
+  };
+
+  const handdleFilter = (newFiltro) => {
+    if (newFiltro === filtro) {
+      return;
+    }
+    setFiltro(newFiltro);
+    console.log("FILTRANDO POR " + newFiltro);
+  };
   return (
     <div className="noticias">
       <div className="noticias__head">
-        <div className="noticias__buscar"></div>
-        <div className="noticias__filtrar"></div>
+        <SearchInput
+          placeholder="Buscar Noticia"
+          value={search}
+          setValue={setSearch}
+          fn={handdleBuscar}
+        />
+        <NoticiasFilter fn={handdleFilter} />
       </div>
       <div className="noticias__line"></div>
       <div className="noticias__noticia">
@@ -109,6 +130,9 @@ const noticias = () => {
             <a href="#">(...)</a>
           </p>
         </div>
+      </div>
+      <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+        <LoadingCircles />
       </div>
     </div>
   );
