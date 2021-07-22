@@ -1,0 +1,186 @@
+.asistente {
+  $widthDialogo: 236px;
+  $heightDialogo: 138px;
+  $widthAvatar: 134px;
+  $bottomDistanciaDialogo: 190px;
+  $heightAvatar: 215px;
+  $fontSize: 1.2em;
+  &--off {
+    display: none;
+  }
+  &__avatar {
+    width: $widthAvatar;
+    height: $heightAvatar;
+    z-index: 10000;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  &__dialogo {
+    width: $widthDialogo;
+    height: $heightDialogo;
+    bottom: $bottomDistanciaDialogo;
+    z-index: 10000;
+    position: fixed;
+    right: 0;
+  }
+  &__dialogo-texto {
+    width: $widthDialogo;
+    height: $heightDialogo;
+    bottom: $bottomDistanciaDialogo;
+    z-index: 10000;
+    position: fixed;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > p {
+      font-size: $fontSize;
+      margin-bottom: $fontSize;
+      font-weight: bold;
+      color: $Pantone_540_C;
+      text-align: center;
+      max-width: 70%;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  &__cerrar {
+    font-size: 3 * $fontSize;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: red;
+    z-index: 11000;
+    cursor: pointer;
+    &:hover {
+      color: $Pantone_Cool_Gray_7_C;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    $factorResize: 0.8;
+    $factorFontResize: 1;
+    &__avatar {
+      width: $widthAvatar * $factorResize;
+      height: $heightAvatar * $factorResize;
+    }
+    &__dialogo {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+    }
+    &__dialogo-texto {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+      & > p {
+        font-size: $fontSize * $factorFontResize;
+      }
+    }
+    &__cerrar {
+      font-size: 3 * $fontSize * $factorResize;
+    }
+  }
+  @media (max-width: 1000px) {
+    $factorResize: 0.7;
+    $factorFontResize: 0.9;
+    &__avatar {
+      width: $widthAvatar * $factorResize;
+      height: $heightAvatar * $factorResize;
+    }
+    &__dialogo {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+    }
+    &__dialogo-texto {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+      & > p {
+        font-size: $fontSize * $factorFontResize;
+      }
+    }
+    &__cerrar {
+      font-size: 3 * $fontSize * $factorResize;
+    }
+  }
+  @media (max-width: 850px) {
+    $factorResize: 0.6;
+    $factorFontResize: 0.7;
+    &__avatar {
+      width: $widthAvatar * $factorResize;
+      height: $heightAvatar * $factorResize;
+    }
+    &__dialogo {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+    }
+    &__dialogo-texto {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+      & > p {
+        font-size: $fontSize * $factorFontResize;
+      }
+    }
+    &__cerrar {
+      font-size: 3 * $fontSize * $factorResize;
+    }
+  }
+  @media (max-width: 600px) {
+    $factorResize: 0.5;
+    $factorFontResize: 0.6;
+    &__avatar {
+      width: $widthAvatar * $factorResize;
+      height: $heightAvatar * $factorResize;
+    }
+    &__dialogo {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+    }
+    &__dialogo-texto {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+      & > p {
+        font-size: $fontSize * $factorFontResize;
+      }
+    }
+    &__cerrar {
+      z-index: 10000;
+      font-size: 3 * $fontSize * $factorResize;
+    }
+  }
+  @media (max-width: 400px) {
+    $factorResize: 0.4;
+    $factorFontResize: 0.5;
+    &__avatar {
+      width: $widthAvatar * $factorResize;
+      height: $heightAvatar * $factorResize;
+    }
+    &__dialogo {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+    }
+    &__dialogo-texto {
+      width: $widthDialogo * $factorResize;
+      height: $heightDialogo * $factorResize;
+      bottom: $bottomDistanciaDialogo * $factorResize;
+      & > p {
+        font-size: $fontSize * $factorFontResize;
+      }
+    }
+    &__cerrar {
+      font-size: 3 * $fontSize * $factorResize;
+    }
+  }
+}

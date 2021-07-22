@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const NoticiasFilter = (props) => {
   const [opcion, setOpcion] = useState("Fecha");
