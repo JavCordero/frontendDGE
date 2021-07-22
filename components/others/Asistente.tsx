@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 const Asistente = (props: any) => {
   const [asistente, setAsistente] = useState(true);
@@ -19,7 +20,9 @@ const Asistente = (props: any) => {
         alt="imagen de asistente"
       />
       <div className="asistente__dialogo-texto">
-        <p>{props.children}</p>
+        <Link href={props.href ? props.href : "/"}>
+          <p>{props.children}</p>
+        </Link>
       </div>
       <div className="asistente__colider-inferior"></div>
       <i
