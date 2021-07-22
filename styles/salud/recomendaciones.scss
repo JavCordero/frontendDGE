@@ -1,20 +1,14 @@
 .recomendaciones {
-  position: absolute;
-  bottom: 0;
   display: inline-flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   z-index: 100;
-  &__sombra-fondo {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    opacity: 0.15;
-    z-index: -1;
-  }
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+
   &__titulo {
     font-size: 1.2em;
     font-weight: bold;

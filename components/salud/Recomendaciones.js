@@ -1,7 +1,6 @@
 const Recomendaciones = (props) => {
   return (
     <div className={`recomendaciones ${props.className}`}>
-      <div className="recomendaciones__sombra-fondo"></div>
       <p className="recomendaciones__titulo">
         Recomendaciones al tomar tu hora online
       </p>

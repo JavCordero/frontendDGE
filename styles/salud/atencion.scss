@@ -1,15 +1,12 @@
 .salud-atencion {
   min-height: 100vh;
   width: 100%;
+  margin: 0;
   position: relative;
-  &__fondo {
-    width: 100%;
-    height: 100vh;
-    //background page
-    object-fit: cover;
-    position: absolute;
-    z-index: -10;
-  }
+  background-image: url("/salud/fondo-salud.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__opciones-grupo {
     display: flex;
