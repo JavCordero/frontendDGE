@@ -21,7 +21,11 @@ const Asistente = (props: any) => {
       />
       <div className="asistente__dialogo-texto">
         <Link href={props.href ? props.href : "/"}>
-          <p>{props.children}</p>
+          <p>
+            {props.children
+              ? props.children
+              : "Tienes preguntas, has clic acá…"}
+          </p>
         </Link>
       </div>
       <div className="asistente__colider-inferior"></div>
