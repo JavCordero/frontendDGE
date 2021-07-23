@@ -1,10 +1,12 @@
 .asistente {
-  $widthDialogo: 236px;
-  $heightDialogo: 138px;
-  $widthAvatar: 134px;
-  $bottomDistanciaDialogo: 190px;
-  $heightAvatar: 215px;
-  $fontSize: 1.2em;
+  $factorResizeGeneral: 0.9;
+  $factorFontResizeGeneral: 1;
+  $widthDialogo: 236px * $factorResizeGeneral;
+  $heightDialogo: 138px * $factorResizeGeneral;
+  $widthAvatar: 134px * $factorResizeGeneral;
+  $bottomDistanciaDialogo: 190px * $factorResizeGeneral;
+  $heightAvatar: 215px * $factorResizeGeneral;
+  $fontSize: 1.2em * $factorFontResizeGeneral;
   &--off {
     display: none;
   }
@@ -51,7 +53,7 @@
     }
   }
   &__cerrar {
-    font-size: 3 * $fontSize;
+    font-size: 3 * $fontSize * $factorResizeGeneral;
     position: fixed;
     bottom: 0;
     right: 0;

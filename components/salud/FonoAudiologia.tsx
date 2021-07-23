@@ -1,6 +1,10 @@
 import React from "react";
 import Atencion from "./Recursos/AtencionSintomas";
 
+/*
+Componente para mostrar atencion Fonoaudiologia
+*/
+
 const FonoAudiologia = () => {
   return (
     <Atencion

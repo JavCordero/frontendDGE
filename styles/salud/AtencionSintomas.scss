@@ -43,6 +43,11 @@
     margin-top: $fontSize/3;
     padding: $fontSize/5 $fontSize/3;
     border-radius: $fontSize;
+    &--noCard{
+      margin-top: $fontSize;
+      margin-bottom: $fontSize;
+      background-color: $Pantone_306_C;
+    }
     &:hover {
       opacity: 0.95;
     }
@@ -163,7 +168,7 @@
       min-width: $widthImagen * 0.45045;
     }
     &__sintomas {
-      grid-template-rows: repeat(4, $widthImagen * 0.195195);
+      grid-template-rows: repeat(4, $widthImagen * 0.21);
     }
 
     &__contacto {

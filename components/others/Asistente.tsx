@@ -1,6 +1,15 @@
 import { useState } from "react";
 import Link from "next/link";
 
+/*
+Este componente es un asistente que se muestra en la esquina derecha inferior de la página.
+es un avatar que tiene una opcion para cerrar y otra para ir hacia un link.
+los parametros que recibe son:
+- src: url de la imagen del avatar
+- href: url del link del avatar (hacia donde lleva su link)
+- children: texto que se muestra en el link
+*/
+
 const Asistente = (props: any) => {
   const [asistente, setAsistente] = useState(true);
   return (

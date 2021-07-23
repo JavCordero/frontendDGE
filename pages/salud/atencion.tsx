@@ -5,6 +5,13 @@ import TitleLine from "../../components/others/TitleLine";
 import Recomendaciones from "../../components/salud/Recomendaciones";
 import Asistente from "../../components/others/Asistente";
 import FonoAudiologia from "../../components/salud/FonoAudiologia";
+import Nutricionista from "../../components/salud/Nutricionista";
+import Psicologia from "../../components/salud/Psicologia";
+import Obstetricia from "../../components/salud/Obstetricia";
+import Enfermeria from "../../components/salud/Enfermeria";
+import Medicina from "../../components/salud/Medicina";
+import Odontologia from "../../components/salud/Odontologia";
+import Kinesiologia from "../../components/salud/Kinesiologia";
 
 const atencion = () => {
   const [especialidad, setEspecialidad] = useState("");
@@ -24,7 +31,7 @@ const atencion = () => {
         <MDBBreadcrumbItem active>Solicita Atención Medica</MDBBreadcrumbItem>
       </MDBBreadcrumb>
       <Asistente href="/" src="/salud/avatar-salud.png">
-        Tienes preguntas, has clic acá…
+        Tienes preguntas, haz clic acá…
       </Asistente>
       <div className="salud-atencion">
         <TitleLine className="mb-2">Solicita Atención Medica</TitleLine>
@@ -113,7 +120,14 @@ const atencion = () => {
               </div>
             )}
           </div>
-          {especialidad !== "" && <FonoAudiologia />}
+          {especialidad === "fonoaudiologia" && <FonoAudiologia />}
+          {especialidad === "nutricionista" && <Nutricionista />}
+          {especialidad === "odontologia" && <Odontologia />}
+          {especialidad === "psicologia" && <Psicologia />}
+          {especialidad === "kinesiologia" && <Kinesiologia />}
+          {especialidad === "obstetricia" && <Obstetricia />}
+          {especialidad === "enfermeria" && <Enfermeria />}
+          {especialidad === "medicina" && <Medicina />}
         </div>
         <Recomendaciones />
       </div>

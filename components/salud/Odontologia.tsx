@@ -1,20 +1,25 @@
 import React from "react";
 import Atencion from "./Recursos/AtencionSintomas";
 
+/*
+Componente para mostrar atencion Odontologia
+*/
+
 const Odontologia = () => {
   return (
     <Atencion
-      srcArea="/salud/fonoAudiologia.png"
+      srcArea=""
       srcEncargado=""
-      nombreEncargado="Eveling Miranda Roco"
-      cargoEncargado="Fonoaudiologa"
+      nombreEncargado=""
+      cargoEncargado="Odontologo"
+      mensaje=""
     >
-      <p>Mala respiración / Velocidad del habla</p>
-      <p>Disfonía / Cuidado de voz</p>
-      <p>Dolor mandibular / Bruxismo</p>
-      <p>Evaluación del oido</p>
-      <p>Omisión o sustitución de fonemas</p>
-      <p>Dolor mandibular / Bruxismo</p>
+      <p>Dato 1</p>
+      <p>Dato 2</p>
+      <p>Dato 3</p>
+      <p>Dato 4</p>
+      <p>Dato 5</p>
+      <p>Dato 6</p>
     </Atencion>
   );
 };

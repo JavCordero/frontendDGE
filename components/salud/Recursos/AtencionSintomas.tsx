@@ -4,7 +4,25 @@ import Image from "next/image";
 
 import { MDBCard, MDBCardBody } from "mdb-react-ui-kit";
 
-const FonoAudiologia = (props) => {
+/*
+Este componente se utiliza para generar la interfaz de atenciones:
+
+Para añadir sintomas o tarjetas en la seccion izquierda, debes incluir los sintomas en una etiqueta <p>sintoma 1</p> ej:
+<p>Si sientes hambre</p>
+<p>Si te duele la cabeza</p>
+
+los parametros que recibe son:
+
+- mensaje: el titulo que se mostrara en la interfaz para el lado izquierdo, por defecto "Si...:".
+- mensajeContacto: el titulo que se mostrara en la interfaz para el lado derecho, por defecto "Solicita hora con nuestros profesionales de la salud:".
+- nombreEncargado: el nombre del encargado (si aplica).
+- cargoEncargado: el cargo del encargado (si aplica).
+- srcEncargado: la imagen del encargado (si aplica).
+- srcArea: imagen del area de atencion medica.
+- noCard: si es true, se mostrara el componente sin contacto en el lado derecho, en caso de que el nombre del encargado no exista incluir, por defecto false.
+*/
+
+const AtencionSintomas = (props) => {
   return (
     <div className="atencion-sintomas">
       <div>
@@ -27,13 +45,13 @@ const FonoAudiologia = (props) => {
       <div className="atencion-sintomas__contacto">
         {props.noCard ? (
           <>
-            <h2 className="atencion-sintomas__contacto-titulo--noCard">
+            <h2 className="atencion-sintomas__contacto-titulo atencion-sintomas__contacto-titulo--noCard">
               {props.mensajeContacto
                 ? props.mensajeContacto
                 : "Solicita hora con nuestros profesionales de la salud:"}
             </h2>
-            <button className="atencion-sintomas__hora--noCard">
-              Tomar hora
+            <button className="atencion-sintomas__hora atencion-sintomas__hora--noCard">
+              Solicitar hora
             </button>
             <p className="atencion-sintomas__contacto-subTitulo">
               El tiempo de respuesta está sujeto a la demanda. Consultas
@@ -83,4 +101,4 @@ const FonoAudiologia = (props) => {
   );
 };
 
-export default FonoAudiologia;
+export default AtencionSintomas;

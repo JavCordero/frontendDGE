@@ -1,3 +1,11 @@
+/*
+Componente que muestra un titulo con estilo en la pagina.
+
+los parametros que recibe son:
+  - children: contenido del titulo
+  - className: clase personalizada del titulo (opcional)
+*/
+
 const TitleLine = (props) => {
   return (
     <div className={`titleLine ${props.className}`}>
