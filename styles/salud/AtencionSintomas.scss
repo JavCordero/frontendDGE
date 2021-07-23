@@ -1,0 +1,176 @@
+.atencion-sintomas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  $widthImagen: 310px;
+  $heightImagen: $widthImagen * 572/333;
+  $fontSize: 1.45em;
+  box-shadow: 0px -0.5px 0px 0px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  &__contacto {
+    padding-left: 15px;
+    box-shadow: -0.5px 0px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__contacto-titulo {
+    font-size: $fontSize * 1.2;
+    font-weight: bold;
+    color: $Pantone_540_C;
+    font-style: italic;
+    text-align: center;
+  }
+
+  &__contacto-content {
+    margin-top: 1.5 * $fontSize;
+  }
+  &__nombre {
+    font-size: $fontSize;
+    font-weight: bold;
+    color: $Pantone_540_C;
+    line-height: $fontSize;
+  }
+
+  &__hora {
+    font-size: $fontSize;
+    color: white;
+    font-weight: bold;
+    background-color: $Pantone_540_C;
+    outline: none;
+    border: none;
+    margin-top: $fontSize/3;
+    padding: $fontSize/5 $fontSize/3;
+    border-radius: $fontSize;
+    &:hover {
+      opacity: 0.95;
+    }
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
+  &__cargo {
+    margin-top: 0;
+    line-height: 0;
+    font-size: $fontSize * 0.8;
+    color: $Pantone_540_C;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.8;
+  }
+
+  &__sintomas-titulo {
+    font-size: $fontSize * 1.2;
+    font-weight: bold;
+    color: $Pantone_540_C;
+    font-style: italic;
+    text-align: center;
+  }
+  &__sintomas {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(6, $widthImagen/5.9);
+    grid-auto-rows: $widthImagen/5.9;
+    margin-top: 1.5 * $fontSize;
+  }
+
+  &__imagen {
+    width: 30%;
+    min-width: $widthImagen * 0.59;
+    grid-row: 1/-1;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-right: 5px;
+  }
+  //elemento dentro del componente AtencionSintomas
+  &__sintomas > p {
+    font-size: $fontSize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Agency FB";
+    max-height: auto;
+    color: white;
+    margin: 1.5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    margin-right: 5px;
+    grid-column: 1/-1;
+    background-color: $green1;
+  }
+  &__sintomas > p:nth-child(2n) {
+    background-color: $pink1;
+  }
+  //elemento dentro del componente AtencionSintomas
+  &__sintomas > p:nth-child(-n + 7) {
+    grid-column: 2/3;
+  }
+  @media screen and (max-width: 1100px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.9;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.85;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.8;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.7;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.7;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.6;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    display: block;
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p {
+      font-size: $fontSize * 0.8;
+      grid-column: 1/-1 !important;
+    }
+    //elemento dentro del componente AtencionSintomas
+    &__sintomas > p:nth-child(-n + 5) {
+      grid-column: 2/3 !important;
+    }
+    &__imagen {
+      min-width: $widthImagen * 0.45045;
+    }
+    &__sintomas {
+      grid-template-rows: repeat(4, $widthImagen * 0.195195);
+    }
+
+    &__contacto {
+      margin-top: 5px;
+      padding-top: 10px;
+      box-shadow: 0px -0.5px 0px 0px rgba(0, 0, 0, 0.1);
+      padding-left: 0;
+    }
+  }
+}
