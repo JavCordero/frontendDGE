@@ -1,0 +1,47 @@
+.titleLine {
+  $sizeTitle: 1.5em;
+  padding-top: $sizeTitle;
+  &__title {
+    font-size: $sizeTitle;
+    font-weight: bold;
+    margin-bottom: 0;
+    padding-left: 30px;
+    color: $Pantone_540_C;
+  }
+  &__line {
+    height: 2px;
+    width: 50%;
+    max-width: 400px;
+    margin: 0;
+    background-color: $Pantone_540_C;
+    box-shadow: 0px 1px 0px 0.5px rgba(0, 0, 0, 0.2);
+  }
+
+  @media screen and (max-width: $w-700) {
+    &__line {
+      width: 70%;
+    }
+  }
+  @media screen and (max-width: $w-600) {
+    &__line {
+      width: 80%;
+    }
+  }
+  @media screen and (max-width: $w-450) {
+    &__line {
+      min-width: 322px;
+      max-width: 100%;
+    }
+  }
+
+  @media screen and (max-width: $w-350) {
+    &__title {
+      padding-left: 0;
+      text-align: center;
+    }
+    &__line {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+}

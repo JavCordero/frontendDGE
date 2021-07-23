@@ -28,6 +28,8 @@ import "@fullcalendar/timegrid/main.css";
 import { useRouter } from "next/router";
 import { SidenavIntra } from "../components/Intranet/SidenavIntra";
 import { AuthContext, AuthProvider } from "../context/AuthContext";
+import Asistente from "../components/others/Asistente";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { authState } = React.useContext(AuthContext);
@@ -46,8 +48,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         />
       </Head>
+
       <AuthProvider>
-        {router.route === "/login" ? (
+      {router.route === "/login" ? (
+        <Component {...pageProps} />
+      ) : (
+        <NavbarPage>
+          {(router.route.includes("/salud/") || router.route ==="/salud") && (
+            <Asistente href="/" src="/salud/avatar-salud.png">
+              Tienes preguntas, haz clic acá…
+            </Asistente>
+          )}
           <Component {...pageProps} />
         ) : router.route.includes("intranet") ? (
           <SidenavIntra>

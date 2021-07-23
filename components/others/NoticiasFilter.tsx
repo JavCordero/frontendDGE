@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 
+/*
+Este componente se utiliza para la seccion de noticias.
+es un filtro que permite filtrar las noticias por fecha, destacados.
+
+*/
+
 const NoticiasFilter = (props) => {
   const [opcion, setOpcion] = useState("Fecha");
   const [drop, setDrop] = useState(false);

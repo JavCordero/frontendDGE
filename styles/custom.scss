@@ -1,11 +1,20 @@
 @import "./layout/navbar.scss";
 @import "./login/login.scss";
 @import "./noticias/noticias.scss";
+@import "./noticias/noticia.scss";
+@import "./noticias/HeaderNoticia.scss";
 
 @import "./deportes/deportes.scss";
 
 @import "./others/LoadingCircles.scss";
 @import "./others/SearchInput.scss";
+@import "./others/TitleLine.scss";
+@import "./salud/atencion.scss";
+@import "./salud/recomendaciones.scss";
+@import "./others/Asistente.scss";
+@import "./salud/AtencionSintomas.scss";
+@import "./salud/visado-certificados-medicos.scss";
+@import "./salud/TarjetaInstruccion.scss";
 
 .index-noticias-scroll {
   overflow-y: hidden;
