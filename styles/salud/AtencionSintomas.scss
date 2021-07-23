@@ -24,7 +24,6 @@
   }
 
   &__contacto-content {
-    
   }
   &__nombre {
     font-size: $fontSize;
@@ -43,7 +42,7 @@
     margin-top: $fontSize/3;
     padding: $fontSize/5 $fontSize/3;
     border-radius: $fontSize;
-    &--noCard{
+    &--noCard {
       margin-top: $fontSize;
       margin-bottom: $fontSize;
       background-color: $Pantone_306_C;
@@ -107,6 +106,7 @@
     margin-right: 5px;
     grid-column: 1/-1;
     background-color: $green1;
+    padding: auto 4px;
   }
   &__sintomas > p:nth-child(2n) {
     background-color: $pink1;
@@ -129,18 +129,6 @@
     }
   }
 
-  @media screen and (max-width: 850px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.8;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.7;
-    }
-  }
   @media screen and (max-width: 400px) {
     //elemento dentro del componente AtencionSintomas
     &__sintomas > p {
@@ -153,7 +141,7 @@
       font-size: $fontSize * 0.6;
     }
   }
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 900px) {
     display: block;
     //elemento dentro del componente AtencionSintomas
     &__sintomas > p {

@@ -66,7 +66,7 @@ const AtencionSintomas = (props) => {
             <div className="atencion-sintomas__contacto-content">
               <MDBCard
                 className=""
-                style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+                style={{ width: "18rem", backgroundColor: "rgba(0,0,0,0)" }}
               >
                 <Image
                   className="rounded-circle border border-5 border-primary"
