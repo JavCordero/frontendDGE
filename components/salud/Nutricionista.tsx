@@ -8,6 +8,7 @@ const Nutricionista = () => {
       srcEncargado=""
       nombreEncargado="Marjorie Díaz Urbina"
       cargoEncargado="Nutricionista"
+      mensaje=""
     >
       <p>Plan de tratamiento nutricional</p>
       <p>Toma de pliegues cutáneos </p>

@@ -4,17 +4,14 @@ import Atencion from "./Recursos/AtencionSintomas";
 const Psicologia = () => {
   return (
     <Atencion
-      srcArea="/salud/fonoAudiologia.png"
-      srcEncargado=""
-      nombreEncargado="Eveling Miranda Roco"
-      cargoEncargado="Fonoaudiologa"
+      srcArea="/salud/psicologia.png"
     >
-      <p>Mala respiración / Velocidad del habla</p>
-      <p>Disfonía / Cuidado de voz</p>
-      <p>Dolor mandibular / Bruxismo</p>
-      <p>Evaluación del oido</p>
+      <p>Psicoeducación</p>
+      <p>Terapia psicológica</p>
+      <p>Inclusión</p>
+      <p>Consejería y derivación </p>
       <p>Omisión o sustitución de fonemas</p>
-      <p>Dolor mandibular / Bruxismo</p>
+      <p>Seguimiento tratamiento médico</p>
     </Atencion>
   );
 };

@@ -28,7 +28,9 @@ const FonoAudiologia = (props) => {
         {props.noCard ? (
           <>
             <h2 className="atencion-sintomas__contacto-titulo--noCard">
-              Solicita hora con nuestros profesionales de la salud:
+              {props.mensajeContacto
+                ? props.mensajeContacto
+                : "Solicita hora con nuestros profesionales de la salud:"}
             </h2>
             <button className="atencion-sintomas__hora--noCard">
               Tomar hora
