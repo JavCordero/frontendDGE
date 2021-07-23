@@ -24,6 +24,7 @@ import "@fullcalendar/list/main.css";
 import "@fullcalendar/timegrid/main.css";
 
 import { useRouter } from "next/router";
+import Asistente from "../components/others/Asistente";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -45,6 +46,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       ) : (
         <NavbarPage>
+          {(router.route.includes("/salud/") || router.route ==="/salud") && (
+            <Asistente href="/" src="/salud/avatar-salud.png">
+              Tienes preguntas, haz clic acá…
+            </Asistente>
+          )}
           <Component {...pageProps} />
         </NavbarPage>
       )}

@@ -1,3 +1,7 @@
+/*
+Animacion de loading
+*/
+
 const LoadingCircles = () => (
     <div className="LoadingCircles">
       <span class="LoadingCircles__circle"></span>
