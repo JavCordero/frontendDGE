@@ -1,17 +1,61 @@
-import React, { useState } from "react";
-/* import logoDGE from "../public/Imagen-DGE.jpg"; */
+import React, { useContext, useState } from "react";
 import logoUCN from "../public/Escudo-UCN-Full-Color.png";
 import Image from "next/image";
+import { AuthContext } from "../context/AuthContext";
+import useValidation from "../hooks/useValidation";
+import loginValidation from "../validation/loginValidation";
+import { ToastContainer, toast } from "react-toastify";
+import ingresarSistema from "../hooks/useLogin";
+import { useRouter } from "next/router";
+import CheckLogin from "../hooks/useCheckLogin";
+import { useEffect } from "react";
+import { Loader } from "rsuite";
+
+const STATE_INIT = {
+  email: "",
+  password: "",
+};
+
 const login = () => {
-  const [error, setError] = useState(false);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError(true);
-    const user = e.target.username.value;
-    const pass = e.target.password.value;
-    console.log(user);
-    console.log(pass);
+  const { signIn, checkLogin } = useContext(AuthContext);
+  const [isLoged, setIsLoged] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    async function verificar() {
+      const verificacion = await CheckLogin();
+      if (verificacion.rol) {
+        checkLogin(verificacion.rol);
+        router.push("/intranet");
+      } else {
+        setIsLoged(false);
+      }
+    }
+    verificar();
+  }, []);
+
+  const iniciarSesion = async () => {
+    const peticion = await ingresarSistema(email, password, true);
+
+    if (peticion.mensaje === "no autorizado") {
+      notify();
+      return;
+    }
+
+    if (peticion.access_token) {
+      signIn(peticion.rol);
+      email = "";
+      password = "";
+      router.push("/intranet");
+    }
   };
+
+  const { values, errores, handlerSubmit, handleChange, handlerBlur } =
+    useValidation(STATE_INIT, loginValidation, iniciarSesion);
+
+  let { email, password } = values;
+
+  const notify = () => toast.error("Usuario o contraseña incorrecto...");
 
   return (
     <>
@@ -34,15 +78,21 @@ const login = () => {
             ></Image>
           </div>
           {/* login form */}
-          <form className="login__form" onSubmit={handleSubmit}>
+          <form
+            className="login__form"
+            onSubmit={handlerSubmit}
+            noValidate={true}
+          >
             <div className="login__inputs">
               <div className="login__input">
                 <input
-                  id="username"
-                  name="username"
-                  type="text"
-                  placeholder="Usuario"
-                  onChange={() => setError(false)}
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="email@ucn.cl"
+                  value={email}
+                  onChange={handleChange}
+                  onBlur={handlerBlur}
                 />
                 <label htmlFor="username" className="fas fa-user" />
               </div>
@@ -52,31 +102,29 @@ const login = () => {
                   id="password"
                   name="password"
                   type="password"
-                  placeholder="Contraseña"
-                  onChange={() => setError(false)}
+                  placeholder="********"
+                  value={password}
+                  onChange={handleChange}
+                  onBlur={handlerBlur}
                 />
                 <label htmlFor="password" className="fas fa-key" />
               </div>
-              <div hidden={!error} className="login__error">
-                <span className="login__error-message">
-                  <i className="fas fa-exclamation-triangle" />
-                  <span className="login__error-message-text">
-                    ¡Usuario o contraseña incorrectos!
-                  </span>
-                </span>
-              </div>
             </div>
-
             <button type="submit" className="login__button">
               INGRESAR
             </button>
           </form>
+
           <div className="login__footer">
             Si tiene problemas para ingresar al sistema contactar a
             correo@correo.cl
           </div>
         </div>
       </div>
+      <div>
+        <ToastContainer />
+      </div>
+      {isLoged ? <Loader backdrop content="Cargando..." vertical /> : null}
     </>
   );
 };

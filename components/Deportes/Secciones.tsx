@@ -93,15 +93,6 @@ export const Secciones = () => {
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faQuestion}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Preguntas</MDBCardTitle>
-            <MDBCardTitle>Frecuentes</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>,
     ];
   };
 

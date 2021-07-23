@@ -1,9 +1,8 @@
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
 import React from "react";
-import { ActividadInterno } from "../../components/Deportes/ActividadInterno";
-import { InternoPresentacion } from "../../components/Deportes/InternoPresentacion";
 import { ActividadPresentacion } from "../../components/Deportes/ActividadPresentacion";
+import { ActividadComplementaria } from "../../components/Deportes/ActividadComplementaria";
 
 const actividadescomplementarias = () => {
   return (
@@ -15,10 +14,12 @@ const actividadescomplementarias = () => {
         <MDBBreadcrumbItem>
           <Link href="/deportes">Deportes</Link>
         </MDBBreadcrumbItem>
-        <MDBBreadcrumbItem active>Deporte Interno</MDBBreadcrumbItem>
+        <MDBBreadcrumbItem active>
+          Actividades Complementarias
+        </MDBBreadcrumbItem>
       </MDBBreadcrumb>
       <ActividadPresentacion />
-      <ActividadInterno />
+      <ActividadComplementaria />
     </>
   );
 };

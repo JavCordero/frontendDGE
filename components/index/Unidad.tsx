@@ -68,10 +68,20 @@ export const Unidad = () => {
             <MDBCardTitle>
               <Link href="/deportes">Deportes</Link>
             </MDBCardTitle>
-            <MDBCardText>Deporte Selectivo</MDBCardText>
-            <MDBCardText>Deporte interno</MDBCardText>
-            <MDBCardText>Actividades complementarias</MDBCardText>
-            <MDBCardText>Más...</MDBCardText>
+            <MDBCardText>
+              <Link href="/deportes/deporteselectivo">Deporte Selectivo</Link>
+            </MDBCardText>
+            <MDBCardText>
+              <Link href="/deportes/deporteinterno">Deporte Interno</Link>
+            </MDBCardText>
+            <MDBCardText>
+              <Link href="/deportes/actividadescomplementarias">
+                Actividades Complementarias
+              </Link>
+            </MDBCardText>
+            <MDBCardText>
+              <Link href="/deportes">Más...</Link>
+            </MDBCardText>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
