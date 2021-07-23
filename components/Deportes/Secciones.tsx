@@ -50,49 +50,48 @@ export const Secciones = () => {
         </Link>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center  py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faRunning}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Deporte Selectivo</MDBCardTitle>
-            <MDBCardTitle>&nbsp; </MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <Link href="/deportes/deporteselectivo">
+          <MDBCard className="align-items-center text-center  py-2 my-2">
+            <FontAwesomeIcon size="3x" icon={faRunning}></FontAwesomeIcon>
+            <MDBCardBody>
+              <MDBCardTitle>Deporte Selectivo</MDBCardTitle>
+              <MDBCardTitle>&nbsp; </MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </Link>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faHubspot}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Deporte Interno</MDBCardTitle>
-            <MDBCardTitle>&nbsp; </MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <Link href="/deportes/deporteinterno">
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <FontAwesomeIcon size="3x" icon={faHubspot}></FontAwesomeIcon>
+            <MDBCardBody>
+              <MDBCardTitle>Deporte Interno</MDBCardTitle>
+              <MDBCardTitle>&nbsp; </MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </Link>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faSchool}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Actividades</MDBCardTitle>
-            <MDBCardTitle>Complementarias</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <Link href="/deportes/actividadescomplementarias">
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <FontAwesomeIcon size="3x" icon={faSchool}></FontAwesomeIcon>
+            <MDBCardBody>
+              <MDBCardTitle>Actividades</MDBCardTitle>
+              <MDBCardTitle>Complementarias</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </Link>
       </MDBCol>,
       <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faWarehouse}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Infraestructura</MDBCardTitle>
-            <MDBCardTitle>Deportiva</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>,
-      <MDBCol>
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <FontAwesomeIcon size="3x" icon={faQuestion}></FontAwesomeIcon>
-          <MDBCardBody>
-            <MDBCardTitle>Preguntas</MDBCardTitle>
-            <MDBCardTitle>Frecuentes</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <Link href="/deportes/infraestructura">
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <FontAwesomeIcon size="3x" icon={faWarehouse}></FontAwesomeIcon>
+            <MDBCardBody>
+              <MDBCardTitle>Infraestructura</MDBCardTitle>
+              <MDBCardTitle>Deportiva</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </Link>
       </MDBCol>,
     ];
   };

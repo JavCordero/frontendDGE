@@ -17,7 +17,7 @@
 @import "./salud/TarjetaInstruccion.scss";
 
 .index-noticias-scroll {
-  overflow-y: scroll;
+  overflow-y: hidden;
 
   &::-webkit-scrollbar {
     width: 0;

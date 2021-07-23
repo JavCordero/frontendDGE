@@ -2,6 +2,8 @@ import "../styles/globals.css";
 import "../styles/custom.scss";
 import Head from "next/head";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import "rsuite/dist/styles/rsuite-default.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -24,9 +26,13 @@ import "@fullcalendar/list/main.css";
 import "@fullcalendar/timegrid/main.css";
 
 import { useRouter } from "next/router";
+import { SidenavIntra } from "../components/Intranet/SidenavIntra";
+import { AuthContext, AuthProvider } from "../context/AuthContext";
 import Asistente from "../components/others/Asistente";
 
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const { authState } = React.useContext(AuthContext);
   const router = useRouter();
   return (
     <>
@@ -42,6 +48,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         />
       </Head>
+
+      <AuthProvider>
       {router.route === "/login" ? (
         <Component {...pageProps} />
       ) : (
@@ -52,8 +60,16 @@ function MyApp({ Component, pageProps }: AppProps) {
             </Asistente>
           )}
           <Component {...pageProps} />
-        </NavbarPage>
-      )}
+        ) : router.route.includes("intranet") ? (
+          <SidenavIntra>
+            <Component {...pageProps} />
+          </SidenavIntra>
+        ) : (
+          <NavbarPage>
+            <Component {...pageProps} />
+          </NavbarPage>
+        )}
+      </AuthProvider>
     </>
   );
 }

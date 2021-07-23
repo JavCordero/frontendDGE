@@ -54,7 +54,7 @@ const NavbarPage = ({ children }: any) => {
       <div
         className={"sidenav"}
         css={css`
-          width: ${modificador ? "20%" : "0%"};
+          width: ${modificador ? "300px" : "0px"};
           transition-duration: 0.5s;
           transition-property: width;
         `}
@@ -302,7 +302,7 @@ const NavbarPage = ({ children }: any) => {
 
       <div
         css={css`
-          width: ${modificador ? "0%" : "5%"};
+          width: ${modificador ? "0px" : "70px"};
           transition-duration: 0.5s;
           transition-property: width;
         `}
@@ -382,7 +382,7 @@ const NavbarPage = ({ children }: any) => {
       <main
         onClick={closeNav}
         css={css`
-          margin-left: ${modificador ? "22%" : "6%"};
+          margin-left: ${modificador ? "320px" : "90px"};
           transition-duration: 1s;
           transition-property: margin-left;
         `}

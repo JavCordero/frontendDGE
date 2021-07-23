@@ -165,319 +165,466 @@ export const Ramas = () => {
         </div>
       </MDBCol>,
       <MDBCol name="balonmano">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Balonmano</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("balonmano");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Balonmano</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="béisbol">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Béisbol</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("beisbol");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Béisbol</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="ciclismo">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Ciclismo</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("ciclismo");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Ciclismo</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="escalada">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Escalada</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("escalada");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Escalada</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="fútbol">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Fútbol</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("futbol");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Fútbol</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="futsal">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Futsal</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("futsal");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Futsal</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="gimnasia artistica">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Gimnasia</MDBCardTitle>
-            <MDBCardTitle>Artística</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("gimnasia");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Gimnasia</MDBCardTitle>
+              <MDBCardTitle>Artística</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="halterofilia">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Halterofilia</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("halterofilia");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Halterofilia</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="hockey">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Hockey</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("hockey");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Hockey</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="judo">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Judo</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("judo");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Judo</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="kárate">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Kárate</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("karate");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Kárate</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="kendo">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Kendo</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("kendo");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Kendo</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="montañismo">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Montañismo</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("montanismo");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Montañismo</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="natación">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Natación</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("natacion");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Natación</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="rugby">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Rugby</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("rugby");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Rugby</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="rugby seven">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Rugby Seven</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("rugbysev");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Rugby Seven</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="tae kwon do">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Tae Kwon Do</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("taekwondo");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Tae Kwon Do</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="tenis">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Tenis</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("tenis");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Tenis</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="tenis de mesa">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Tenis de Mesa</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("tenismesa");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Tenis de Mesa</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="vóleibol">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Vóleibol</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("voleibol");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Vóleibol</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
       <MDBCol name="vóleibol playa">
-        <MDBCard className="align-items-center text-center py-2 my-2">
-          <img
-            src="/Escudo-UCN-Full-Color.png"
-            alt=""
-            width="120"
-            height="120"
-            className="m-3"
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Vóleibol Playa</MDBCardTitle>
-            <MDBCardTitle>&nbsp;</MDBCardTitle>
-          </MDBCardBody>
-        </MDBCard>
+        <div
+          onClick={() => {
+            setLgShow(true);
+            setRama("voleibolplaya");
+          }}
+        >
+          <MDBCard className="align-items-center text-center py-2 my-2">
+            <img
+              src="/Escudo-UCN-Full-Color.png"
+              alt=""
+              width="120"
+              height="120"
+              className="m-3"
+            />
+            <MDBCardBody>
+              <MDBCardTitle>Vóleibol Playa</MDBCardTitle>
+              <MDBCardTitle>&nbsp;</MDBCardTitle>
+            </MDBCardBody>
+          </MDBCard>
+        </div>
       </MDBCol>,
     ];
     let newList = lista.filter((element) =>
