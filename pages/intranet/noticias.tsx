@@ -1,3 +1,10 @@
+import {
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
+  MDBTable,
+  MDBTableBody,
+  MDBTableHead,
+} from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { Loader, Placeholder } from "rsuite";
@@ -29,7 +36,46 @@ const noticias = () => {
           <Loader backdrop content="Cargando..." vertical />
         </>
       ) : (
-        <h1>aca va CRUD de noticias</h1>
+        <>
+          <div className="p-5 text-center bg-light">
+            <h1 className="mb-3">Gestión de Noticias</h1>
+          </div>
+          <MDBBreadcrumb>
+            <MDBBreadcrumbItem>
+              <a href="/intranet">Intranet</a>
+            </MDBBreadcrumbItem>
+            <MDBBreadcrumbItem active>Noticias</MDBBreadcrumbItem>
+          </MDBBreadcrumb>
+          <MDBTable hover>
+            <MDBTableHead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </MDBTableHead>
+            <MDBTableBody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colSpan={2}>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </MDBTableBody>
+          </MDBTable>
+        </>
       )}
     </>
   );

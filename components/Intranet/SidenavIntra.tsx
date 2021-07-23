@@ -44,17 +44,17 @@ export const SidenavIntra = ({ children }: any) => {
                   Gestión de noticias
                 </Nav.Item>
               </Link>
-              <Dropdown
-                placement="rightStart"
-                eventKey="3"
-                title="Advanced"
-                icon={<Icon icon="magic" />}
-              >
-                <Dropdown.Item eventKey="3-1">Geo</Dropdown.Item>
-                <Dropdown.Item eventKey="3-2">Devices</Dropdown.Item>
-                <Dropdown.Item eventKey="3-3">Loyalty</Dropdown.Item>
-                <Dropdown.Item eventKey="3-4">Visit Depth</Dropdown.Item>
-              </Dropdown>
+              <Link href="/intranet/eventos">
+                <Nav.Item eventKey="2" icon={<Icon icon="calendar-o" />}>
+                  Gestión de eventos
+                </Nav.Item>
+              </Link>
+              <Link href="/intranet/eventos">
+                <Nav.Item eventKey="2" icon={<Icon icon="speaker" />}>
+                  Crear Anuncio
+                </Nav.Item>
+              </Link>
+
               <Dropdown
                 placement="rightStart"
                 eventKey="4"
