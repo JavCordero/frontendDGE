@@ -30,9 +30,6 @@ const atencion = () => {
         </MDBBreadcrumbItem>
         <MDBBreadcrumbItem active>Solicita Atención Medica</MDBBreadcrumbItem>
       </MDBBreadcrumb>
-      <Asistente href="/" src="/salud/avatar-salud.png">
-        Tienes preguntas, haz clic acá…
-      </Asistente>
       <div className="salud-atencion">
         <TitleLine className="mb-2">Solicita Atención Medica</TitleLine>
         <div className="salud-atencion__content">

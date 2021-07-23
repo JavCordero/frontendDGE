@@ -1,0 +1,71 @@
+.tarjetaInstruccion {
+  $width: 350px;
+  $height: $width;
+  $widthIcono: $width * 0.25;
+  $heightIcono: $width * 0.3266;
+  $fontSize: 1.7em;
+  width: $width;
+  height: $height;
+  background-color: $Pantone_540_C;
+  border-radius: $width/10;
+  position: relative;
+  margin-top: $heightIcono * 0.5;
+  display: flex;
+  flex-direction: column;
+  padding-top: $heightIcono * 0.5;
+  //box shadow
+  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+
+  &__icono {
+    position: absolute;
+    width: $widthIcono;
+    height: $heightIcono;
+    top: -$heightIcono/2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__titulo {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: $fontSize;
+    padding: 0 $fontSize * 0.5;
+  }
+
+  &__texto-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__texto {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-size: $fontSize * 0.85;
+    padding: 0 $fontSize * 0.5;
+  }
+
+  @media (max-width: $width + 50px) {
+    $factor: 0.8;
+    width: $width * $factor;
+    height: $height * $factor;
+    &__icono {
+      width: $widthIcono * $factor;
+      height: $heightIcono * $factor;
+    }
+
+    &__titulo {
+      font-size: $fontSize * $factor;
+      padding: 0 $fontSize * 0.5 * $factor;
+    }
+
+    &__texto {
+      font-size: $fontSize * $factor * $factor;
+      padding: 0 $fontSize * 0.5 * $factor;
+    }
+  }
+}
