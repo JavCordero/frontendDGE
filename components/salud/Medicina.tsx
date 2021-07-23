@@ -1,14 +1,13 @@
 import React from "react";
 import Atencion from "./Recursos/AtencionSintomas";
 
-const FonoAudiologia = () => {
+const Medicina = () => {
   return (
     <Atencion
       srcArea="/salud/fonoAudiologia.png"
       srcEncargado=""
       nombreEncargado="Eveling Miranda Roco"
       cargoEncargado="Fonoaudiologa"
-      mensaje="Si tienes algunos de estos síntomas:"
     >
       <p>Mala respiración / Velocidad del habla</p>
       <p>Disfonía / Cuidado de voz</p>
@@ -20,4 +19,4 @@ const FonoAudiologia = () => {
   );
 };
 
-export default FonoAudiologia;
+export default Medicina;
