@@ -3,10 +3,19 @@ import { Toggle, Sidenav, Nav, Icon, Dropdown } from "rsuite";
 import { useState } from "react";
 import { css } from "@emotion/react";
 import Link from "next/link";
+import Logout from "../../hooks/useLogout";
+import { useRouter } from "next/router";
 
 export const SidenavIntra = ({ children }: any) => {
   const [expanded, setExpanded] = useState(false);
   const [activeKey, setActiveKey] = useState("1");
+  const router = useRouter();
+
+  async function salir() {
+    await Logout();
+    localStorage.clear();
+    router.push("/login");
+  }
 
   function handleToggle() {
     setExpanded(!expanded);
@@ -35,7 +44,7 @@ export const SidenavIntra = ({ children }: any) => {
           <Sidenav.Body>
             <Nav>
               <Link href="/intranet">
-                <Nav.Item icon={<Icon icon="dashboard" />}>
+                <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />}>
                   Panel Principal
                 </Nav.Item>
               </Link>
@@ -45,30 +54,20 @@ export const SidenavIntra = ({ children }: any) => {
                 </Nav.Item>
               </Link>
               <Link href="/intranet/eventos">
-                <Nav.Item eventKey="2" icon={<Icon icon="calendar-o" />}>
+                <Nav.Item eventKey="3" icon={<Icon icon="calendar-o" />}>
                   Gestión de eventos
                 </Nav.Item>
               </Link>
               <Link href="/intranet/eventos">
-                <Nav.Item eventKey="2" icon={<Icon icon="speaker" />}>
+                <Nav.Item eventKey="4" icon={<Icon icon="speaker" />}>
                   Crear Anuncio
                 </Nav.Item>
               </Link>
-
-              <Dropdown
-                placement="rightStart"
-                eventKey="4"
-                title="Settings"
-                icon={<Icon icon="gear-circle" />}
-              >
-                <Dropdown.Item eventKey="4-1">Applications</Dropdown.Item>
-                <Dropdown.Item eventKey="4-2">Channels</Dropdown.Item>
-                <Dropdown.Item eventKey="4-3">Versions</Dropdown.Item>
-                <Dropdown.Menu eventKey="4-5" title="Custom Action">
-                  <Dropdown.Item eventKey="4-5-1">Action Name</Dropdown.Item>
-                  <Dropdown.Item eventKey="4-5-2">Action Params</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
+              <div onClick={() => salir()}>
+                <Nav.Item eventKey="5" icon={<Icon icon="sign-out" />}>
+                  Cerrar Sesión
+                </Nav.Item>
+              </div>
             </Nav>
           </Sidenav.Body>
         </Sidenav>

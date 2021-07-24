@@ -1,4 +1,5 @@
 import {
+  MDBBadge,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBTable,
@@ -7,14 +8,20 @@ import {
 } from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
-import { Loader, Placeholder } from "rsuite";
+import { Loader, Placeholder, Icon } from "rsuite";
 import { AuthContext } from "../../context/AuthContext";
 import CheckLogin from "../../hooks/useCheckLogin";
+import Image from "next/image";
+import { MDBBtn } from "mdb-react-ui-kit";
+import LoadNoticias from "../../hooks/useLoadNoticias";
+import noticia from "../noticias/noticia";
 
 const noticias = () => {
   const router = useRouter();
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
+  const [loadData, setLoadData] = useState(false);
+  const [item, setItem] = useState([]);
   useEffect(() => {
     async function verificar() {
       const verificacion = await CheckLogin();
@@ -26,7 +33,16 @@ const noticias = () => {
         router.push("/login");
       }
     }
+    async function LoadItem() {
+      const item = await LoadNoticias();
+      if (item.data) {
+        setItem(item.data);
+        setLoadData(true);
+      }
+    }
+
     verificar();
+    LoadItem();
   }, []);
   return (
     <>
@@ -46,33 +62,67 @@ const noticias = () => {
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Noticias</MDBBreadcrumbItem>
           </MDBBreadcrumb>
-          <MDBTable hover>
+          <MDBBtn
+            className="p-2 d-flex align-items-center justify-content-center ml-auto"
+            color="success"
+            onClick={() => router.push("/intranet/noticias/agregarnoticia")}
+          >
+            Nueva Noticia&nbsp; &nbsp;
+            <Icon size="2x" icon="plus-square" />
+          </MDBBtn>
+
+          <MDBTable className="table-responsive-sm text-center" hover>
             <MDBTableHead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">id</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Título</th>
+                <th scope="col">Área</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Acción</th>
               </tr>
             </MDBTableHead>
             <MDBTableBody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colSpan={2}>Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              {loadData ? (
+                item.map((noticia) => (
+                  <tr key={noticia.id}>
+                    <th scope="row">{noticia.id}</th>
+                    <td>
+                      <Image
+                        src={`http://127.0.0.1:8000${noticia.imagen}`}
+                        width="150"
+                        height="100"
+                        objectFit="cover"
+                      ></Image>
+                    </td>
+                    <td>{noticia.cuerpo}</td>
+                    <td>{noticia.area.name}</td>
+                    <td>
+                      {noticia.tags.map((tag) => (
+                        <h5 key={tag.id}>
+                          <MDBBadge color="success" className="ms-2">
+                            {tag.name}
+                          </MDBBadge>
+                        </h5>
+                      ))}
+                    </td>
+                    <td>
+                      <MDBBtn className="p-2" color="danger">
+                        <Icon size="2x" icon="trash" />
+                      </MDBBtn>
+                      <MDBBtn className="p-2" color="warning">
+                        <Icon size="2x" icon="edit" />
+                      </MDBBtn>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6}>
+                    <Placeholder.Grid rows={10} columns={6} active />
+                  </td>
+                </tr>
+              )}
             </MDBTableBody>
           </MDBTable>
         </>
