@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Salud = () => {
-  return <div></div>;
+  return <></>;
 };
 
 export default Salud;
