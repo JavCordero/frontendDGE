@@ -14,7 +14,6 @@ import CheckLogin from "../../hooks/useCheckLogin";
 import Image from "next/image";
 import { MDBBtn } from "mdb-react-ui-kit";
 import LoadNoticias from "../../hooks/useLoadNoticias";
-import noticia from "../noticias/noticia";
 
 const noticias = () => {
   const router = useRouter();

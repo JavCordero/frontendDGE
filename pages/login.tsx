@@ -96,7 +96,7 @@ const login = () => {
                 />
                 <label htmlFor="username" className="fas fa-user" />
               </div>
-
+              {errores.email && <p>error en email</p>}
               <div className="login__input">
                 <input
                   id="password"
