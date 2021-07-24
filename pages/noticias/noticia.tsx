@@ -11,7 +11,11 @@ const noticia = () => {
           alt=""
         />
       </div>
-      <div className="noticia__links"></div>
+      <div className="noticia__links">
+        <p>Link 1</p>
+        <p>Link 2</p>
+        <p>Link 3</p>
+      </div>
       <div className="noticia__botones">
         <button>A+</button>
         <button>A-</button>

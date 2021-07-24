@@ -1,3 +1,48 @@
-.noticia{
+.noticia {
+  display: grid;
+  grid-template-areas:
+    "header links"
+    "botones links"
+    "fecha links"
+    "contenido links"
+    "tags links"
+    "volver volver"
+    "relacionados relacionados";
 
+  &__header {
+    grid-area: header;
+    background: blue;
+  }
+
+  &__header-img {
+  }
+
+  &__links {
+    grid-area: links;
+    background: brown;
+  }
+
+  &__botones {
+    grid-area: botones;
+  }
+
+  &__fecha {
+    grid-area: fecha;
+  }
+
+  &__content {
+    grid-area: contenido;
+  }
+
+  &__tags {
+    grid-area: tags;
+  }
+
+  &__volver {
+    grid-area: volver;
+  }
+
+  &__relacionados {
+    grid-area: relacionados;
+  }
 }
