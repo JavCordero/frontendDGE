@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import "../styles/custom.scss";
 import Head from "next/head";
+import "../styles/rsuite-default.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import "rsuite/dist/styles/rsuite-default.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS

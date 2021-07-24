@@ -5,6 +5,13 @@ import {
   MDBCardBody,
   MDBCardTitle,
   MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalContent,
+  MDBModalDialog,
+  MDBModalHeader,
+  MDBModalTitle,
 } from "mdb-react-ui-kit";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +27,8 @@ export const Ramas = () => {
   const [lgShow, setLgShow] = useState(false);
   const [search, setSearch] = useState("");
   const [rama, setRama] = useState("atletismo");
+
+  const toggleShow = () => setLgShow(!lgShow);
 
   const list = [
     { name: "item1" },
