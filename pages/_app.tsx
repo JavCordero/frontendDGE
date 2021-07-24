@@ -30,7 +30,6 @@ import { SidenavIntra } from "../components/Intranet/SidenavIntra";
 import { AuthContext, AuthProvider } from "../context/AuthContext";
 import Asistente from "../components/others/Asistente";
 
-
 function MyApp({ Component, pageProps }: AppProps) {
   const { authState } = React.useContext(AuthContext);
   const router = useRouter();
@@ -50,24 +49,24 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <AuthProvider>
-      {router.route === "/login" ? (
-        <Component {...pageProps} />
-      ) : (
-        <NavbarPage>
-          {(router.route.includes("/salud/") || router.route ==="/salud") && (
-            <Asistente href="/" src="/salud/avatar-salud.png">
-              Tienes preguntas, haz clic acá…
-            </Asistente>
-          )}
+        {router.route === "/login" ? (
           <Component {...pageProps} />
         ) : router.route.includes("intranet") ? (
           <SidenavIntra>
             <Component {...pageProps} />
           </SidenavIntra>
         ) : (
-          <NavbarPage>
-            <Component {...pageProps} />
-          </NavbarPage>
+          <>
+            {(router.route.includes("/salud/") ||
+              router.route === "/salud") && (
+              <Asistente href="/" src="/salud/avatar-salud.png">
+                Tienes preguntas, haz clic acá…
+              </Asistente>
+            )}
+            <NavbarPage>
+              <Component {...pageProps} />
+            </NavbarPage>
+          </>
         )}
       </AuthProvider>
     </>

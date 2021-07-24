@@ -2,36 +2,15 @@ import {
   MDBRow,
   MDBCol,
   MDBCard,
-  MDBCardImage,
   MDBCardBody,
   MDBCardTitle,
-  MDBCardText,
   MDBContainer,
-  MDBInput,
-  MDBBtn,
-  MDBModal,
-  MDBModalBody,
-  MDBModalContent,
-  MDBModalDialog,
-  MDBModalHeader,
-  MDBModalTitle,
 } from "mdb-react-ui-kit";
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faArrowLeft,
-  faRunning,
-  faSchool,
-  faWarehouse,
-  faQuestion,
-  faSearch,
-} from "@fortawesome/free-solid-svg-icons";
-import { faHubspot } from "@fortawesome/free-brands-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Slider from "react-slick";
@@ -49,13 +28,12 @@ export const Ramas = () => {
     { name: "item4" },
     { name: "item5" },
     { name: "item6" },
+    { name: "item7" },
   ];
 
   const Arrow = ({ text, className }) => {
     return <div className={className}>{text}</div>;
   };
-
-  console.log(Textos[rama]);
 
   const settings = {
     customPaging: function (i) {
