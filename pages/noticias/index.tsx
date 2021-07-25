@@ -1,9 +1,9 @@
 import { useState } from "react";
-import LoadingCircles from "../components/others/LoadingCircles";
-import SearchInput from "../components/others/SearchInput";
-import NoticiasFilter from "../components/others/NoticiasFilter";
-import NoticiaPreview from "../components/noticias/NoticiaPreview";
-import NoticiaPreviewContainer from "../components/noticias/NoticiaPreviewContainer";
+import LoadingCircles from "../../components/others/LoadingCircles";
+import SearchInput from "../../components/others/SearchInput";
+import NoticiasFilter from "../../components/others/NoticiasFilter";
+import NoticiaPreview from "../../components/noticias/NoticiaPreview";
+import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
 
 const noticias = () => {
   const [search, setSearch] = useState("");
@@ -35,6 +35,8 @@ const noticias = () => {
         <NoticiaPreview
           title="¿El basquetbol la mejor forma de estar en forma??"
           src="/images/noticias/lorem1.jpg"
+          alt="imagen"
+          href="#"
         >
           El baloncesto, básquetbol, básketball o simplemente básquet o básket,
           ​ es un deporte de equipo, jugado entre dos conjuntos de cinco
@@ -44,6 +46,8 @@ const noticias = () => {
         <NoticiaPreview
           title="¿Problemas en la rodilla?"
           src="/images/noticias/lorem2.jpg"
+          alt="imagen"
+          href="#"
         >
           {" "}
           La rodilla es una articulación que une el hueso del muslo (o fémur) a
@@ -53,6 +57,8 @@ const noticias = () => {
         <NoticiaPreview
           title="UCN vence en el clásico y clasifica al Nacional Universitario"
           src="/images/noticias/lorem3.jpg"
+          alt="imagen"
+          href="#"
         >
           El seleccionado de la Universidad Católica del Norte clasificó al
           Campeonato Nacional de Fútbol Universitario, tras vencer a su similar
@@ -62,6 +68,8 @@ const noticias = () => {
         <NoticiaPreview
           title="¿Quieres correr en la maratón UCN?"
           src="/images/noticias/lorem4.jpg"
+          alt="imagen"
+          href="#"
         >
           Preparándote para el evento: ¿Qué OBJETIVO te deberías plantear?
           ¿Cuánta actividad física es recomendable realizar?
@@ -69,6 +77,8 @@ const noticias = () => {
         <NoticiaPreview
           title="El porque es importante comer verduras"
           src="/images/noticias/lorem5.jpg"
+          alt="imagen"
+          href="/noticias/noticia"
         >
           Al año los estudiantes universitarios en promedio solo ingieren solo
           un 20% de las verduras recomendadas por la OMS . A continuación te

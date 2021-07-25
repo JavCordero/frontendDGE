@@ -3,7 +3,6 @@ import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
 import TitleLine from "../../components/others/TitleLine";
 import Recomendaciones from "../../components/salud/Recomendaciones";
-import Asistente from "../../components/others/Asistente";
 import FonoAudiologia from "../../components/salud/FonoAudiologia";
 import Nutricionista from "../../components/salud/Nutricionista";
 import Psicologia from "../../components/salud/Psicologia";

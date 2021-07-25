@@ -17,15 +17,6 @@
   &__header {
     grid-area: header;
     //para la imagen principal
-    & > * {
-      width: $widthImgHeader;
-      height: $heightImgHeader;
-      //centrar la imagen
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      object-fit: cover;
-    }
   }
 
   //seccion links
@@ -198,14 +189,5 @@
       "tags tags"
       "volver volver"
       "relacionados relacionados";
-  }
-  @media screen and (max-width: $widthImgHeader + $widthImgHeader*0.18) {
-    &__header {
-      //para la imagen principal
-      & > * {
-        width: 100%;
-        height: auto;
-      }
-    }
   }
 }

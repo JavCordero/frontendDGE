@@ -4,6 +4,7 @@ import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewCon
 import TitleLine from "../../components/others/TitleLine";
 import NoticiaLinks from "../../components/noticias/noticia__recursos/NoticiaLinks";
 import NoticiaHeader from "../../components/noticias/noticia__recursos/NoticiaHeader";
+import NoticiaHeaderContent from "../../components/noticias/noticia__recursos/NoticiaHeaderContent";
 import NoticiaBotones from "../../components/noticias/noticia__recursos/NoticiaBotones";
 import NoticiaFechaDatos from "../../components/noticias/noticia__recursos/NoticiaFechaDatos";
 import NoticiaContenido from "../../components/noticias/noticia__recursos/NoticiaContenido";
@@ -21,7 +22,16 @@ const noticia = () => {
   return (
     <div className="noticia">
       <NoticiaHeader>
-        <img src="/images/noticias/lorem5.jpg" alt="" />
+        <NoticiaHeaderContent
+          title="El porque es importante comer verduras"
+          src="/images/noticias/lorem5.jpg"
+          alt="imagen comida"
+        >
+          Al año los estudiantes universitarios en promedio solo ingieren solo
+          un 20% de las verduras recomendadas por la OMS . A continuación te
+          presentaremos 5 formas que te ayudarán a presentarles estos alimentos,
+          de una forma más apetitosa.
+        </NoticiaHeaderContent>
       </NoticiaHeader>
       <NoticiaLinks>
         <a href="#">Link 1</a>
@@ -87,6 +97,8 @@ const noticia = () => {
           <NoticiaPreview
             title="¿El basquetbol la mejor forma de estar en forma??"
             src="/images/noticias/lorem1.jpg"
+            alt="imagen"
+            href="#"
           >
             El baloncesto, básquetbol, básketball o simplemente básquet o
             básket, ​ es un deporte de equipo, jugado entre dos conjuntos de
@@ -96,6 +108,8 @@ const noticia = () => {
           <NoticiaPreview
             title="¿Problemas en la rodilla?"
             src="/images/noticias/lorem2.jpg"
+            alt="imagen"
+            href="#"
           >
             La rodilla es una articulación que une el hueso del muslo (o fémur)
             a la parte superior del hueso de la espinilla (o tibia). Está

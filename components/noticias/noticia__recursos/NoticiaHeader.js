@@ -1,8 +1,10 @@
 /*
-Primera seccion de noticia, recibe un contenido o imagen idealmente en 16:9 o muy similar ej:
+Primera seccion de noticia, recibe un contenido e imagen idealmente en 16:9 o muy similar ej:
 <NoticiaHeader>
-  <img/>
-</NoticiaHeader>
+  <ContenidoHeader/>
+</NoticiaHeader>+
+
+El contenido que esta dentro no se encuentra estilizado por lo que se pide que se pongan los estilos propios.
 */
 
 const NoticiaLinks = (props) => (
