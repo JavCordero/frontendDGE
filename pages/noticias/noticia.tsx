@@ -11,6 +11,12 @@ import NoticiaTags from "../../components/noticias/noticia__recursos/NoticiaTags
 import NoticiaVolver from "../../components/noticias/noticia__recursos/NoticiaVolver";
 import NoticiaRelacionados from "../../components/noticias/noticia__recursos/NoticiaRelacionados";
 
+/*
+
+Este componente renderiza la noticia y para eso utiliza los componentes de components/noticias/noticia__recursos/, en los archivos respectivos
+se encontrara mas informacion de cada componente y como formar la noticia apartir de estos.
+*/
+
 const noticia = () => {
   return (
     <div className="noticia">
