@@ -20,12 +20,11 @@ los parametros que recibe son:
 - srcEncargado: la imagen del encargado (si aplica).
 - srcArea: imagen del area de atencion medica.
 - noCard: si es true, se mostrara el componente sin contacto en el lado derecho, en caso de que el nombre del encargado no exista incluir, por defecto false.
-- id: el id del componente, por defecto "".
 */
 
 const AtencionSintomas = (props) => {
   return (
-    <div id={props.id ? props.id : ""} className="atencion-sintomas">
+    <div className="atencion-sintomas">
       <div>
         <h2 className="atencion-sintomas__sintomas-titulo">
           {props.mensaje ? props.mensaje : "Si... :"}

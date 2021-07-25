@@ -12,7 +12,6 @@ const Psicologia = () => {
       noCard
       mensaje="Si necesitas:"
       mensajeContacto="Completa el siguiente formulario y nuestro equipo se pondrá en contacto contigo para asignarte una hora de atención online:"
-      id="psicologia"
     >
       <p>Psicoeducación</p>
       <p>Terapia psicológica</p>
