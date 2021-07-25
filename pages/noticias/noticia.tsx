@@ -78,6 +78,15 @@ const noticia = () => {
           quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
           neque, autem officiis ducimus sequi pariatur consequuntur alias?
         </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
         <br />
         <h2>2- Lorem ipsum dolor sit amet consectetur adipisicing elit:</h2>
         <img
