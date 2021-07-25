@@ -28,7 +28,7 @@ const noticia = () => {
           alt="imagen comida"
         >
           Al año los estudiantes universitarios en promedio solo ingieren solo
-          un 20% de las verduras recomendadas por la OMS . A continuación te
+          un 20% , minWidth:"250px"de las verduras recomendadas por la OMS . A continuación te
           presentaremos 5 formas que te ayudarán a presentarles estos alimentos,
           de una forma más apetitosa.
         </NoticiaHeaderContent>
@@ -54,6 +54,14 @@ const noticia = () => {
       </NoticiaFechaDatos>
       <NoticiaContenido>
         <br />
+        <h2>
+          1- Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          illo!
+        </h2>
+        <img
+          src="/images/noticias/lorem2.jpg"
+          style={{ width: "20%", minWidth:"250px", float: "left", margin: "10px" }}
+        />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
           iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
@@ -71,6 +79,11 @@ const noticia = () => {
           neque, autem officiis ducimus sequi pariatur consequuntur alias?
         </p>
         <br />
+        <h2>2- Lorem ipsum dolor sit amet consectetur adipisicing elit:</h2>
+        <img
+          src="/images/noticias/lorem6.jpg"
+          style={{ width: "20%", minWidth:"250px", float: "left", margin: "10px" }}
+        />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
           iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
@@ -82,6 +95,125 @@ const noticia = () => {
           dolor sit amet consectetur adipisicing elit. Ullam quo nemo, sapiente
           obcaecati quod nulla a. Eum at aspernatur sunt vitae doloribus.
           Similique sequi unde est, asperiores vel hic qui.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+
+        <h2>
+          3- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis!
+        </h2>
+        <img
+          src="/images/noticias/lorem7.jpg"
+          style={{ width: "20%", minWidth:"250px", float: "left", margin: "10px" }}
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Corporis, sunt a? Repudiandae dolorum at tempora
+          illum aliquam veritatis voluptate debitis vel explicabo neque!
+          Provident nihil quis dolorum, tempore doloribus possimus. Lorem ipsum,
+          dolor sit amet consectetur adipisicing elit. Ullam quo nemo, sapiente
+          obcaecati quod nulla a. Eum at aspernatur sunt vitae doloribus.
+          Similique sequi unde est, asperiores vel hic qui.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+
+        <h2>4- Lorem ipsum dolor sit amet consectetur.</h2>
+        <img
+          src="/images/noticias/lorem8.jpg"
+          style={{ width: "20%", minWidth:"250px", float: "left", margin: "10px" }}
+        />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus a
+          cupiditate at quis est dolorum iusto saepe, sequi molestiae quaerat.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ipsum
+          illo, assumenda officiis velit a nihil minus accusantium.
+          Exercitationem ipsam itaque totam accusantium. Ullam odio voluptate
+          amet quaerat pariatur ipsa.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
+        </p>
+        <h2>
+          5- Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Repellendus provident eos excepturi sunt consequatur fuga.
+        </h2>
+        <img
+          src="/images/noticias/lorem9.jpg"
+          style={{ width: "20%", minWidth:"250px", float: "left", margin: "10px" }}
+        />
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex tempore
+          ut, dolorem totam odio sapiente. Officiis laboriosam repudiandae,
+          ducimus aspernatur odit vero consequatur quod. Eum.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+          iusto, culpa sequi alias ipsa consequuntur facilis cumque eos nihil
+          eveniet omnis molestiae aliquam. Veniam quibusdam praesentium fuga
+          veritatis! Vel, quis. Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Officiis pariatur doloremque quos commodi omnis
+          quaerat voluptate porro. Perspiciatis, nulla optio. Omnis nesciunt
+          neque, autem officiis ducimus sequi pariatur consequuntur alias?
         </p>
       </NoticiaContenido>
       <NoticiaTags>
