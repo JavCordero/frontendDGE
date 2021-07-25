@@ -28,7 +28,7 @@ const noticia = () => {
           alt="imagen comida"
         >
           Al año los estudiantes universitarios en promedio solo ingieren solo
-          un 20% , minWidth:"250px"de las verduras recomendadas por la OMS . A continuación te
+          un 20% , de las verduras recomendadas por la OMS . A continuación te
           presentaremos 5 formas que te ayudarán a presentarles estos alimentos,
           de una forma más apetitosa.
         </NoticiaHeaderContent>
