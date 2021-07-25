@@ -56,7 +56,9 @@ export const Unidad = () => {
             <MDBCardTitle>Salud</MDBCardTitle>
             <MDBCardText>Solicitud hora online</MDBCardText>
             <MDBCardText>Visado licencias medicas</MDBCardText>
-            <MDBCardText>Solicitud hora Psicólogo</MDBCardText>
+            <Link href="/salud/atencion?id=psicologia">
+              <MDBCardText>Solicitud hora Psicólogo</MDBCardText>
+            </Link>
             <MDBCardText>Más...</MDBCardText>
           </MDBCardBody>
         </MDBCard>

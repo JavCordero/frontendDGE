@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
 import TitleLine from "../../components/others/TitleLine";
@@ -13,11 +14,17 @@ import Odontologia from "../../components/salud/Odontologia";
 import Kinesiologia from "../../components/salud/Kinesiologia";
 
 const atencion = () => {
+  const router = useRouter();
   const [especialidad, setEspecialidad] = useState("");
+  useEffect(() => {
+    const id = router.query.id ? router.query.id : "";
+    setEspecialidad(String(id));
+  }, [router]);
   const handleEspecialidad = (e) => {
     const especialidad_ = e.target.value;
     setEspecialidad(especialidad_);
   };
+
   return (
     <>
       <MDBBreadcrumb className="mb-0">
