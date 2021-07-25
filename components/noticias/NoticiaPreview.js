@@ -16,7 +16,7 @@ const NoticiaPreview = (props) => {
     <div className="noticiaPreview__noticia">
       <div className="noticiaPreview__contenido-imagen">
         <img
-          src={props.src ? props.src : "/images/Noticias/noImage.jpg"}
+          src={props.src ? props.src : "/images/noImage.jpg"}
           alt="imagen"
           className="noticiaPreview__imagen hoverable"
         />

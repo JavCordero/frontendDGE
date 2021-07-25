@@ -2,28 +2,28 @@ import React from "react";
 import NoticiaPreview from "../../components/noticias/NoticiaPreview";
 import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
 import TitleLine from "../../components/others/TitleLine";
-import NoticiaLinks from "../../components/noticias/noticia__recursos/NoticiaLinks";
-import NoticiaHeader from "../../components/noticias/noticia__recursos/NoticiaHeader";
-import NoticiaBotones from "../../components/noticias/noticia__recursos/NoticiaBotones";
-import NoticiaFechaDatos from "../../components/noticias/noticia__recursos/NoticiaFechaDatos";
-import NoticiaContenido from "../../components/noticias/noticia__recursos/NoticiaContenido";
-import NoticiaTags from "../../components/noticias/noticia__recursos/NoticiaTags";
-import NoticiaVolver from "../../components/noticias/noticia__recursos/NoticiaVolver";
-import NoticiaRelacionados from "../../components/noticias/noticia__recursos/NoticiaRelacionados";
 
-const noticia = () => {
+const noticia = (props) => {
   return (
     <div className="noticia">
-      <NoticiaHeader>
-        <img src="/images/noticias/lorem5.jpg" alt="" />
-      </NoticiaHeader>
-      <NoticiaLinks>
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </NoticiaLinks>
-
-      <NoticiaBotones>
+      <div className="noticia__header">
+        <img
+          className="noticia__header-img"
+          src="/images/noticias/lorem5.jpg"
+          alt=""
+        />
+      </div>
+      <div className="noticia__links">
+        <div className="noticia__links-content">
+          <h5 className="noticia__links-titulo">Links de interes</h5>
+          <div className="noticia__links-content-links">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+      <div className="noticia__botones">
         <div>
           <button>A+</button>
           <button>A-</button>
@@ -32,11 +32,11 @@ const noticia = () => {
           <button>Descargar</button>
           <button>Imprimir</button>
         </div>
-      </NoticiaBotones>
-      <NoticiaFechaDatos>
+      </div>
+      <div className="noticia__fecha-datos">
         <p>20/Abril/2021</p>
-      </NoticiaFechaDatos>
-      <NoticiaContenido>
+      </div>
+      <div className="noticia__content">
         <br />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
@@ -67,15 +67,15 @@ const noticia = () => {
           obcaecati quod nulla a. Eum at aspernatur sunt vitae doloribus.
           Similique sequi unde est, asperiores vel hic qui.
         </p>
-      </NoticiaContenido>
-      <NoticiaTags>
+      </div>
+      <div className="noticia__tags">
         <a href="#">noticia</a>
         <a href="#">evento</a>
-      </NoticiaTags>
-      <NoticiaVolver>
+      </div>
+      <div className="noticia__volver">
         <a href="#">Volver a noticias</a>
-      </NoticiaVolver>
-      <NoticiaRelacionados>
+      </div>
+      <div className="noticia__relacionados">
         <TitleLine>Relacionados</TitleLine>
         <NoticiaPreviewContainer>
           <NoticiaPreview
@@ -96,7 +96,7 @@ const noticia = () => {
             compuesta por huesos, cartílagos, músculos, ligamentos y tendones.
           </NoticiaPreview>
         </NoticiaPreviewContainer>
-      </NoticiaRelacionados>
+      </div>
     </div>
   );
 };
