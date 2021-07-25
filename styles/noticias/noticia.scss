@@ -6,42 +6,104 @@
     "fecha links"
     "contenido links"
     "tags links"
-    "volver volver"
+    "volver links"
     "relacionados relacionados";
 
+  //seccion header
+  $relacionImagen: 0.5625;
+  $widthImgHeader: 1000px;
+  $heightImgHeader: $widthImgHeader * $relacionImagen;
   &__header {
     grid-area: header;
     background: blue;
   }
 
   &__header-img {
+    display: block;
+    width: $widthImgHeader;
+    height: $heightImgHeader;
+    margin-left: auto;
+    margin-right: auto;
   }
 
+  //seccion links
+  $widthColumnLink: 13rem;
+  $widthLinkContent: 12rem;
+  $fontSizeLinks: 1.3rem;
   &__links {
+    width: $widthColumnLink;
     grid-area: links;
     background: brown;
   }
 
+  &__links-content {
+    position: sticky;
+    background-color: $gris1;
+    width: $widthLinkContent;
+    height: auto;
+    border-radius: $widthLinkContent * 0.1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: $widthLinkContent * 0.04;
+    padding: $widthLinkContent * 0.04;
+    top: $widthLinkContent * 0.04;
+  }
+
+  &__links-titulo {
+    color: $Pantone_Black_C;
+    padding-left: 5px;
+    font-size: $fontSizeLinks;
+    font-weight: bold;
+    padding-top: $fontSizeLinks * 0.4;
+    padding-bottom: $fontSizeLinks * 0.4;
+  }
+
+  &__links-content-links {
+    border-top: 2px solid $Black_Shadow;
+
+    & * {
+      margin: 0;
+      padding: 0;
+      display: block;
+      font-weight: bold;
+      color: $BlueLink1;
+      text-align: center;
+      font-size: $fontSizeLinks * 0.8;
+      font-style: none;
+      outline: none;
+      line-height: $fontSizeLinks * 1.4;
+      font-style: italic;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: $BlueLink2;
+      }
+    }
+    & *:first-child {
+      margin-top: $fontSizeLinks * 0.4;
+    }
+  }
+  //seccion botones
   &__botones {
     grid-area: botones;
   }
-
+  //seccion fecha
   &__fecha {
     grid-area: fecha;
   }
-
+  //seccion contenido
   &__content {
     grid-area: contenido;
   }
-
+  //seccion tags
   &__tags {
     grid-area: tags;
   }
-
+  //seccion volver
   &__volver {
     grid-area: volver;
   }
-
+  //seccion relacionados
   &__relacionados {
     grid-area: relacionados;
   }
