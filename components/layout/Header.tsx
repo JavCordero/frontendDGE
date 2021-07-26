@@ -1,49 +1,23 @@
-import Link from "next/link";
-import React, { useState } from "react";
-import Image from "next/image";
-import logoDGE from "../../public/Imagen-DGE.jpg";
-import logoUCN from "../../public/Escudo-UCN-Full-Color.png";
+import React from "react";
+import { MDBBtn } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBasketballBall, faSearch } from "@fortawesome/free-solid-svg-icons";
-import {
-  Button,
-  Container,
-  Form,
-  FormControl,
-  Nav,
-  Navbar,
-  NavDropdown,
-} from "react-bootstrap";
-import {
-  MDBContainer,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
-  MDBNavbarNav,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBtn,
-} from "mdb-react-ui-kit";
-
-import { faBars } from "@fortawesome/free-solid-svg-icons"; // import the icons you need
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
-  const [showBasic, setShowBasic] = useState(false);
   return (
-    <MDBNavbar>
-      <MDBContainer fluid>
-        <a className="navbar-brand">
-          <Image src={logoDGE} width="70%" height="70%" />
-        </a>
-        <span className="navbar-text d-flex flex-wrap mr-auto">
-          <MDBNavbarLink href="#">Inicio</MDBNavbarLink>
-          <MDBNavbarLink href="#">Mi Portal</MDBNavbarLink>
-          <MDBNavbarLink href="#">Online UCN</MDBNavbarLink>
-          <MDBNavbarLink href="#">Noticias UCN</MDBNavbarLink>
-          <MDBNavbarLink href="#">Campus UCN</MDBNavbarLink>
-        </span>
-
+    <div className="header">
+      <div className="header__logos">
+        <img src="/images/Escudo-UCN-Full-Color.png" alt="Logo UCN" />
+        <img src="/images/Imagen-DGE.jpg" alt="Logo DGE" />
+      </div>
+      <nav className="header__enlaces">
+        <a href="#">Home</a>
+        <a href="#">Mi portal</a>
+        <a href="#">Online UCN</a>
+        <a href="#">Noticias UCN</a>
+        <a href="#">Campus UCN</a>
+      </nav>
+      <div className="header__busqueda">
         <form className="d-flex input-group w-auto">
           <input
             type="search"
@@ -55,8 +29,8 @@ const Header = () => {
             <FontAwesomeIcon icon={faSearch} size="1x"></FontAwesomeIcon>
           </MDBBtn>
         </form>
-      </MDBContainer>
-    </MDBNavbar>
+      </div>
+    </div>
   );
 };
 
