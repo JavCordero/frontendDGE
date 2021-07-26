@@ -1,0 +1,83 @@
+.header {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $Black_Shadow;
+  //width del header controlado con el padding
+  padding: 15px 0;
+  //Variables icons
+  $widthIcon: 75px; //iconos cuadrados
+  //Variables Links
+  $fontSizeLinks: 1.2rem;
+  $colorLink: $BlueLink1;
+  $colorLinkHover: $BlueLink2;
+  //Variables Busqueda
+  $widthBusqueda: 250px;
+  $heightBusqueda: 45px;
+
+  //seccion logos
+  &__logos {
+    & > img {
+      width: $widthIcon;
+      height: $widthIcon;
+      margin-right: $widthIcon * 0.2;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  //seccion enlaces
+  &__enlaces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $fontSizeLinks 0;
+    & > * {
+      display: inline-block;
+      font-size: $fontSizeLinks;
+      padding: 0 $fontSizeLinks * 0.3;
+      text-align: center;
+      text-decoration: none;
+      color: $colorLink;
+      &:hover {
+        color: $colorLinkHover;
+      }
+      &::after {
+        content: "|";
+        vertical-align: top;
+        margin-left: $fontSizeLinks * 0.65;
+      }
+
+      &:last-child {
+        &::after {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  //seccion Busqueda
+  &__busqueda {
+    width: $widthBusqueda;
+    height: $heightBusqueda;
+  }
+
+  @media screen and (max-width: $fontSizeLinks*60) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: $fontSizeLinks*40) {
+    &__enlaces {
+      flex-wrap: wrap;
+      & > a {
+        padding: $fontSizeLinks * 0.5 $fontSizeLinks * 0.75;
+        &::after {
+          content: "";
+          margin: 0;
+        }
+      }
+    }
+  }
+}
