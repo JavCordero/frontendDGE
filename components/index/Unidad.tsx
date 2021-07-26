@@ -166,6 +166,10 @@ export const Unidad = () => {
 
       <ScrollMenu
         wrapperClass="w-100"
+        dragging
+        wheel={false}
+        inertiaScrolling
+        rtl
         data={menu}
         arrowLeft={ArrowLeft}
         arrowRight={ArrowRight}

@@ -14,6 +14,7 @@ import Odontologia from "../../components/salud/Odontologia";
 import Kinesiologia from "../../components/salud/Kinesiologia";
 
 const atencion = () => {
+
   const router = useRouter();
   const [especialidad, setEspecialidad] = useState("");
   useEffect(() => {
