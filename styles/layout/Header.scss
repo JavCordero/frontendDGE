@@ -6,16 +6,16 @@
   align-items: center;
   border-bottom: 1px solid $Black_Shadow;
   //width del header controlado con el padding
-  padding: 15px 0;
+  padding: 0.9rem 0;
   //Variables icons
-  $widthIcon: 75px; //iconos cuadrados
+  $widthIcon: 4.7rem; //iconos cuadrados
   //Variables Links
   $fontSizeLinks: 1.2rem;
   $colorLink: $BlueLink1;
   $colorLinkHover: $BlueLink2;
   //Variables Busqueda
-  $widthBusqueda: 250px;
-  $heightBusqueda: 45px;
+  $widthBusqueda: 15.6rem;
+  $heightBusqueda: 2.8rem;
 
   //seccion logos
   &__logos {
@@ -65,10 +65,10 @@
     height: $heightBusqueda;
   }
 
-  @media screen and (max-width: $fontSizeLinks*60) {
+  @media screen and (max-width: ($fontSizeLinks+$widthIcon+$widthBusqueda)*3.3) {
     flex-direction: column;
   }
-  @media screen and (max-width: $fontSizeLinks*40) {
+  @media screen and (max-width: ($fontSizeLinks+$widthIcon+$widthBusqueda)*2.2) {
     &__enlaces {
       flex-wrap: wrap;
       & > a {
