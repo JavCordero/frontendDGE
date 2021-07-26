@@ -14,7 +14,7 @@ import Odontologia from "../../components/salud/Odontologia";
 import Kinesiologia from "../../components/salud/Kinesiologia";
 
 const atencion = () => {
-  const [especialidad, setEspecialidad] = useState("");
+  const [especialidad, setEspecialidad] = useState("nutricionista");
   const handleEspecialidad = (e) => {
     const especialidad_ = e.target.value;
     setEspecialidad(especialidad_);

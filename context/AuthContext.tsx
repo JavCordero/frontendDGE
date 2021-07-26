@@ -5,18 +5,20 @@ import { authReducer } from "../reducers/authReducer";
 export interface AuthState {
   isLoggedIn: boolean;
   rol?: string;
+  id?: string;
 }
 
 //estado inicial
 export const authInitialState: AuthState = {
   isLoggedIn: false,
   rol: undefined,
+  id: undefined,
 };
 
 //lo que luce y expone el context
 export interface AuthContextProps {
   authState: AuthState;
-  signIn: (rol: string) => void;
+  signIn: (rol: string, id: string) => void;
   checkLogin: (rol: string) => void;
   signOut: () => void;
 }
@@ -29,8 +31,8 @@ export const AuthProvider = ({ children }: any) => {
   const [authState, dispatch] = useReducer(authReducer, authInitialState);
 
   //dispatch signIn
-  const signIn = (rol: string) => {
-    dispatch({ type: "signIn", payload: rol });
+  const signIn = (rol: string, id: string) => {
+    dispatch({ type: "signIn", payload: rol, id });
   };
 
   //dispatch signOut

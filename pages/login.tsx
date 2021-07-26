@@ -43,7 +43,7 @@ const login = () => {
     }
 
     if (peticion.access_token) {
-      signIn(peticion.rol);
+      signIn(peticion.rol, peticion.id);
       email = "";
       password = "";
       router.push("/intranet");

@@ -94,7 +94,7 @@ const noticias = () => {
                         objectFit="cover"
                       ></Image>
                     </td>
-                    <td>{noticia.cuerpo}</td>
+                    <td>{noticia.titulo}</td>
                     <td>{noticia.area.name}</td>
                     <td>
                       {noticia.tags.map((tag) => (

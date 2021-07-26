@@ -11,82 +11,86 @@ import {
   MDBCarouselItem,
   MDBCol,
   MDBContainer,
+  MDBRipple,
   MDBRow,
 } from "mdb-react-ui-kit";
-import { MDBMask } from "mdbreact";
 import React from "react";
 import Slider from "react-slick";
 
-export const Destacados = ({ titulo1, titulo2 }) => {
+export const Destacados = ({ titulo1, titulo2, noticias }) => {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
     arrows: false,
     autoplay: true,
+    className: "center",
   };
+  const settings2 = {
+    arrowsBlock: false,
+    centerPadding: 40,
+    dots: true,
+    initialSlide: true,
+    infinite: true,
+  };
+
+  function difference(date1, date2) {
+    const date1utc = Date.UTC(
+      date1.getFullYear(),
+      date1.getMonth(),
+      date1.getDate()
+    );
+    const date2utc = Date.UTC(
+      date2.getFullYear(),
+      date2.getMonth(),
+      date2.getDate()
+    );
+    const day = 1000 * 60 * 60 * 24;
+    return (date2 - date1) / day;
+  }
   return (
     <MDBContainer fluid>
       <MDBRow>
         <MDBCol size="12" sm="9">
-          <MDBContainer fluid className="shadow-5">
+          <MDBContainer>
             <h2>{titulo1}</h2>
-            <MDBCarousel showControls keyboard showIndicators fade>
-              <MDBCarouselInner>
-                <MDBCarouselItem
-                  className="text-center img-container"
-                  itemId={0}
+            <Slider {...settings2}>
+              {noticias.map((noticia) => (
+                <MDBCard
+                  className="text-white"
+                  background="dark"
+                  key={noticia.id}
                 >
-                  <img src="/deportes/deporte/Aikido 1.jpg" alt="" />
-
-                  <MDBCarouselCaption
-                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
-                    className="shadow-box-example hoverable"
-                  >
-                    <h5>First slide label</h5>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </MDBCarouselCaption>
-                </MDBCarouselItem>
-                <MDBCarouselItem className="text-center" itemId={1}>
+                  {console.log(noticia)}
                   <img
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                    alt=""
-                    className="img-fluid"
-                  />
-                  <MDBCarouselCaption
-                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
-                    className="shadow-box-example hoverable"
-                  >
-                    <h5>Second slide label</h5>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </MDBCarouselCaption>
-                </MDBCarouselItem>
-
-                <MDBCarouselItem itemId={2}>
-                  <MDBCarouselElement
-                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
+                    src={`http://127.0.0.1:8000${noticia.imagen}`}
+                    className="mr-auto ml-auto"
                     alt="..."
+                    height="450"
                   />
-                  <MDBCarouselCaption
-                    style={{ backgroundColor: "rgba(0,0,0,0.2)" }}
-                    className="shadow-box-example hoverable"
-                  >
-                    <h5>slide label</h5>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </MDBCarouselCaption>
-                </MDBCarouselItem>
-              </MDBCarouselInner>
-            </MDBCarousel>
+
+                  <MDBCardOverlay className="d-flex flex-column justify-content-end">
+                    <div className="texto-noticia rounded p-3">
+                      <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
+                      <MDBCardText>{noticia.subtitulo}</MDBCardText>
+                      <MDBCardText>
+                        {`Creado el ${new Date(
+                          noticia.created_at
+                        ).getDate()} de ${new Date(
+                          noticia.created_at
+                        ).toLocaleDateString(undefined, {
+                          month: "long",
+                        })} de ${new Date(noticia.created_at).getFullYear()}`}
+                      </MDBCardText>
+                    </div>
+                  </MDBCardOverlay>
+                </MDBCard>
+              ))}
+            </Slider>
           </MDBContainer>
         </MDBCol>
         <MDBCol
@@ -97,102 +101,23 @@ export const Destacados = ({ titulo1, titulo2 }) => {
           <MDBContainer fluid className="shadow-5">
             <h2>{titulo2}</h2>
             <Slider {...settings}>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
-              <MDBCard background="dark" className="text-white">
-                <MDBCardImage
-                  overlay
-                  src="https://mdbcdn.b-cdn.net/img/new/slides/017.jpg"
-                  alt="..."
-                />
-                <MDBCardOverlay>
-                  <MDBCardTitle>Card title</MDBCardTitle>
-                  <MDBCardText>
-                    This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer.
-                  </MDBCardText>
-                  <MDBCardText>Last updated 3 mins ago</MDBCardText>
-                </MDBCardOverlay>
-              </MDBCard>
+              {noticias.map((noticia) => (
+                <MDBCard
+                  background="dark"
+                  className="text-white"
+                  key={noticia.id}
+                >
+                  <MDBCardImage
+                    overlay
+                    src={`http://127.0.0.1:8000${noticia.imagen}`}
+                    alt="..."
+                  />
+                  <MDBCardOverlay className="texto-noticia">
+                    <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
+                    <MDBCardText>{noticia.subtitulo}</MDBCardText>
+                  </MDBCardOverlay>
+                </MDBCard>
+              ))}
             </Slider>
           </MDBContainer>
         </MDBCol>

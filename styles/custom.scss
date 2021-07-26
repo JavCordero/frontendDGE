@@ -71,6 +71,28 @@
   }
 }
 
+.cuerpoNoticia {
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: justify;
+  }
+  img {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    width: 60% !important;
+    height: auto !important;
+  }
+}
+
+.texto-noticia {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
 .mr-auto {
   margin-right: auto;
 }
