@@ -21,12 +21,13 @@ import CreatableSelect from "react-select/creatable";
 import LoadTags from "../../hooks/useLoadTags";
 import { CKEditor } from "ckeditor4-react";
 
-import PostNoticia from "../../hooks/usePostNoticia";
+import getNoticiaId from "../../hooks/useGetNoticiaId";
+import editNoticia from "../../hooks/useEditNoticia";
 import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 import router from "next/router";
-import { toast, ToastContainer } from "react-toastify";
 
-export const FormAddNoticia = ({ idUser }) => {
+export const FormEditNoticia = ({ idUser, noticiaId }) => {
   const [step, setStep] = useState(0);
   const [loadArea, setLoadArea] = useState(false);
   const [area, setArea] = useState([]);
@@ -45,7 +46,9 @@ export const FormAddNoticia = ({ idUser }) => {
 
   const imagenInput = useRef();
 
-  const crearNoticia = async (e) => {
+  const notify = (mensaje) => toast.error(mensaje);
+
+  const editarNoticia = async (e) => {
     e.preventDefault();
     let arrayTag = [];
     let arrayLinks = [];
@@ -53,7 +56,8 @@ export const FormAddNoticia = ({ idUser }) => {
       arrayTag.push(tag.label);
     });
     links.forEach((link) => arrayLinks.push(link.label));
-    const nuevo = await PostNoticia(
+    const nuevo = await editNoticia(
+      noticiaId,
       titulo,
       imagen,
       subTitulo,
@@ -64,7 +68,6 @@ export const FormAddNoticia = ({ idUser }) => {
       data,
       arrayLinks
     );
-
     if (nuevo.errors) {
       if (nuevo.errors.titulo) {
         notify("El titulo es obligatorio");
@@ -83,15 +86,13 @@ export const FormAddNoticia = ({ idUser }) => {
       }
     }
     if (nuevo.mensaje) {
-      Swal.fire("Noticia creada con exito", "", "success").then((result) => {
+      Swal.fire("Noticia editada con exito", "", "success").then((result) => {
         if (result.isConfirmed) {
           router.back();
         }
       });
     }
   };
-
-  const notify = (mensaje) => toast.error(mensaje);
 
   const config = {
     removeButtons:
@@ -116,6 +117,26 @@ export const FormAddNoticia = ({ idUser }) => {
     }
     cargarAreas();
     cargarTags();
+
+    async function loadData() {
+      const isLoaded = await getNoticiaId(noticiaId);
+      console.log(isLoaded);
+      setTitulo(isLoaded.titulo);
+      setSubTitulo(isLoaded.subtitulo);
+      setDescripcion(isLoaded.desc_img);
+      setAreaInput(isLoaded.area.id);
+      isLoaded.tags.forEach((tag, index) => {
+        tagSelect.push({ value: index + 1, label: tag.name });
+      });
+
+      isLoaded.links.forEach((link, index) => {
+        links.push({ value: index, label: link });
+      });
+      setData(isLoaded.cuerpo);
+      setLinks([...links]);
+      setTagSelect([...tagSelect]);
+    }
+    loadData();
   }, []);
 
   const onChange = (nextStep) => {
@@ -124,7 +145,6 @@ export const FormAddNoticia = ({ idUser }) => {
 
   const onNext = () => onChange(step + 1);
   const onPrevious = () => onChange(step - 1);
-
   return (
     <div>
       <Steps current={step}>
@@ -133,7 +153,7 @@ export const FormAddNoticia = ({ idUser }) => {
         <Steps.Item title="Vista Previa" description="Noticia" />
       </Steps>
       <hr />
-      <form onSubmit={(e) => crearNoticia(e)}>
+      <form onSubmit={(e) => editarNoticia(e)}>
         {step + 1 === 1 ? (
           <>
             <MDBRow className="mx-5">
@@ -199,7 +219,6 @@ export const FormAddNoticia = ({ idUser }) => {
                   value={areaInput}
                   onChange={(e) => setAreaInput(e.target.value)}
                 >
-                  <option selected>Selecciona una area</option>
                   {loadArea &&
                     area.map((item) => (
                       <option key={item.id} value={item.id}>
@@ -298,7 +317,9 @@ export const FormAddNoticia = ({ idUser }) => {
           Siguiente
         </Button>
       </ButtonGroup>
-      <ToastContainer />
+      <div>
+        <ToastContainer />
+      </div>
     </div>
   );
 };

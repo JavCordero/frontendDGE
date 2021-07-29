@@ -14,6 +14,9 @@ import CheckLogin from "../../hooks/useCheckLogin";
 import Image from "next/image";
 import { MDBBtn } from "mdb-react-ui-kit";
 import LoadNoticias from "../../hooks/useLoadNoticias";
+import Link from "next/link";
+import Swal from "sweetalert2";
+import deleteNoticia from "../../hooks/useDeleteNoticia";
 
 const noticias = () => {
   const router = useRouter();
@@ -42,7 +45,27 @@ const noticias = () => {
 
     verificar();
     LoadItem();
-  }, []);
+  }, [loadData]);
+
+  const eliminarNoticia = async (noticia) => {
+    Swal.fire({
+      title: "Se eliminará la noticia " + noticia.id,
+      text: "Esta acción es irreversible",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: " #d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const eliminado = await deleteNoticia(noticia.id);
+        Swal.fire("Noticia eliminada", "", "success");
+        setLoadData(false);
+        console.log(eliminado);
+      }
+    });
+  };
   return (
     <>
       {isLoged ? (
@@ -106,12 +129,18 @@ const noticias = () => {
                       ))}
                     </td>
                     <td>
-                      <MDBBtn className="p-2" color="danger">
+                      <MDBBtn
+                        onClick={() => eliminarNoticia(noticia)}
+                        className="p-2"
+                        color="danger"
+                      >
                         <Icon size="2x" icon="trash" />
                       </MDBBtn>
-                      <MDBBtn className="p-2" color="warning">
-                        <Icon size="2x" icon="edit" />
-                      </MDBBtn>
+                      <Link href={`/intranet/noticias/edit/${noticia.id}`}>
+                        <MDBBtn className="p-2" color="warning">
+                          <Icon size="2x" icon="edit" />
+                        </MDBBtn>
+                      </Link>
                     </td>
                   </tr>
                 ))

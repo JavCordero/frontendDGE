@@ -1,4 +1,5 @@
-const PostNoticia = async (
+const editNoticia = async (
+  id,
   titulo,
   imagen,
   subtitulo,
@@ -24,7 +25,7 @@ const PostNoticia = async (
     dataIn.append("links[]", link);
   });
 
-  const url = "http://127.0.0.1:8000/api/v1/noticias";
+  const url = "http://127.0.0.1:8000/api/v1/noticias/" + id;
   const res = await fetch(url, {
     method: "POST",
     body: dataIn,
@@ -38,4 +39,4 @@ const PostNoticia = async (
   return data;
 };
 
-export default PostNoticia;
+export default editNoticia;
