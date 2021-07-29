@@ -53,11 +53,30 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center  my-2">
           <FontAwesomeIcon size="6x" icon={faStarOfLife}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Salud</MDBCardTitle>
-            <MDBCardText>Solicitud hora online</MDBCardText>
-            <MDBCardText>Visado licencias medicas</MDBCardText>
-            <MDBCardText>Solicitud hora Psicólogo</MDBCardText>
-            <MDBCardText>Más...</MDBCardText>
+            <MDBCardTitle>
+              <Link href="/salud/">Salud</Link>
+            </MDBCardTitle>
+
+            <MDBCardText>
+              <Link href="/salud/atencion">Solicitud hora online</Link>
+            </MDBCardText>
+
+            <MDBCardText>
+              {" "}
+              <Link href="/salud/visado-certificados-medicos">
+                Visado licencias medicas
+              </Link>
+            </MDBCardText>
+
+            <MDBCardText>
+              <Link href="/salud/atencion?id=psicologia">
+                Solicitud hora Psicólogo
+              </Link>
+            </MDBCardText>
+
+            <MDBCardText>
+              <Link href="/salud/">Más... </Link>
+            </MDBCardText>
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
@@ -147,6 +166,10 @@ export const Unidad = () => {
 
       <ScrollMenu
         wrapperClass="w-100"
+        dragging
+        wheel={false}
+        inertiaScrolling
+        rtl
         data={menu}
         arrowLeft={ArrowLeft}
         arrowRight={ArrowRight}

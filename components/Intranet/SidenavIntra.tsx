@@ -74,7 +74,7 @@ export const SidenavIntra = ({ children }: any) => {
       </div>
       <main
         css={css`
-          margin-left: ${expanded ? "320px" : "80px"} !important;
+          margin-left: ${expanded ? "60px" : "60px"} !important;
           transition-duration: 1s;
           transition-property: margin-left;
         `}

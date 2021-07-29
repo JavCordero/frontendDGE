@@ -1,3 +1,194 @@
-.noticia{
+.noticia {
+  margin-top: 10px;
+  display: grid;
+  grid-template-areas:
+    "header links"
+    "botones links"
+    "fechaDatos links"
+    "contenido links"
+    "tags tags"
+    "volver volver"
+    "relacionados relacionados";
 
+  //seccion header
+  $relacionImagen: 0.5625;
+  $widthImgHeader: 45rem;
+  $heightImgHeader: $widthImgHeader * $relacionImagen;
+  &__header {
+    grid-area: header;
+    //para la imagen principal
+  }
+
+  //seccion links
+  $widthColumnLink: 13rem;
+  $widthLinkContent: 12rem;
+  $topDistanceLinkContent: 1rem;
+  $fontSizeLinks: 1.3rem;
+  &__links {
+    width: $widthColumnLink;
+    grid-area: links;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__links-content {
+    position: sticky;
+    background-color: $gris1;
+    width: $widthLinkContent;
+    height: auto;
+    border-radius: $widthLinkContent * 0.1;
+    padding: $widthLinkContent * 0.04;
+    margin-top: $topDistanceLinkContent;
+    margin-bottom: $topDistanceLinkContent;
+    top: $topDistanceLinkContent;
+  }
+
+  &__links-titulo {
+    color: $Pantone_Black_C;
+    padding-left: 5px;
+    font-size: $fontSizeLinks;
+    font-weight: bold;
+    padding-top: $fontSizeLinks * 0.4;
+    padding-bottom: $fontSizeLinks * 0.4;
+  }
+
+  &__links-content-links {
+    border-top: 2px solid $Black_Shadow;
+
+    & > * {
+      margin: 0;
+      padding: 0;
+      display: block;
+      font-weight: bold;
+      color: $BlueLink1;
+      text-align: center;
+      font-size: $fontSizeLinks * 0.8;
+      font-style: none;
+      outline: none;
+      line-height: $fontSizeLinks * 1.4;
+      font-style: italic;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: $BlueLink2;
+      }
+    }
+    & > *:first-child {
+      margin-top: $fontSizeLinks * 0.4;
+    }
+  }
+  //seccion botones
+  $fontSizeButtons: $fontSizeLinks * 1.2;
+  &__botones {
+    grid-area: botones;
+
+    //para una seccion de botones
+    & > div {
+      margin-top: $fontSizeButtons * 0.4;
+      margin-bottom: $fontSizeButtons * 0.4;
+      display: inline-block;
+      border: 1px solid $Black_Shadow;
+      margin-right: $fontSizeButtons;
+      //caracteristicas del boton
+      & > button {
+        margin: $fontSizeButtons * 0.3;
+        font-size: $fontSizeButtons;
+        background: transparent;
+        outline: none;
+        border: none;
+        color: red;
+        text-decoration: underline;
+        font-weight: bold;
+        &:hover {
+          opacity: 0.8;
+        }
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+  //seccion fecha
+  $fontSizeFecha: $fontSizeLinks * 0.9;
+  &__fecha-datos {
+    & > * {
+      grid-area: fechaDatos;
+      display: inline-block;
+      font-size: $fontSizeFecha;
+      color: $Pantone_540_C;
+      font-style: italic;
+      margin: 0;
+      padding: 0;
+      margin-right: $fontSizeFecha * 1.1;
+    }
+  }
+  //seccion contenido
+  &__content {
+    grid-area: contenido;
+    border-top: 1px solid $Black_Shadow;
+    border-bottom: 1px solid $Black_Shadow;
+  }
+  //seccion tags
+  $fontSizeTags: $fontSizeLinks * 0.9;
+  &__tags {
+    grid-area: tags;
+    border-top: 1px solid $Black_Shadow;
+    padding-top: $fontSizeTags * 0.5;
+    & > * {
+      font-weight: bold;
+      color: white;
+      background: $Pantone_2138_C;
+      font-size: $fontSizeTags;
+      text-decoration: none;
+      margin-right: $fontSizeTags * 0.4;
+      padding: $fontSizeTags * 0.4;
+      border-radius: $fontSizeTags * 0.5;
+      &::before {
+        content: "#";
+      }
+    }
+  }
+  //seccion volver
+  &__volver {
+    grid-area: volver;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: $fontSizeLinks * 0.6;
+    & > * {
+      font-size: $fontSizeLinks * 1.3;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      font-weight: bold;
+      color: $BlueLink1;
+      text-align: center;
+      font-style: none;
+      outline: none;
+      font-style: italic;
+      text-decoration: underline;
+      cursor: pointer;
+      &:hover {
+        color: $BlueLink2;
+      }
+    }
+  }
+  //seccion relacionados
+  &__relacionados {
+    grid-area: relacionados;
+  }
+
+  @media screen and (max-width: $widthImgHeader + $widthColumnLink + $widthImgHeader*0.18) {
+    grid-template-areas:
+      "header header"
+      "botones botones"
+      "fechaDatos fechaDatos"
+      "contenido contenido"
+      "links links"
+      "tags tags"
+      "volver volver"
+      "relacionados relacionados";
+  }
 }

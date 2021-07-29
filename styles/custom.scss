@@ -1,8 +1,8 @@
 @import "./layout/navbar.scss";
+@import "./layout/Header.scss";
 @import "./login/login.scss";
 @import "./noticias/noticias.scss";
 @import "./noticias/noticia.scss";
-@import "./noticias/HeaderNoticia.scss";
 
 @import "./deportes/deportes.scss";
 
@@ -15,6 +15,7 @@
 @import "./salud/AtencionSintomas.scss";
 @import "./salud/visado-certificados-medicos.scss";
 @import "./salud/TarjetaInstruccion.scss";
+@import "./noticias/NoticiasPreview.scss";
 
 .index-noticias-scroll {
   overflow-y: hidden;
@@ -68,6 +69,28 @@
   &::-webkit-scrollbar-thumb {
     background: $Pantone_540_C;
     border-radius: 10px;
+  }
+}
+
+.cuerpoNoticia {
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: justify;
+  }
+  img {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    width: 60% !important;
+    height: auto !important;
+  }
+}
+
+.texto-noticia {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 

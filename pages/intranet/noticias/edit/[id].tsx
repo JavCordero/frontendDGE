@@ -1,13 +1,16 @@
-import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { Loader, Placeholder } from "rsuite";
-import { AuthContext } from "../../../context/AuthContext";
-import CheckLogin from "../../../hooks/useCheckLogin";
-import { FormAddNoticia } from "../../../components/Intranet/FormAddNoticia";
+import { AuthContext } from "../../../../context/AuthContext";
+import CheckLogin from "../../../../hooks/useCheckLogin";
+import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
+import { FormEditNoticia } from "../../../../components/Intranet/FormEditNoticia";
 
-const agregarnoticia = () => {
+const Noticia = () => {
   const router = useRouter();
+  const {
+    query: { id },
+  } = router;
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
   const [idUser, setIdUser] = useState("");
@@ -36,7 +39,7 @@ const agregarnoticia = () => {
       ) : (
         <div>
           <div className="p-5 text-center bg-light">
-            <h1 className="mb-3">Agregar Nueva Noticia</h1>
+            <h1 className="mb-3">Editar Noticia</h1>
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
@@ -45,13 +48,13 @@ const agregarnoticia = () => {
             <MDBBreadcrumbItem>
               <a href="/intranet/noticias">Noticias</a>
             </MDBBreadcrumbItem>
-            <MDBBreadcrumbItem active>Nueva Noticia</MDBBreadcrumbItem>
+            <MDBBreadcrumbItem active>Editar</MDBBreadcrumbItem>
           </MDBBreadcrumb>
-          <FormAddNoticia idUser={idUser} />
+          <FormEditNoticia idUser={idUser} noticiaId={id} />
         </div>
       )}
     </>
   );
 };
 
-export default agregarnoticia;
+export default Noticia;

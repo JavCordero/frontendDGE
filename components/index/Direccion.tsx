@@ -14,7 +14,7 @@ export const Direccion = () => {
   return (
     <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
       <h2 className="mt-5 mb-4">Dirección General Estudiantil DGE</h2>
-      <MDBRow className="pb-4">
+      <MDBRow className="pb-4 justify-content-center">
         <MDBCol>
           <MDBCard
             className="my-2"
