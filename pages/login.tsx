@@ -28,6 +28,7 @@ const login = () => {
         checkLogin(verificacion.rol);
         router.push("/intranet");
       } else {
+        notify();
         setIsLoged(false);
       }
     }
