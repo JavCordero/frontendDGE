@@ -19,7 +19,7 @@ import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import LoadAreas from "../../hooks/useLoadArea";
 import CreatableSelect from "react-select/creatable";
 import LoadTags from "../../hooks/useLoadTags";
-import { CKEditor } from "ckeditor4-react";
+import CKEditor from "ckeditor4-react-advanced";
 
 import PostNoticia from "../../hooks/usePostNoticia";
 import Swal from "sweetalert2";
@@ -250,9 +250,7 @@ export const FormAddNoticia = ({ idUser }) => {
               <CKEditor
                 type="classic"
                 onChange={(e) => setData(e.editor.getData())}
-                initData={
-                  <div dangerouslySetInnerHTML={{ __html: data }}></div>
-                }
+                data={data}
                 config={config}
               />
             </MDBCol>
