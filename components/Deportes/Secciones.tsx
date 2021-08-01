@@ -22,6 +22,7 @@ import { faHubspot } from "@fortawesome/free-brands-svg-icons";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Link from "next/link";
 import Image from "next/image";
+import TitleLine from "../others/TitleLine";
 
 export const Secciones = () => {
   const list = [
@@ -111,14 +112,14 @@ export const Secciones = () => {
 
   const menu = menuItems;
   return (
-    <MDBContainer fluid className="w-100">
-      <h2 className="mt-5 mb-4">Secciones</h2>
+    <MDBContainer fluid className="w-100 p-0 pb-5 bg-light shadow-5 rounded">
+      <TitleLine>Secciones</TitleLine>
 
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

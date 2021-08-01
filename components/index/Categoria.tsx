@@ -1,10 +1,11 @@
 import React from "react";
 import { MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import TitleLine from "../others/TitleLine";
 
 export const Categoria = () => {
   return (
-    <MDBContainer fluid className="bg-light shadow-5 text-dark pb-5">
-      <h2 className="mt-5 mb-4">Categorias</h2>
+    <MDBContainer fluid className="bg-light shadow-5 rounded text-dark pb-5 p-0 mt-2">
+      <TitleLine>Categorias</TitleLine>
       <MDBContainer>
         <MDBBtn outline className="m-2">
           #Actividad
