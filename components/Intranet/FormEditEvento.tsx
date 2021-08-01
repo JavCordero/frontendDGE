@@ -12,13 +12,13 @@ import CreatableSelect from "react-select/creatable";
 import LoadTags from "../../hooks/useLoadTags";
 import CKEditor from "ckeditor4-react-advanced";
 
-import getNoticiaId from "../../hooks/useGetNoticiaId";
-import editNoticia from "../../hooks/useEditNoticia";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from "react-toastify";
 import router from "next/router";
+import { toast, ToastContainer } from "react-toastify";
+import getEventoId from "../../hooks/useGetEventoId";
+import EditEvento from "../../hooks/useEditEvento";
 
-export const FormEditNoticia = ({ idUser, noticiaId }) => {
+export const FormEditEvento = ({ idUser, eventoId }) => {
   const [step, setStep] = useState(0);
   const [loadArea, setLoadArea] = useState(false);
   const [area, setArea] = useState([]);
@@ -29,61 +29,52 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
   const [tagSelect, setTagSelect] = useState([]);
 
   const [titulo, setTitulo] = useState("");
-  const [subTitulo, setSubTitulo] = useState("");
+  const [inicio, setInicio] = useState("2020-01-01 01:01:01");
+  const [fin, setFin] = useState("2020-01-01 01:01:01");
+
   const [descipcion, setDescripcion] = useState("");
   const [areaInput, setAreaInput] = useState("");
   const [imagen, setImagen] = useState<File | undefined>(undefined);
-  const [links, setLinks] = useState([]);
 
   const imagenInput = useRef();
 
-  const notify = (mensaje) => toast.error(mensaje);
-
-  const editarNoticia = async (e) => {
+  const editarEvento = async (e) => {
     e.preventDefault();
     let arrayTag = [];
-    let arrayLinks = [];
     tagSelect.forEach((tag) => {
       arrayTag.push(tag.label);
     });
-    links.forEach((link) => arrayLinks.push(link.label));
-    const nuevo = await editNoticia(
-      noticiaId,
+    const nuevo = await EditEvento(
+      eventoId,
       titulo,
       imagen,
-      subTitulo,
       descipcion,
       areaInput,
       idUser,
       arrayTag,
       data,
-      arrayLinks
+      inicio,
+      fin
     );
+
     if (nuevo.errors) {
       if (nuevo.errors.titulo) {
         notify("El titulo es obligatorio");
-      }
-      if (nuevo.errors.subtitulo) {
-        notify("El subtitulo es obligatorio");
-      }
-      if (nuevo.errors.imagen) {
-        notify("La imagen es obligatoria y en formato JPG, JPGE o PNG");
-      }
-      if (nuevo.errors.descImg) {
-        notify("La descripción de la imagen es obligatoria");
       }
       if (nuevo.errors.area_id) {
         notify("La area es obligatoria");
       }
     }
     if (nuevo.mensaje) {
-      Swal.fire("Noticia editada con exito", "", "success").then((result) => {
+      Swal.fire("Evento editado con exito", "", "success").then((result) => {
         if (result.isConfirmed) {
           router.back();
         }
       });
     }
   };
+
+  const notify = (mensaje) => toast.error(mensaje);
 
   const config = {
     removeButtons:
@@ -110,21 +101,18 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
     cargarTags();
 
     async function loadData() {
-      const isLoaded = await getNoticiaId(noticiaId);
+      const isLoaded = await getEventoId(eventoId);
       console.log(isLoaded);
       setTitulo(isLoaded.titulo);
-      setSubTitulo(isLoaded.subtitulo);
+      setFin(isLoaded.fin.replace(" ", "T"));
+      setInicio(isLoaded.inicio.replace(" ", "T"));
       setDescripcion(isLoaded.desc_img);
       setAreaInput(isLoaded.area.id);
       isLoaded.tags.forEach((tag, index) => {
         tagSelect.push({ value: index + 1, label: tag.name });
       });
 
-      isLoaded.links.forEach((link, index) => {
-        links.push({ value: index, label: link });
-      });
       setData(isLoaded.cuerpo);
-      setLinks([...links]);
       setTagSelect([...tagSelect]);
     }
     loadData();
@@ -136,44 +124,59 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
 
   const onNext = () => onChange(step + 1);
   const onPrevious = () => onChange(step - 1);
+
   return (
     <div>
       <Steps current={step}>
-        <Steps.Item title="Datos" description="Noticia" />
-        <Steps.Item title="Cuerpo" description="Noticia" />
-        <Steps.Item title="Vista Previa" description="Noticia" />
+        <Steps.Item title="Datos" description="Evento" />
+        <Steps.Item title="Cuerpo" description="Evento" />
+        <Steps.Item title="Vista Previa" description="Evento" />
       </Steps>
       <hr />
-      <form onSubmit={(e) => editarNoticia(e)}>
+      <form onSubmit={(e) => editarEvento(e)}>
         {step + 1 === 1 ? (
           <>
             <MDBRow className="mx-2">
-              <MDBCol className="my-3" size="12" md="6">
+              <MDBCol className="my-3" size="12" md="12">
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
                   className="form-control"
                   type="text"
                   id="titulo"
-                  placeholder="Titulo de la noticia"
+                  placeholder="Titulo del evento"
                   name="titulo"
                   value={titulo}
                   onChange={(e) => setTitulo(e.target.value)}
                 />
               </MDBCol>
+            </MDBRow>
+            <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
-                <ControlLabel for="subtitulo">Subtitulo</ControlLabel>
+                <ControlLabel for="inicio">Fecha Inicio</ControlLabel>
                 <input
                   className="form-control"
-                  type="text"
-                  id="subtitulo"
-                  placeholder="Subtitulo de la noticia"
-                  name="subtitulo"
-                  value={subTitulo}
-                  onChange={(e) => setSubTitulo(e.target.value)}
+                  type="datetime-local"
+                  id="inicio"
+                  name="inicio"
+                  value={inicio}
+                  onChange={(e) => {
+                    setInicio(e.target.value);
+                  }}
+                />
+              </MDBCol>
+              <MDBCol className="my-3" size="12" md="6">
+                <ControlLabel for="fin">Fecha Termino</ControlLabel>
+                <input
+                  className="form-control"
+                  type="datetime-local"
+                  id="fin"
+                  name="fin"
+                  value={fin}
+                  onChange={(e) => setFin(e.target.value)}
+                  min={inicio}
                 />
               </MDBCol>
             </MDBRow>
-
             <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="imagen">Imagen</ControlLabel>
@@ -181,7 +184,6 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   className="form-control"
                   type="file"
                   id="imagen"
-                  placeholder="Imagen de la noticia"
                   name="imagen"
                   ref={imagenInput}
                   onChange={(e) => setImagen(e.target.files[0])}
@@ -210,6 +212,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   value={areaInput}
                   onChange={(e) => setAreaInput(e.target.value)}
                 >
+                  <option selected>Selecciona una area</option>
                   {loadArea &&
                     area.map((item) => (
                       <option key={item.id} value={item.id}>
@@ -227,28 +230,13 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                     name="tags"
                     isClearable
                     isMulti
-                    placeholder="Agrega tags a la noticia..."
+                    placeholder="Agrega tags a los eventos..."
                     options={tags}
                     value={tagSelect}
                     menuPlacement="auto"
                     onChange={(e) => setTagSelect(e)}
                   />
                 )}
-              </MDBCol>
-            </MDBRow>
-            <MDBRow className="mx-2 justify-content-center align-items-center">
-              <MDBCol className="my-3" size="12" md="6">
-                <ControlLabel for="links">Links de interes</ControlLabel>
-                <CreatableSelect
-                  id="links"
-                  name="links"
-                  isClearable
-                  isMulti
-                  placeholder="Agrega Links de interes..."
-                  value={links}
-                  menuPlacement="auto"
-                  onChange={(e) => setLinks(e)}
-                />
               </MDBCol>
             </MDBRow>
           </>
@@ -280,7 +268,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
               <Button type="submit" size="lg" color="green">
                 Publicar
               </Button>
-              <i> *La noticia será publicada según el area</i>
+              <i> *El evento será publicado según el area</i>
             </ButtonToolbar>
           </>
         ) : null}
@@ -306,9 +294,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
           Siguiente
         </Button>
       </ButtonGroup>
-      <div>
-        <ToastContainer />
-      </div>
+      <ToastContainer />
     </div>
   );
 };

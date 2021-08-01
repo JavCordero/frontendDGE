@@ -16,6 +16,7 @@ import {
 } from "mdb-react-ui-kit";
 import React from "react";
 import Slider from "react-slick";
+import { host } from "../../public/js/host";
 
 export const Destacados = ({ titulo1, titulo2, noticias }) => {
   const settings = {
@@ -67,7 +68,7 @@ export const Destacados = ({ titulo1, titulo2, noticias }) => {
                 >
                   {console.log(noticia)}
                   <img
-                    src={`http://127.0.0.1:8000${noticia.imagen}`}
+                    src={`${host}${noticia.imagen}`}
                     className="mr-auto ml-auto"
                     alt="..."
                     height="450"
@@ -109,7 +110,7 @@ export const Destacados = ({ titulo1, titulo2, noticias }) => {
                 >
                   <MDBCardImage
                     overlay
-                    src={`http://127.0.0.1:8000${noticia.imagen}`}
+                    src={`${host}${noticia.imagen}`}
                     alt="..."
                   />
                   <MDBCardOverlay className="texto-noticia">

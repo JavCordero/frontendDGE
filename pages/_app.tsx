@@ -17,7 +17,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import type { AppProps } from "next/app";
 import * as React from "react";
-import NavbarPage from "../components/layout/NavbarPage";
 import Footer from "../components/layout/Footer";
 
 import "@fullcalendar/common/main.css";
@@ -29,6 +28,8 @@ import { useRouter } from "next/router";
 import { SidenavIntra } from "../components/Intranet/SidenavIntra";
 import { AuthContext, AuthProvider } from "../context/AuthContext";
 import Asistente from "../components/others/Asistente";
+import { NavbarPublic } from "../components/layout/NavbarPublic";
+import NavbarPage from "../components/layout/NavbarPage";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { authState } = React.useContext(AuthContext);
@@ -63,9 +64,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 Tienes preguntas, haz clic acá…
               </Asistente>
             )}
-            <NavbarPage>
+            <NavbarPublic>
               <Component {...pageProps} />
-            </NavbarPage>
+            </NavbarPublic>
           </>
         )}
       </AuthProvider>

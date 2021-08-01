@@ -1,6 +1,7 @@
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { Placeholder } from "rsuite";
 import { Secciones } from "../../components/Deportes/Secciones";
 import { Destacados } from "../../components/index/Destacados";
 import LoadNoticias from "../../hooks/useLoadNoticias";
@@ -10,7 +11,7 @@ const index = () => {
   const [noticias, setNoticias] = useState([]);
   useEffect(() => {
     const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias();
+      const noticiasArray = await LoadNoticias("deportes");
       console.log(noticiasArray);
       if (noticiasArray.data.length > 0) {
         setisLoadNotice(true);
@@ -27,7 +28,16 @@ const index = () => {
         </MDBBreadcrumbItem>
         <MDBBreadcrumbItem active>Deportes</MDBBreadcrumbItem>
       </MDBBreadcrumb>
-      <Destacados noticias={noticias} titulo1="Deportes" titulo2="Destacados" />
+
+      {isLoadNotice ? (
+        <Destacados
+          noticias={noticias}
+          titulo1="Deportes"
+          titulo2="Destacados"
+        />
+      ) : (
+        <Placeholder.Graph active height={450} />
+      )}
       <Secciones />
     </>
   );

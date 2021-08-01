@@ -169,10 +169,7 @@ export const Unidad = () => {
         dragging
         wheel={false}
         inertiaScrolling
-        rtl
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

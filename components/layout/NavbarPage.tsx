@@ -32,8 +32,6 @@ const NavbarPage = ({ children }: any) => {
   const [collapseDeportes, setCollapseDeportes] = useState(false);
   const [collapseArte, setCollapseArte] = useState(false);
   const [collapseJardin, setCollapseJardin] = useState(false);
-  const [collapseIncluye, setCollapseIncluye] = useState(false);
-
   const router = useRouter();
 
   function openNav() {

@@ -1,5 +1,6 @@
+import { host } from "../public/js/host";
 const LoadTags = async () => {
-  const url = "http://127.0.0.1:8000/api/v1/tags";
+  const url = host + "/api/v1/tags";
   const res = await fetch(url, {
     method: "GET",
     headers: {

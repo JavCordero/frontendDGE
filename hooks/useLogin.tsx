@@ -1,9 +1,10 @@
+import { host } from "../public/js/host";
 const ingresarSistema = async (
   email: string,
   password: string,
   remember_me: boolean
 ) => {
-  const url = "http://127.0.0.1:8000/api/v1/login";
+  const url = host + "/api/v1/login";
   const res = await fetch(url, {
     method: "POST",
     body: JSON.stringify({ email, password, remember_me }),

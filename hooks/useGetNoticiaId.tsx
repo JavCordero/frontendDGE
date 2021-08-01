@@ -1,5 +1,7 @@
+import { host } from "../public/js/host";
+
 const getNoticiaId = async (id) => {
-  const url = "http://127.0.0.1:8000/api/v1/noticias/" + id;
+  const url = host + "/api/v1/noticias/" + id;
   const res = await fetch(url, {
     method: "GET",
     headers: {

@@ -35,11 +35,16 @@ const login = () => {
   }, []);
 
   const iniciarSesion = async () => {
+    setIsLoged(true);
     const peticion = await ingresarSistema(email, password, true);
-
+    console.log(peticion);
     if (peticion.mensaje === "no autorizado") {
       notify();
-      return;
+      setIsLoged(false);
+    } else if (peticion.errors) {
+      notify();
+
+      setIsLoged(false);
     }
 
     if (peticion.access_token) {
@@ -79,6 +84,7 @@ const login = () => {
           </div>
           {/* login form */}
           <form
+            id="formulario"
             className="login__form"
             onSubmit={handlerSubmit}
             noValidate={true}
@@ -96,7 +102,6 @@ const login = () => {
                 />
                 <label htmlFor="username" className="fas fa-user" />
               </div>
-              {errores.email && <p>error en email</p>}
               <div className="login__input">
                 <input
                   id="password"
