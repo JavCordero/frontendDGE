@@ -11,7 +11,7 @@ import React from "react";
 
 export const InfraestructuraPresentacion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
+    <MDBContainer fluid className="w-100 bg-light shadow-5 rounded text-dark pb-5">
       <h2 className="mt-5 mb-4">Infraestructura Deportiva</h2>
       <MDBRow className="px-4">
         <MDBCol>
