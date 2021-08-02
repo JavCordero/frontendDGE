@@ -24,12 +24,6 @@ export const NavbarPublic = ({ children }: any) => {
   const [activeKey, setActiveKey] = useState("1");
   const router = useRouter();
 
-  async function salir() {
-    await Logout();
-    localStorage.clear();
-    router.push("/login");
-  }
-
   function handleToggle() {
     setExpanded(!expanded);
   }
@@ -41,7 +35,7 @@ export const NavbarPublic = ({ children }: any) => {
     <>
       <div className={"sidenav__intranet"}>
         <Sidenav
-          className="sidenav__color scrollable"
+          className="sidenav__color  scrollable"
           css={css`
             width: ${expanded ? "250px" : "55px"};
             transition-duration: 0.5s;
@@ -60,8 +54,8 @@ export const NavbarPublic = ({ children }: any) => {
             onChange={handleToggle}
             checked={expanded}
           />
-          <Sidenav.Body>
-            <Nav>
+          <Sidenav.Body className="">
+            <Nav className="">
               <Link href="/">
                 <Nav.Item
                   className="sidenav__color"
@@ -82,6 +76,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="2"
                 title="Beneficios"
+                open={false}
+                onToggle={() => router.push("/beneficios")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
@@ -107,6 +103,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="3"
                 title="Salud"
+                open={false}
+                onToggle={() => router.push("/salud")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
@@ -135,6 +133,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="4"
                 title="Deportes"
+                open={false}
+                onToggle={() => router.push("/deportes")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
@@ -173,6 +173,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="5"
                 title="Arte y Cultura"
+                open={false}
+                onToggle={() => router.push("/arte-cultura")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
@@ -197,6 +199,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="6"
                 title="Jardín infantil Taqinki"
+                open={false}
+                onToggle={() => router.push("/jardintaquinki")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
@@ -221,6 +225,8 @@ export const NavbarPublic = ({ children }: any) => {
               <Dropdown
                 eventKey="8"
                 title="Inclusión UCN"
+                open={false}
+                onToggle={() => router.push("/inclusion")}
                 icon={
                   <FontAwesomeIcon
                     className="rs-icon"
