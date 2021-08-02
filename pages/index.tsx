@@ -7,6 +7,7 @@ import { Destacados } from "../components/index/Destacados";
 import { Direccion } from "../components/index/Direccion";
 import { Unidad } from "../components/index/Unidad";
 import LoadNoticias from "../hooks/useLoadNoticias";
+import LoadEventosNoPaginate from "../hooks/useLoadEventosNoPaginate";
 
 export default function Home() {
   const [isLoadNotice, setisLoadNotice] = useState(false);
@@ -15,7 +16,6 @@ export default function Home() {
   useEffect(() => {
     const noticiasListas = async () => {
       const noticiasArray = await LoadNoticias();
-      console.log(noticiasArray);
       if (noticiasArray.data.length > 0) {
         setisLoadNotice(true);
         setNoticias(noticiasArray.data);
@@ -37,6 +37,7 @@ export default function Home() {
       <Unidad />
       <Direccion />
       <Calendario />
+
       <Categoria />
     </>
   );
