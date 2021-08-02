@@ -12,6 +12,7 @@ export const Calendario = () => {
   const [isLoadEventos, setIsLoadEventos] = useState(false);
   const [areaSelect, setAreaSelect] = useState("");
   const [eventList, setEventList] = useState([]);
+  const [changeArea, setChangeArea] = useState(0);
 
   useEffect(() => {
     setIsLoadEventos(false);
@@ -41,7 +42,7 @@ export const Calendario = () => {
     };
     EventosListos();
     console.log(eventList);
-  }, [areaSelect]);
+  }, [areaSelect, changeArea]);
 
   return (
     <MDBContainer fluid className="mt-4">
@@ -55,20 +56,30 @@ export const Calendario = () => {
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               events={eventList}
-              headerToolbar={{ end: "prev,next,Salud,Deportes" }}
+              headerToolbar={{ end: "prev,next,Salud,Deportes,Beneficios" }}
               customButtons={{
                 Salud: {
                   text: "Salud",
                   click: () => {
-                    setAreaSelect("salud");
                     setEventList([]);
+                    setChangeArea(changeArea + 1);
+                    setAreaSelect("salud");
                   },
                 },
                 Deportes: {
                   text: "Deportes",
                   click: () => {
-                    setAreaSelect("deportes");
                     setEventList([]);
+                    setChangeArea(changeArea + 1);
+                    setAreaSelect("deportes");
+                  },
+                },
+                Beneficios: {
+                  text: "Beneficios",
+                  click: () => {
+                    setEventList([]);
+                    setChangeArea(changeArea + 1);
+                    setAreaSelect("beneficios");
                   },
                 },
               }}
