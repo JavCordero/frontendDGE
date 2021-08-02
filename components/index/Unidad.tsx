@@ -21,6 +21,7 @@ import {
 
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Link from "next/link";
+import TitleLine from "../others/TitleLine";
 
 export const Unidad = () => {
   const list = [
@@ -161,18 +162,15 @@ export const Unidad = () => {
 
   const menu = menuItems;
   return (
-    <MDBContainer fluid className="w-100">
-      <h2 className="mt-5 mb-4">Unidad de servicio y apoyo estudiantil UCN</h2>
+    <MDBContainer fluid className="w-100 p-0">
+      <TitleLine>Unidad de servicio y apoyo estudiantil UCN</TitleLine>
 
       <ScrollMenu
         wrapperClass="w-100"
         dragging
         wheel={false}
         inertiaScrolling
-        rtl
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

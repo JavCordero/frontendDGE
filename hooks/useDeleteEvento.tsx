@@ -1,6 +1,6 @@
 import { host } from "../public/js/host";
-const deleteNoticia = async (id) => {
-  const url = host + "/api/v1/noticias/" + id;
+const deleteEvento = async (id) => {
+  const url = host + "/api/v1/eventos/" + id;
   const res = await fetch(url, {
     method: "DELETE",
     headers: {
@@ -14,4 +14,4 @@ const deleteNoticia = async (id) => {
   return data;
 };
 
-export default deleteNoticia;
+export default deleteEvento;

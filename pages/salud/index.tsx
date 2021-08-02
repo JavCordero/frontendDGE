@@ -4,13 +4,14 @@ import Link from "next/link";
 import { Destacados } from "../../components/index/Destacados";
 import { Secciones } from "../../components/salud/Secciones";
 import LoadNoticias from "../../hooks/useLoadNoticias";
+import { Placeholder } from "rsuite";
 
 const index = () => {
   const [isLoadNotice, setisLoadNotice] = useState(false);
   const [noticias, setNoticias] = useState([]);
   useEffect(() => {
     const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias();
+      const noticiasArray = await LoadNoticias("salud");
       console.log(noticiasArray);
       if (noticiasArray.data.length > 0) {
         setisLoadNotice(true);
@@ -27,7 +28,12 @@ const index = () => {
         </MDBBreadcrumbItem>
         <MDBBreadcrumbItem active>Salud</MDBBreadcrumbItem>
       </MDBBreadcrumb>
-      <Destacados noticias={noticias} titulo1="Salud" titulo2="Destacados" />
+
+      {isLoadNotice ? (
+        <Destacados noticias={noticias} titulo1="Salud" titulo2="Destacados" />
+      ) : (
+        <Placeholder.Graph active height={450} />
+      )}
       <Secciones />
     </>
   );

@@ -1,5 +1,6 @@
+import { host } from "../public/js/host";
 const CheckLogin = async () => {
-  const url = "http://127.0.0.1:8000/api/v1/user";
+  const url = host + "/api/v1/user";
   const res = await fetch(url, {
     method: "GET",
     headers: {

@@ -11,7 +11,7 @@ import React from "react";
 
 export const InternoPresentacion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
+    <MDBContainer fluid className="w-100 bg-light shadow-5 rounded text-dark pb-5">
       <h2 className="mt-5 mb-4">Deporte Interno</h2>
       <MDBRow className="px-4">
         <MDBCol>

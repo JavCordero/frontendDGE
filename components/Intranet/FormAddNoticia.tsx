@@ -4,22 +4,13 @@ import {
   ButtonGroup,
   ButtonToolbar,
   ControlLabel,
-  Dropdown,
-  Form,
-  FormControl,
-  FormGroup,
-  HelpBlock,
-  Input,
-  Panel,
-  SelectPicker,
   Steps,
-  TagPicker,
 } from "rsuite";
 import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import LoadAreas from "../../hooks/useLoadArea";
 import CreatableSelect from "react-select/creatable";
 import LoadTags from "../../hooks/useLoadTags";
-import { CKEditor } from "ckeditor4-react";
+import CKEditor from "ckeditor4-react-advanced";
 
 import PostNoticia from "../../hooks/usePostNoticia";
 import Swal from "sweetalert2";
@@ -95,7 +86,7 @@ export const FormAddNoticia = ({ idUser }) => {
 
   const config = {
     removeButtons:
-      "Source,Save,NewPage,Preview,Templates,PasteText,PasteFromWord,Replace,Find,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,Unlink,Anchor,Flash,Table,PageBreak,Maximize,ShowBlocks,About",
+      "NewPage,Templates,PasteFromWord,Replace,Find,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,Blockquote,CreateDiv,BidiLtr,BidiRtl,Language,Unlink,Anchor,Flash,Table,PageBreak,Save,ShowBlocks,About",
     height: "600px",
   };
 
@@ -136,7 +127,7 @@ export const FormAddNoticia = ({ idUser }) => {
       <form onSubmit={(e) => crearNoticia(e)}>
         {step + 1 === 1 ? (
           <>
-            <MDBRow className="mx-5">
+            <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
@@ -163,7 +154,7 @@ export const FormAddNoticia = ({ idUser }) => {
               </MDBCol>
             </MDBRow>
 
-            <MDBRow className="mx-5">
+            <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="imagen">Imagen</ControlLabel>
                 <input
@@ -189,7 +180,7 @@ export const FormAddNoticia = ({ idUser }) => {
                 />
               </MDBCol>
             </MDBRow>
-            <MDBRow className="mx-5">
+            <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="areaInput">Area</ControlLabel>
                 <select
@@ -226,7 +217,7 @@ export const FormAddNoticia = ({ idUser }) => {
                 )}
               </MDBCol>
             </MDBRow>
-            <MDBRow className="mx-5 justify-content-center align-items-center">
+            <MDBRow className="mx-2 justify-content-center align-items-center">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="links">Links de interes</ControlLabel>
                 <CreatableSelect
@@ -245,14 +236,12 @@ export const FormAddNoticia = ({ idUser }) => {
         ) : null}
 
         {step + 1 === 2 ? (
-          <MDBRow className="mx-5">
+          <MDBRow className="mx-2">
             <MDBCol className="my-3" size="12">
               <CKEditor
                 type="classic"
                 onChange={(e) => setData(e.editor.getData())}
-                initData={
-                  <div dangerouslySetInnerHTML={{ __html: data }}></div>
-                }
+                data={data}
                 config={config}
               />
             </MDBCol>
@@ -260,7 +249,7 @@ export const FormAddNoticia = ({ idUser }) => {
         ) : null}
         {step + 1 === 3 ? (
           <>
-            <MDBRow className="mx-5">
+            <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12">
                 <div
                   className="cuerpoNoticia"

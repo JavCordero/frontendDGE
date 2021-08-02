@@ -1,8 +1,8 @@
 import { host } from "../public/js/host";
-const deleteNoticia = async (id) => {
-  const url = host + "/api/v1/noticias/" + id;
+const LoadEventos = async (area = "", tag = "") => {
+  const url = `${host}/api/v1/eventos?area=${area}&tag=${tag}&paginate=true`;
   const res = await fetch(url, {
-    method: "DELETE",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
@@ -14,4 +14,4 @@ const deleteNoticia = async (id) => {
   return data;
 };
 
-export default deleteNoticia;
+export default LoadEventos;

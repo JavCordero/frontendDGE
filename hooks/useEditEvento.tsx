@@ -1,19 +1,21 @@
 import { host } from "../public/js/host";
-const PostNoticia = async (
+const EditEvento = async (
+  id,
   titulo,
   imagen,
-  subtitulo,
   descipcion,
   area,
   id_user,
   tags,
   cuerpo,
-  links
+  inicio,
+  fin
 ) => {
   const dataIn = new FormData();
-  dataIn.append("imagen", imagen);
+  if (imagen !== undefined) {
+    dataIn.append("imagen", imagen);
+  }
   dataIn.append("titulo", titulo);
-  dataIn.append("subtitulo", subtitulo);
   dataIn.append("descImg", descipcion);
   dataIn.append("area_id", area);
   dataIn.append("user_id", id_user);
@@ -21,10 +23,14 @@ const PostNoticia = async (
   tags.forEach((tag) => {
     dataIn.append("tag[]", tag);
   });
-  links.forEach((link) => {
-    dataIn.append("links[]", link);
-  });
-  const url = host + "/api/v1/noticias";
+  if (inicio === "") {
+    dataIn.append("inicio", new Date(Date.now()).toISOString().slice(0, 16));
+  } else {
+    dataIn.append("inicio", inicio);
+  }
+  dataIn.append("fin", fin);
+
+  const url = host + "/api/v1/eventos/" + id;
   const res = await fetch(url, {
     method: "POST",
     body: dataIn,
@@ -38,4 +44,4 @@ const PostNoticia = async (
   return data;
 };
 
-export default PostNoticia;
+export default EditEvento;

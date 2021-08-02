@@ -32,6 +32,7 @@
     "babel-plugin-emotion": "^11.0.0",
     "bootstrap": "^5.0.0-beta3",
     "ckeditor4-react": "^2.0.0-rc.2",
+    "ckeditor4-react-advanced": "^1.1.7",
     "fullcalendar": "^5.8.0",
     "html-react-parser": "^1.2.7",
     "mdb-react-ui-kit": "^1.1.0",

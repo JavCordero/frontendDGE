@@ -73,7 +73,9 @@ const index = () => {
                     Permite crear, editar, eliminar y visualizar los eventos del
                     Portal DGE.
                   </MDBCardText>
-                  <MDBBtn href="#">Ir</MDBBtn>
+                  <Link href="/intranet/eventos">
+                    <MDBBtn>Ir</MDBBtn>
+                  </Link>
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>

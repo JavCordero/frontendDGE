@@ -1,3 +1,4 @@
+import { host } from "../public/js/host";
 const editNoticia = async (
   id,
   titulo,
@@ -24,8 +25,7 @@ const editNoticia = async (
   links.forEach((link) => {
     dataIn.append("links[]", link);
   });
-
-  const url = "http://127.0.0.1:8000/api/v1/noticias/" + id;
+  const url = host + "/api/v1/noticias/" + id;
   const res = await fetch(url, {
     method: "POST",
     body: dataIn,
