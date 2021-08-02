@@ -1,6 +1,6 @@
 import { host } from "../public/js/host";
-const LoadEventos = async (area = "", tag = "") => {
-  const url = `${host}/api/v1/eventos?area=${area}&tag=${tag}&paginate=true`;
+const LoadEventosNoPaginate = async (area = "", tag = "") => {
+  const url = `${host}/api/v1/eventos?area=${area}&tag=${tag}`;
   const res = await fetch(url, {
     method: "GET",
     headers: {
@@ -14,4 +14,4 @@ const LoadEventos = async (area = "", tag = "") => {
   return data;
 };
 
-export default LoadEventos;
+export default LoadEventosNoPaginate;
