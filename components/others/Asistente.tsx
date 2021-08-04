@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 /*
 Este componente es un asistente que se muestra en la esquina derecha inferior de la página.
@@ -19,23 +18,18 @@ const Asistente = (props: any) => {
         asistente ? "" : "asistente--off"
       }`}
     >
-      <div className="asistente__avatar">
-        <img
-          src={props.src}
-          alt="imagen asistente"
-          /* width="100"
-          height="100"
-          objectFit="cover" */
-        />
-      </div>
-
+      <img
+        className="asistente__avatar"
+        src={props.src}
+        alt="imagen asistente"
+      />
       <img
         className="asistente__dialogo"
         src="/salud/dialogo.png"
         alt="imagen de asistente"
       />
       <div className="asistente__dialogo-texto">
-        <Link passHref href={props.href ? props.href : "/"}>
+        <Link href={props.href ? props.href : "/"}>
           <p>
             {props.children
               ? props.children
