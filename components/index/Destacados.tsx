@@ -20,6 +20,7 @@ import { host } from "../../public/js/host";
 import TitleLine from "../others/TitleLine";
 import Link from "next/link";
 import Image from "next/image";
+import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
 
 export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
   const settings = {
@@ -68,9 +69,8 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
                   <MDBCardOverlay className="d-flex flex-column justify-content-end">
                     <Link
                       href={{
-                        pathname: `${path}noticias/${noticia.titulo.replaceAll(
-                          " ",
-                          "-"
+                        pathname: `${path}noticias/${removeSpecialCharacters(
+                          noticia.titulo
                         )}`,
                         query: { id: noticia.id },
                       }}
