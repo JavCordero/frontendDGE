@@ -19,6 +19,7 @@ const NoticiaId = () => {
       }
     };
     cargaNoticia();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <>{isLoaded ? <NoticiaComponent noticia={noticia} /> : null}</>;
 };
