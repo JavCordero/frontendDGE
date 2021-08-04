@@ -34,7 +34,7 @@ const Header = () => {
     <MDBNavbar>
       <MDBContainer fluid>
         <a className="navbar-brand">
-          <Image src={logoDGE} width="70%" height="70%" />
+          <Image src={logoDGE} width="70%" height="70%" alt="..." />
         </a>
         <span className="navbar-text d-flex flex-wrap mr-auto">
           <MDBNavbarLink href="#">Inicio</MDBNavbarLink>

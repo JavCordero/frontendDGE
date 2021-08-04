@@ -36,12 +36,15 @@ export const ActividadInterno = () => {
   console.log(TextosInternos[rama]);
 
   const settings = {
-    customPaging: function (i) {
+    customPaging: function page(i) {
       return (
         <a>
-          <img
+          <Image
             className="w-100"
-            src={`${TextosInternos[rama].tumbnail}${i + 1}.jpg`}
+            src={(TextosInternos[rama].tumbnail + (i + 1) + ".jpg") as any}
+            alt="foto"
+            width="120"
+            height="120"
           />
         </a>
       );
@@ -56,20 +59,19 @@ export const ActividadInterno = () => {
 
   const Menu = (list) => {
     const lista = [
-      <MDBCol name="intercarrera">
+      <MDBCol name="intercarrera" key={0}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("intercarrera");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
 
             <MDBCardBody>
@@ -79,20 +81,19 @@ export const ActividadInterno = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="aniversario">
+      <MDBCol name="aniversario" key={1}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("aniversario");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Aniversario</MDBCardTitle>
@@ -101,20 +102,19 @@ export const ActividadInterno = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="fiestas">
+      <MDBCol name="fiestas" key={2}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("fiestas");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Fiestas Patrias</MDBCardTitle>
@@ -123,20 +123,19 @@ export const ActividadInterno = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="actividades">
+      <MDBCol name="actividades" key={3}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("actividades");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Actividades</MDBCardTitle>
@@ -204,16 +203,15 @@ export const ActividadInterno = () => {
             <MDBCol size="8">
               <div className="w-100 p-3">
                 <Slider {...settings}>
-                  {TextosInternos[rama].fotos.map((foto) => (
-                    <div>
-                      <img
+                  {TextosInternos[rama].fotos.map((foto, index) => (
+                    <div key={index}>
+                      <Image
                         className="w-100"
                         src={foto}
-                        style={{
-                          maxHeight: "450px",
-                          objectFit: "cover",
-                          minHeight: "450px",
-                        }}
+                        alt="..."
+                        width="1000"
+                        height="600"
+                        objectFit="cover"
                       />
                     </div>
                   ))}

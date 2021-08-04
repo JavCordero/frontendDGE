@@ -12,9 +12,10 @@ import Enfermeria from "../../components/salud/Enfermeria";
 import Medicina from "../../components/salud/Medicina";
 import Odontologia from "../../components/salud/Odontologia";
 import Kinesiologia from "../../components/salud/Kinesiologia";
+import Image from "next/image";
+import alert from "../../public/salud/alert.png";
 
-const atencion = () => {
-
+const Atencion = () => {
   const router = useRouter();
   const [especialidad, setEspecialidad] = useState("");
   useEffect(() => {
@@ -116,10 +117,11 @@ const atencion = () => {
                 <p className="salud-atencion__mensaje-alerta">
                   Selecciona Una especialidad
                 </p>
-                <img
+                <Image
                   className="salud-atencion__logo-alerta"
-                  src="/salud/alert.png"
+                  src={alert}
                   alt="logo alerta"
+                  objectFit="fill"
                 />
               </div>
             )}
@@ -139,4 +141,4 @@ const atencion = () => {
   );
 };
 
-export default atencion;
+export default Atencion;

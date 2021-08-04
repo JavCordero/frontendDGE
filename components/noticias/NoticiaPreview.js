@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 /*
 Este componente se usa para mostar la noticia en una ventana de preview (relacionados, seccion de noticias, etc.)
 
@@ -17,11 +18,14 @@ const NoticiaPreview = (props) => {
   return (
     <div className="noticiaPreview__noticia">
       <div className="noticiaPreview__contenido-imagen">
-        <Link href={props.href ? props.href : "#"}>
+        <Link passHref href={props.href ? props.href : "#"}>
           <img
             src={props.src ? props.src : "/images/noImage.jpg"}
             alt={props.alt ? props.alt : "imagen"}
             className="noticiaPreview__imagen hoverable"
+            width="300"
+            height="200"
+            objectFit="cover"
           />
         </Link>
       </div>

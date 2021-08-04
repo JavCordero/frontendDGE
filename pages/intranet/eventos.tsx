@@ -19,7 +19,7 @@ import { host } from "../../public/js/host";
 import Swal from "sweetalert2";
 import deleteEvento from "../../hooks/useDeleteEvento";
 
-const eventos = () => {
+const Eventos = () => {
   const router = useRouter();
   const [isLoged, setIsLoged] = useState(true);
   const [loadData, setLoadData] = useState(false);
@@ -81,7 +81,7 @@ const eventos = () => {
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
-              <a href="/intranet">Intranet</a>
+              <Link href="/intranet">Intranet</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Eventos</MDBBreadcrumbItem>
           </MDBBreadcrumb>
@@ -145,7 +145,10 @@ const eventos = () => {
                       >
                         <Icon size="2x" icon="trash" />
                       </MDBBtn>
-                      <Link href={`/intranet/eventos/edit/${evento.id}`}>
+                      <Link
+                        href={`/intranet/eventos/edit/${evento.id}`}
+                        passHref
+                      >
                         <MDBBtn className="p-2" color="warning">
                           <Icon size="2x" icon="edit" />
                         </MDBBtn>
@@ -168,4 +171,4 @@ const eventos = () => {
   );
 };
 
-export default eventos;
+export default Eventos;

@@ -39,8 +39,8 @@ export const Secciones = () => {
 
   const Menu = (list, selected) => {
     return [
-      <MDBCol>
-        <Link href="/deportes/nosotros">
+      <MDBCol key="1">
+        <Link href="/deportes/nosotros" passHref>
           <MDBCard className="align-items-center text-center py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faUser}></FontAwesomeIcon>
             <MDBCardBody>
@@ -50,8 +50,8 @@ export const Secciones = () => {
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <Link href="/deportes/deporteselectivo">
+      <MDBCol key="2">
+        <Link href="/deportes/deporteselectivo" passHref>
           <MDBCard className="align-items-center text-center  py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faRunning}></FontAwesomeIcon>
             <MDBCardBody>
@@ -61,8 +61,8 @@ export const Secciones = () => {
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <Link href="/deportes/deporteinterno">
+      <MDBCol key="3">
+        <Link href="/deportes/deporteinterno" passHref>
           <MDBCard className="align-items-center text-center py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faHubspot}></FontAwesomeIcon>
             <MDBCardBody>
@@ -72,8 +72,8 @@ export const Secciones = () => {
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <Link href="/deportes/actividadescomplementarias">
+      <MDBCol key="4">
+        <Link href="/deportes/actividadescomplementarias" passHref>
           <MDBCard className="align-items-center text-center py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faSchool}></FontAwesomeIcon>
             <MDBCardBody>
@@ -83,8 +83,8 @@ export const Secciones = () => {
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <Link href="/deportes/infraestructura">
+      <MDBCol key="5">
+        <Link href="/deportes/infraestructura" passHref>
           <MDBCard className="align-items-center text-center py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faWarehouse}></FontAwesomeIcon>
             <MDBCardBody>
@@ -115,12 +115,7 @@ export const Secciones = () => {
     <MDBContainer fluid className="w-100 p-0 pb-5 bg-light shadow-5 rounded">
       <TitleLine>Secciones</TitleLine>
 
-      <ScrollMenu
-        wrapperClass="w-100"
-        data={menu}
-        // arrowLeft={ArrowLeft}
-        // arrowRight={ArrowRight}
-      />
+      <ScrollMenu wrapperClass="w-100" data={menu} />
     </MDBContainer>
   );
 };

@@ -5,7 +5,7 @@ import NoticiasFilter from "../../components/others/NoticiasFilter";
 import NoticiaPreview from "../../components/noticias/NoticiaPreview";
 import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
 
-const noticias = () => {
+const Noticias = () => {
   const [search, setSearch] = useState("");
   const [filtro, setFiltro] = useState("Fecha");
   const handdleBuscar = () => {
@@ -94,4 +94,4 @@ const noticias = () => {
   );
 };
 
-export default noticias;
+export default Noticias;

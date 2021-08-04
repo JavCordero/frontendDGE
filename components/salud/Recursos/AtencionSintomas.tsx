@@ -37,7 +37,10 @@ const AtencionSintomas = (props) => {
                 ? props.srcArea
                 : "/salud/areaNoImagen.png"
             }
-            alt=""
+            /* width="100"
+            height="600"
+            objectFit="cover"
+            alt="" */
           />
           {props.children}
         </div>

@@ -43,22 +43,22 @@ export const SidenavIntra = ({ children }: any) => {
           <Toggle onChange={handleToggle} checked={expanded} />
           <Sidenav.Body>
             <Nav>
-              <Link href="/intranet">
+              <Link passHref href="/intranet">
                 <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />}>
                   Panel Principal
                 </Nav.Item>
               </Link>
-              <Link href="/intranet/noticias">
+              <Link passHref href="/intranet/noticias">
                 <Nav.Item eventKey="2" icon={<Icon icon="newspaper-o" />}>
                   Gestión de noticias
                 </Nav.Item>
               </Link>
-              <Link href="/intranet/eventos">
+              <Link passHref href="/intranet/eventos">
                 <Nav.Item eventKey="3" icon={<Icon icon="calendar-o" />}>
                   Gestión de eventos
                 </Nav.Item>
               </Link>
-              <Link href="/intranet/eventos">
+              <Link passHref href="/intranet/eventos">
                 <Nav.Item eventKey="4" icon={<Icon icon="speaker" />}>
                   Crear Anuncio
                 </Nav.Item>

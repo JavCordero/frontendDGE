@@ -18,8 +18,10 @@ import React from "react";
 import Slider from "react-slick";
 import { host } from "../../public/js/host";
 import TitleLine from "../others/TitleLine";
+import Link from "next/link";
+import Image from "next/image";
 
-export const Destacados = ({ titulo1, titulo2, noticias }) => {
+export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -40,20 +42,6 @@ export const Destacados = ({ titulo1, titulo2, noticias }) => {
     infinite: true,
   };
 
-  function difference(date1, date2) {
-    const date1utc = Date.UTC(
-      date1.getFullYear(),
-      date1.getMonth(),
-      date1.getDate()
-    );
-    const date2utc = Date.UTC(
-      date2.getFullYear(),
-      date2.getMonth(),
-      date2.getDate()
-    );
-    const day = 1000 * 60 * 60 * 24;
-    return (date2 - date1) / day;
-  }
   return (
     <MDBContainer fluid>
       <MDBRow>
@@ -68,27 +56,40 @@ export const Destacados = ({ titulo1, titulo2, noticias }) => {
                   key={noticia.id}
                 >
                   {console.log(noticia)}
-                  <img
+                  <Image
                     src={`${host}${noticia.imagen}`}
                     className="mr-auto ml-auto"
                     alt="..."
                     height="450"
+                    width="1000"
+                    objectFit="cover"
                   />
 
                   <MDBCardOverlay className="d-flex flex-column justify-content-end">
-                    <div className="texto-noticia rounded p-3">
-                      <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
-                      <MDBCardText>{noticia.subtitulo}</MDBCardText>
-                      <MDBCardText>
-                        {`Creado el ${new Date(
-                          noticia.created_at
-                        ).getDate()} de ${new Date(
-                          noticia.created_at
-                        ).toLocaleDateString(undefined, {
-                          month: "long",
-                        })} de ${new Date(noticia.created_at).getFullYear()}`}
-                      </MDBCardText>
-                    </div>
+                    <Link
+                      href={{
+                        pathname: `${path}noticias/${noticia.titulo.replaceAll(
+                          " ",
+                          "-"
+                        )}`,
+                        query: { id: noticia.id },
+                      }}
+                      passHref
+                    >
+                      <div className="texto-noticia rounded p-3">
+                        <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
+                        <MDBCardText>{noticia.subtitulo}</MDBCardText>
+                        <MDBCardText>
+                          {`Creado el ${new Date(
+                            noticia.created_at
+                          ).getDate()} de ${new Date(
+                            noticia.created_at
+                          ).toLocaleDateString(undefined, {
+                            month: "long",
+                          })} de ${new Date(noticia.created_at).getFullYear()}`}
+                        </MDBCardText>
+                      </div>
+                    </Link>
                   </MDBCardOverlay>
                 </MDBCard>
               ))}

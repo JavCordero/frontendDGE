@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import logoUCN from "../public/Escudo-UCN-Full-Color.png";
 import Image from "next/image";
 import { AuthContext } from "../context/AuthContext";
@@ -8,7 +8,6 @@ import { ToastContainer, toast } from "react-toastify";
 import ingresarSistema from "../hooks/useLogin";
 import { useRouter } from "next/router";
 import CheckLogin from "../hooks/useCheckLogin";
-import { useEffect } from "react";
 import { Loader } from "rsuite";
 
 const STATE_INIT = {
@@ -16,7 +15,7 @@ const STATE_INIT = {
   password: "",
 };
 
-const login = () => {
+const Login = () => {
   const { signIn, checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
   const router = useRouter();
@@ -58,7 +57,6 @@ const login = () => {
 
   const { values, errores, handlerSubmit, handleChange, handlerBlur } =
     useValidation(STATE_INIT, loginValidation, iniciarSesion);
-
   let { email, password } = values;
 
   const notify = () => toast.error("Usuario o contraseña incorrecto...");
@@ -135,4 +133,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

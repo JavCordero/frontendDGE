@@ -37,19 +37,19 @@ export const Secciones = () => {
 
   const Menu = (list, selected) => {
     return [
-      <MDBCol>
-        <Link href="/salud/atencion">
+      <MDBCol key="1">
+        <Link passHref href="/salud/atencion">
           <MDBCard className="align-items-center text-center py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faClock}></FontAwesomeIcon>
             <MDBCardBody>
-              <MDBCardTitle>Toma Horas</MDBCardTitle>
-              <MDBCardTitle>&nbsp; </MDBCardTitle>
+              <MDBCardTitle>Solicita Atención</MDBCardTitle>
+              <MDBCardTitle>Medica</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </Link>
       </MDBCol>,
-      <MDBCol>
-        <Link href="/salud/visado-certificados-medicos">
+      <MDBCol key="">
+        <Link passHref href="/salud/visado-certificados-medicos">
           <MDBCard className="align-items-center text-center  py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faFileAlt}></FontAwesomeIcon>
             <MDBCardBody>
@@ -80,12 +80,7 @@ export const Secciones = () => {
     <MDBContainer fluid className="w-100 p-0 pb-5 bg-light shadow-5 rounded">
       <TitleLine>Secciones</TitleLine>
 
-      <ScrollMenu
-        wrapperClass="w-100"
-        data={menu}
-        // arrowLeft={ArrowLeft}
-        // arrowRight={ArrowRight}
-      />
+      <ScrollMenu wrapperClass="w-100" data={menu} />
     </MDBContainer>
   );
 };

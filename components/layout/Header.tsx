@@ -2,13 +2,26 @@ import React from "react";
 import { MDBBtn } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 const Header = () => {
   return (
     <div className="header">
       <div className="header__logos">
-        <img src="/images/Escudo-UCN-Full-Color.png" alt="Logo UCN" />
-        <img src="/images/Imagen-DGE.jpg" alt="Logo DGE" />
+        <Image
+          src={"/images/Escudo-UCN-Full-Color.png" as any}
+          width="100"
+          height="100"
+          objectFit="cover"
+          alt="Logo UCN"
+        />
+        <Image
+          src={"/images/Imagen-DGE.jpg" as any}
+          width="100"
+          height="100"
+          objectFit="cover"
+          alt="Logo DGE"
+        />
       </div>
       <nav className="header__enlaces">
         <a href="#">Home</a>

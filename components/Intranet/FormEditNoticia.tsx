@@ -128,6 +128,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
       setTagSelect([...tagSelect]);
     }
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onChange = (nextStep) => {

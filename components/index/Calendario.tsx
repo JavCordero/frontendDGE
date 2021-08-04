@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, Ref, useState, createRef } from "react";
 import Calendar, { addDays } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
@@ -7,12 +7,66 @@ import { MDBContainer, MDBCol, MDBRow } from "mdb-react-ui-kit";
 import { useEffect } from "react";
 import LoadEventosNoPaginate from "../../hooks/useLoadEventosNoPaginate";
 import { Placeholder } from "rsuite";
+import FullCalendar from "@fullcalendar/react";
+import { LegacyRef } from "react";
+import { Modal } from "react-bootstrap";
+import { host } from "../../public/js/host";
+import Image from "next/image";
 
 export const Calendario = () => {
   const [isLoadEventos, setIsLoadEventos] = useState(false);
   const [areaSelect, setAreaSelect] = useState("");
   const [eventList, setEventList] = useState([]);
-  const [changeArea, setChangeArea] = useState(0);
+  const [lgShow, setLgShow] = useState(false);
+
+  const toggleShow = () => setLgShow(!lgShow);
+  const [eventSelect, setEventSelect]: any = useState({
+    endStr: "",
+    extendedProps: {
+      area: "",
+      cuerpo: "",
+      desc_imagen: "",
+      imagen: "",
+      tags: [{ name: "" }],
+      user: { name: "" },
+    },
+    id: "",
+    startStr: "",
+    title: "",
+  });
+
+  const deleteItem = () => {
+    setEventList([]);
+    eventList.length = 0;
+  };
+
+  const fullCalendar1: LegacyRef<FullCalendar> = createRef();
+  const fullCalendar2: LegacyRef<FullCalendar> = createRef();
+
+  const cargarEvento = async (area) => {
+    const eventosArray = await LoadEventosNoPaginate(area);
+    console.log(eventosArray);
+    if (eventosArray.length >= 0) {
+      eventosArray.forEach((evento: any) => {
+        let newEvent = {
+          id: evento.id,
+          title: evento.titulo,
+          start: new Date(evento.inicio),
+          end: new Date(evento.fin),
+          color: evento.color,
+          area: evento.area.name,
+          cuerpo: evento.cuerpo,
+          desc_imagen: evento.desc_imagen,
+          imagen: evento.imagen,
+          tags: evento.tags,
+          user: evento.user,
+        };
+
+        eventList.push(newEvent);
+      });
+    }
+    setEventList([...eventList]);
+  };
 
   useEffect(() => {
     setIsLoadEventos(false);
@@ -41,8 +95,8 @@ export const Calendario = () => {
       }
     };
     EventosListos();
-    console.log(eventList);
-  }, [areaSelect, changeArea]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <MDBContainer fluid className="mt-4">
@@ -51,46 +105,68 @@ export const Calendario = () => {
           <MDBCol size="12" md="8">
             <Calendar
               locale={esLocale}
+              ref={fullCalendar1}
               hiddenDays={[0]}
               contentHeight={"auto"}
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               events={eventList}
-              headerToolbar={{ end: "prev,next,Salud,Deportes,Beneficios" }}
+              headerToolbar={{
+                start: "title,Salud,Deportes,Beneficios,Todos",
+                end: "prev,next",
+              }}
               customButtons={{
                 Salud: {
                   text: "Salud",
-                  click: () => {
-                    setEventList([]);
-                    setChangeArea(changeArea + 1);
-                    setAreaSelect("salud");
+                  click: async () => {
+                    deleteItem();
+                    cargarEvento("salud");
                   },
                 },
                 Deportes: {
                   text: "Deportes",
                   click: () => {
-                    setEventList([]);
-                    setChangeArea(changeArea + 1);
-                    setAreaSelect("deportes");
+                    deleteItem();
+                    cargarEvento("deportes");
                   },
                 },
                 Beneficios: {
                   text: "Beneficios",
                   click: () => {
-                    setEventList([]);
-                    setChangeArea(changeArea + 1);
-                    setAreaSelect("beneficios");
+                    deleteItem();
+                    cargarEvento("beneficios");
+                  },
+                },
+                Todos: {
+                  text: "Ver Todos",
+                  click: () => {
+                    deleteItem();
+                    cargarEvento("");
+                  },
+                },
+                prev: {
+                  click: () => {
+                    fullCalendar1.current.getApi().prev();
+                    fullCalendar2.current.getApi().prev();
+                  },
+                },
+                next: {
+                  click: () => {
+                    fullCalendar1.current.getApi().next();
+                    fullCalendar2.current.getApi().next();
                   },
                 },
               }}
               eventClick={(info) => {
-                console.log(info.event);
+                setEventSelect(info.event);
+                setLgShow(true);
               }}
             />
           </MDBCol>
           <MDBCol className="mt-5" size="12" md="4">
             <Calendar
               locale={esLocale}
+              ref={fullCalendar2}
               height={screen.width < 768 ? "auto" : "100%"}
               hiddenDays={[0]}
               initialView="listMonth"
@@ -106,6 +182,55 @@ export const Calendario = () => {
       ) : (
         <Placeholder.Graph active height={450} />
       )}
+      <Modal
+        size="sm"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header
+          style={{ zIndex: 100, border: 0 }}
+          closeButton
+        ></Modal.Header>
+        <Modal.Body>
+          {eventSelect.extendedProps.imagen ? (
+            <Image
+              src={`${host}${eventSelect.extendedProps.imagen}`}
+              width="300"
+              height="300"
+              objectFit="cover"
+              alt="..."
+            />
+          ) : null}
+
+          <p>{eventSelect.title}</p>
+          <p>
+            Inicio:
+            {`${new Date(eventSelect.startStr).getDay()}/${new Date(
+              eventSelect.startStr
+            ).getMonth()}/${new Date(eventSelect.startStr).getFullYear()}`}
+          </p>
+          <p>
+            fin:
+            {`${new Date(eventSelect.endStr).getDay()}/${new Date(
+              eventSelect.endStr
+            ).getMonth()}/${new Date(eventSelect.endStr).getFullYear()}`}
+          </p>
+          <div
+            className="cuerpoNoticia"
+            dangerouslySetInnerHTML={{
+              __html: eventSelect.extendedProps.cuerpo,
+            }}
+          ></div>
+          <p>
+            {" "}
+            Tags:
+            {eventSelect.extendedProps.tags.map((tag, index) => (
+              <span key={index}>#{tag.name} </span>
+            ))}
+          </p>
+        </Modal.Body>
+      </Modal>
     </MDBContainer>
   );
 };

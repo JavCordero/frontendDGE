@@ -56,7 +56,7 @@ export const NavbarPublic = ({ children }: any) => {
           />
           <Sidenav.Body className="">
             <Nav className="">
-              <Link href="/">
+              <Link passHref href="/">
                 <Nav.Item
                   className="sidenav__color"
                   icon={
@@ -86,7 +86,7 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/beneficios">
+                <Link passHref href="/beneficios">
                   <Dropdown.Item eventKey="2-1">Noticias</Dropdown.Item>
                 </Link>
 
@@ -113,21 +113,24 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/salud">
+                <Link passHref href="/salud">
                   <Dropdown.Item eventKey="3-1">Noticias</Dropdown.Item>
                 </Link>
-                <Link href="/salud/atencion">
+                <Link passHref href="/salud/atencion">
                   <Dropdown.Item eventKey="3-2">Solicitud Hora</Dropdown.Item>
                 </Link>
-                <Link href="/salud/visado-certificados-medicos">
+                <Link passHref href="/salud/visado-certificados-medicos">
                   <Dropdown.Item eventKey="3-3">
                     Visado Certificados
                   </Dropdown.Item>
                 </Link>
                 <Dropdown.Item eventKey="3-4">
-                  <a href="https://beneficiosestudiantilesucn.agendapro.com/cl/workflow?local=6277">
+                  <Link
+                    passHref
+                    href="https://beneficiosestudiantilesucn.agendapro.com/cl/workflow?local=6277"
+                  >
                     Agenda PRO
-                  </a>
+                  </Link>
                 </Dropdown.Item>
               </Dropdown>
               <Dropdown
@@ -143,28 +146,28 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/deportes">
+                <Link passHref href="/deportes">
                   <Dropdown.Item eventKey="4-1">Noticias</Dropdown.Item>
                 </Link>
-                <Link href="/deportes/nosotros">
+                <Link passHref href="/deportes/nosotros">
                   <Dropdown.Item eventKey="4-2">
                     Equipo Deportes UCN
                   </Dropdown.Item>
                 </Link>
-                <Link href="/deportes/deporteselectivo">
+                <Link passHref href="/deportes/deporteselectivo">
                   <Dropdown.Item eventKey="4-3">
                     Deporte Selectivo
                   </Dropdown.Item>
                 </Link>
-                <Link href="/deportes/deporteinterno">
+                <Link passHref href="/deportes/deporteinterno">
                   <Dropdown.Item eventKey="4-4">Deporte Interno</Dropdown.Item>
                 </Link>
-                <Link href="/deportes/actividadescomplementarias">
+                <Link passHref href="/deportes/actividadescomplementarias">
                   <Dropdown.Item eventKey="4-5">
                     Actividades Complementarias
                   </Dropdown.Item>
                 </Link>
-                <Link href="/deportes/infraestructura">
+                <Link passHref href="/deportes/infraestructura">
                   <Dropdown.Item eventKey="4-6">
                     Infraestructura Deportiva
                   </Dropdown.Item>
@@ -183,16 +186,16 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="5-1">Noticias</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="5-2">Link 1</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="5-3">Link 2</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="5-4">Link 3</Dropdown.Item>
                 </Link>
               </Dropdown>
@@ -209,16 +212,16 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="6-1">Noticias</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="6-2">Link 1</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="6-3">Link 2</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="6-4">Link 3</Dropdown.Item>
                 </Link>
               </Dropdown>
@@ -235,16 +238,16 @@ export const NavbarPublic = ({ children }: any) => {
                   />
                 }
               >
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="8-1">Noticias</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="8-2">Link 1</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="8-3">Link 2</Dropdown.Item>
                 </Link>
-                <Link href="/">
+                <Link passHref href="/">
                   <Dropdown.Item eventKey="8-4">Link 3</Dropdown.Item>
                 </Link>
               </Dropdown>
@@ -260,7 +263,9 @@ export const NavbarPublic = ({ children }: any) => {
                 }
                 eventKey="1"
               >
-                <a href="https://www.facebook.com/dge.ucn">Facebook DGE</a>
+                <Link passHref href="https://www.facebook.com/dge.ucn">
+                  Facebook DGE
+                </Link>
               </Nav.Item>
               <Nav.Item
                 className="sidenav__color"
@@ -273,9 +278,9 @@ export const NavbarPublic = ({ children }: any) => {
                 }
                 eventKey="1"
               >
-                <a href="https://www.instagram.com/dgeucn/?hl=es">
+                <Link passHref href="https://www.instagram.com/dgeucn/?hl=es">
                   Instagram DGE
-                </a>
+                </Link>
               </Nav.Item>
             </Nav>
           </Sidenav.Body>

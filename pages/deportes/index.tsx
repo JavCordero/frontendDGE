@@ -6,14 +6,13 @@ import { Secciones } from "../../components/Deportes/Secciones";
 import { Destacados } from "../../components/index/Destacados";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 
-const index = () => {
+const Deportes = () => {
   const [isLoadNotice, setisLoadNotice] = useState(false);
   const [noticias, setNoticias] = useState([]);
   useEffect(() => {
     const noticiasListas = async () => {
       const noticiasArray = await LoadNoticias("deportes");
-      console.log(noticiasArray);
-      if (noticiasArray.data.length > 0) {
+      if (noticiasArray.data.length >= 0) {
         setisLoadNotice(true);
         setNoticias(noticiasArray.data);
       }
@@ -34,6 +33,7 @@ const index = () => {
           noticias={noticias}
           titulo1="Deportes"
           titulo2="Destacados"
+          path="/deportes/"
         />
       ) : (
         <Placeholder.Graph active height={450} />
@@ -43,4 +43,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Deportes;

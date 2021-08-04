@@ -116,6 +116,7 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
       setTagSelect([...tagSelect]);
     }
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onChange = (nextStep) => {

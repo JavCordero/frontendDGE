@@ -8,10 +8,14 @@ import {
   MDBAccordionItem,
 } from "mdb-react-ui-kit";
 import React from "react";
+import Image from "next/image";
 
 export const InfraestructuraPresentacion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 rounded text-dark pb-5">
+    <MDBContainer
+      fluid
+      className="w-100 bg-light shadow-5 rounded text-dark pb-5"
+    >
       <h2 className="mt-5 mb-4">Infraestructura Deportiva</h2>
       <MDBRow className="px-4">
         <MDBCol>
@@ -19,10 +23,12 @@ export const InfraestructuraPresentacion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
-              src={"/deportes/equipo/FredyLeytonRivera.png"}
+              src={"/deportes/equipo/FredyLeytonRivera.png" as any}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Fredy Leyton Rivera</p>

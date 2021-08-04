@@ -29,7 +29,6 @@ import { SidenavIntra } from "../components/Intranet/SidenavIntra";
 import { AuthContext, AuthProvider } from "../context/AuthContext";
 import Asistente from "../components/others/Asistente";
 import { NavbarPublic } from "../components/layout/NavbarPublic";
-import NavbarPage from "../components/layout/NavbarPage";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { authState } = React.useContext(AuthContext);

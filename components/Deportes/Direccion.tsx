@@ -19,10 +19,12 @@ const Direccion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/EduardoVerdejoGreen.png"}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Eduardo Verdejo Green</p>
@@ -39,10 +41,12 @@ const Direccion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/SusanaGutierrezDinamarca.png"}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Susana Gutiérrez Dinamarca</p>
@@ -61,10 +65,12 @@ const Direccion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/DiegoGonzalezZambrano.png"}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Diego González Zambrano</p>
@@ -83,10 +89,12 @@ const Direccion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/RicardoJuicaSalinas.png"}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Ricardo Juica Salinas</p>
@@ -103,11 +111,12 @@ const Direccion = () => {
             className="my-2 ml-auto mr-auto"
             style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
-            <img
+            <Image
               className="rounded-circle border border-primary"
               src={"/deportes/equipo/FredyLeytonRivera.png"}
               alt="..."
-              style={{}}
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Fredy Leyton Rivera</p>
