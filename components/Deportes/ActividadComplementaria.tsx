@@ -12,6 +12,7 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import Slider from "react-slick";
 import TextosComplementarios from "../../public/deportes/textos/textosComplementario";
 import Image from "next/image";
+import TitleLine from "../others/TitleLine";
 
 export const ActividadComplementaria = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -135,7 +136,8 @@ export const ActividadComplementaria = () => {
     <MDBContainer fluid className="w-100">
       <MDBRow>
         <MDBCol>
-          <h2 className="mt-5 mb-4">&nbsp;</h2>
+          
+          <TitleLine className="mb-2">Actividades</TitleLine>
         </MDBCol>
         <MDBCol size="4"></MDBCol>
       </MDBRow>
@@ -195,8 +197,8 @@ export const ActividadComplementaria = () => {
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

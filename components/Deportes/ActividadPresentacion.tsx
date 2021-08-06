@@ -9,19 +9,20 @@ import {
 } from "mdb-react-ui-kit";
 import React from "react";
 import Image from "next/image";
+import TitleLine from "../others/TitleLine";
 
 export const ActividadPresentacion = () => {
   return (
     <MDBContainer
       fluid
-      className="w-100 bg-light shadow-5 rounded text-dark pb-5"
+      className="w-100 bg-light shadow-5 rounded text-dark p-0 pb-5"
     >
-      <h2 className="mt-5 mb-4">Actividades Complementarias</h2>
-      <MDBRow className="px-4">
+      <TitleLine className="mb-2">Deporte Interno</TitleLine>
+      <MDBRow className="p-0 m-0 gy-2">
         <MDBCol size="12" md="4">
           <MDBCard
-            className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            className="ml-auto mr-auto"
+            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)", maxWidth: "100%",}}
           >
             <Image
               className="rounded-circle border border-5 border-primary"
@@ -42,8 +43,8 @@ export const ActividadPresentacion = () => {
         </MDBCol>
         <MDBCol size="12" md="4">
           <MDBCard
-            className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            className="ml-auto mr-auto"
+            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" , maxWidth: "100%",}}
           >
             <Image
               className="rounded-circle border border-5 border-primary"
