@@ -17,12 +17,16 @@ export const ActividadPresentacion = () => {
       fluid
       className="w-100 bg-light shadow-5 rounded text-dark p-0 pb-5"
     >
-      <TitleLine className="mb-2">Deporte Interno</TitleLine>
+      <TitleLine className="mb-2">Actividades Complementarias</TitleLine>
       <MDBRow className="p-0 m-0 gy-2">
         <MDBCol size="12" md="4">
           <MDBCard
             className="ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)", maxWidth: "100%",}}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
             <Image
               className="rounded-circle border border-5 border-primary"
@@ -44,7 +48,11 @@ export const ActividadPresentacion = () => {
         <MDBCol size="12" md="4">
           <MDBCard
             className="ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" , maxWidth: "100%",}}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
             <Image
               className="rounded-circle border border-5 border-primary"
