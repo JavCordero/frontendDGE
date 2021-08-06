@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Slider from "react-slick";
 import TextosInternos from "../../public/deportes/textos/textosInternos";
+import TitleLine from "../others/TitleLine";
 
 export const ActividadInterno = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -165,9 +166,8 @@ export const ActividadInterno = () => {
     <MDBContainer fluid className="w-100">
       <MDBRow>
         <MDBCol>
-          <h2 className="mt-5 mb-4">&nbsp;</h2>
+          <TitleLine className="mb-2">Ramas Deporte Interno</TitleLine>
         </MDBCol>
-        <MDBCol size="4"></MDBCol>
       </MDBRow>
 
       <Modal
@@ -225,8 +225,8 @@ export const ActividadInterno = () => {
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

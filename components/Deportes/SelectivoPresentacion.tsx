@@ -18,10 +18,10 @@ export const SelectivoPresentacion = () => {
       className="w-100 bg-light shadow-5 rounded text-dark p-0 pb-5"
     >
       <TitleLine className="mb-2">Deporte Selectivo</TitleLine>
-      <MDBRow className="p-0 m-0">
+      <MDBRow className="p-0 m-0 gy-2">
         <MDBCol>
           <MDBCard
-            className="my-2 ml-auto mr-auto"
+            className="ml-auto mr-auto"
             style={{
               width: "20rem",
               backgroundColor: "rgba(0,0,0,0)",
