@@ -25,10 +25,12 @@ los parametros que recibe son:
 const AtencionSintomas = (props) => {
   return (
     <div className="atencion-sintomas">
+      {/* Seccion izquierda */}
       <div>
         <h2 className="atencion-sintomas__sintomas-titulo">
           {props.mensaje ? props.mensaje : "Si... :"}
         </h2>
+
         <div className="atencion-sintomas__sintomas">
           <img
             className="atencion-sintomas__imagen"
@@ -37,14 +39,12 @@ const AtencionSintomas = (props) => {
                 ? props.srcArea
                 : "/salud/areaNoImagen.png"
             }
-            /* width="100"
-            height="600"
-            objectFit="cover"
-            alt="" */
+            alt="imagen de area salud"
           />
           {props.children}
         </div>
       </div>
+      {/* Seccion derecha */}
       <div className="atencion-sintomas__contacto">
         {props.noCard ? (
           <>

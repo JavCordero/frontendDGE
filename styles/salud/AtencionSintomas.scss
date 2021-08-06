@@ -1,9 +1,16 @@
 .atencion-sintomas {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  $widthImagen: 310px;
-  $heightImagen: $widthImagen * 572/333;
-  $fontSize: 1.45em;
+  $relacionAspectoImagen: 1.7777; // 16:9
+  $widthImagen: 13vw;
+  $heightImagen: $widthImagen * $relacionAspectoImagen;
+  $minWidthImagen: 150px;
+  $minHeightImagen: $minWidthImagen * $relacionAspectoImagen;
+  $fontSize: 1.35em;
+  //tamaños de columnas de sintomas mostrados segun el tamaño de la pantalla
+  $columnas1: 7;
+  $columnas2: 5;
+  $columnas3: 4;
   box-shadow: 0px -0.5px 0px 0px rgba(0, 0, 0, 0.1);
   padding: 10px;
   &__contacto {
@@ -73,91 +80,93 @@
     text-align: center;
   }
   &__sintomas {
+    margin-top: 1.5 * $fontSize;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: repeat(6, $widthImagen/5.9);
-    grid-auto-rows: $widthImagen/5.9;
-    margin-top: 1.5 * $fontSize;
+    grid-template-rows: repeat($columnas1, $heightImagen/$columnas1);
   }
 
   &__imagen {
-    width: 30%;
-    min-width: $widthImagen * 0.59;
-    grid-row: 1/-1;
-    object-fit: cover;
+    width: $widthImagen;
+    height: $heightImagen;
+    min-width: $minWidthImagen !important;
+    min-height: $minHeightImagen !important;
+    object-fit: fill;
     display: block;
-    margin-left: auto;
     margin-right: auto;
-    margin-right: 5px;
+    margin-left: auto;
+    grid-row: 1/-1;
   }
   //elemento dentro del componente AtencionSintomas
   &__sintomas > p {
     font-size: $fontSize;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: "Agency FB";
     max-height: auto;
     color: white;
     margin: 1.5px;
     font-weight: bold;
     text-align: center;
-    border-radius: 15px;
-    margin-right: 5px;
-    grid-column: 1/-1;
+    border-radius: $fontSize * 0.4;
     background-color: $green1;
-    padding: auto 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin-right: $fontSize * 0.1;
+    margin-left: $fontSize * 0.1;
   }
+
   &__sintomas > p:nth-child(2n) {
     background-color: $pink1;
   }
-  //elemento dentro del componente AtencionSintomas
-  &__sintomas > p:nth-child(-n + 7) {
-    grid-column: 2/3;
-  }
-  @media screen and (max-width: 1100px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.9;
-    }
+  &__sintomas > p:nth-child(n + #{$columnas1 + 2}) {
+    grid-column: 1/-1;
+    min-height: $heightImagen/$columnas1;
   }
 
-  @media screen and (max-width: 1050px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.85;
+  //se ajustara el numero de columnas (sintomas mostrados) para adaptarlos a la pantalla
+  @media screen and (max-width: 1200px) {
+    &__sintomas {
+      grid-template-rows: repeat($columnas2, $heightImagen/$columnas2);
+    }
+    &__sintomas > p:nth-child(n + #{$columnas2 + 2}) {
+      grid-column: 1/-1;
+      min-height: $minHeightImagen/$columnas2;
     }
   }
+  //se ajustara el numero de columnas (sintomas mostrados) para adaptarlos a la pantalla
 
-  @media screen and (max-width: 400px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.7;
+  @media screen and (max-width: 1000px) {
+    &__sintomas {
+      grid-template-rows: repeat($columnas3, $minHeightImagen/$columnas3);
+    }
+    &__sintomas > p:nth-child(n + #{$columnas3 + 2}) {
+      grid-column: 1/-1;
+      min-height: $minHeightImagen/$columnas3;
     }
   }
-  @media screen and (max-width: 350px) {
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.6;
+  //se ajustara el numero de columnas (sintomas mostrados) para adaptarlos a la pantalla
+  @media screen and (max-width: 480px) {
+    &__sintomas {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-  }
-  @media screen and (max-width: 900px) {
-    display: block;
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p {
-      font-size: $fontSize * 0.8;
-      grid-column: 1/-1 !important;
+    &__sintomas > p:nth-child(n + #{$columnas3 + 2}) {
+      min-height: auto;
     }
-    //elemento dentro del componente AtencionSintomas
-    &__sintomas > p:nth-child(-n + 5) {
-      grid-column: 2/3 !important;
+    &__sintomas > p {
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
     &__imagen {
-      min-width: $widthImagen * 0.45045;
+      margin-bottom: 5px;
     }
-    &__sintomas {
-      grid-template-rows: repeat(4, $widthImagen * 0.21);
-    }
+  }
+
+  @media screen and (max-width: 900px) {
+    display: block;
 
     &__contacto {
       margin-top: 5px;
