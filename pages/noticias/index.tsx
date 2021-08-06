@@ -25,7 +25,7 @@ const Noticias = () => {
         <SearchInput
           placeholder="Buscar Noticia"
           value={search}
-          setValue={setSearch}
+          onChange={setSearch}
           fn={handdleBuscar}
         />
         <NoticiasFilter fn={handdleFilter} />

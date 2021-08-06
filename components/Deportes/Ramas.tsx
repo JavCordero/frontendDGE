@@ -24,6 +24,9 @@ import Slider from "react-slick";
 import Textos from "../../public/deportes/textos/textosRamas";
 import alert from "/salud/alert.png";
 import Image from "next/image";
+import SearchInput from "../others/SearchInput";
+import TitleLine from "../others/TitleLine";
+import styled from "@emotion/styled";
 
 export const Ramas = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -636,25 +639,14 @@ export const Ramas = () => {
   return (
     <MDBContainer fluid className="w-100">
       <MDBRow>
-        <MDBCol>
-          <h2 className="mt-5 mb-4">Ramas Deportivas UCN</h2>
-        </MDBCol>
-        <MDBCol size="4">
-          <div className="position-relative">
-            <input
-              className="form-control mt-5"
-              placeholder="Buscar una rama"
-              aria-label="Search"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <FontAwesomeIcon
-              className="position-absolute"
-              style={{ top: "10%", right: "5%" }}
-              icon={faSearch}
-              size="2x"
-            ></FontAwesomeIcon>
-          </div>
-        </MDBCol>
+        <TitleLine className="mb-2">Ramas Deportivas UCN</TitleLine>
+        <SearchInput
+          className="mt-3 mb-3 w-50"
+          style={{ minWidth: "250px" }}
+          styleIcon={{ right: "18px" }}
+          placeholder="Buscar una rama"
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
       </MDBRow>
 
       <Modal
@@ -729,8 +721,8 @@ export const Ramas = () => {
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );
