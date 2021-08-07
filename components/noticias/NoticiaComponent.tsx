@@ -20,7 +20,7 @@ export const NoticiaComponent = ({ noticia }: any) => {
   };
   return (
     <>
-      {noticia.links || noticia.tag ? (
+      {noticia.id ? (
         <div className="noticia">
           <NoticiaHeader>
             <NoticiaHeaderContent
@@ -32,12 +32,14 @@ export const NoticiaComponent = ({ noticia }: any) => {
             </NoticiaHeaderContent>
           </NoticiaHeader>
           <NoticiaLinks>
-            {noticia.links.map((link, index) => (
-              <div onClick={() => clickHandle(link)} key={index}>
-                {" "}
-                Enlace {index + 1}{" "}
-              </div>
-            ))}
+            {noticia.links
+              ? noticia.links.map((link, index) => (
+                  <div onClick={() => clickHandle(link)} key={index}>
+                    {" "}
+                    Enlace {index + 1}{" "}
+                  </div>
+                ))
+              : null}
           </NoticiaLinks>
           <NoticiaBotones>
             <div>
@@ -63,16 +65,18 @@ export const NoticiaComponent = ({ noticia }: any) => {
           <NoticiaContenido>
             <br />
             <div
-              className="cuerpoNoticia"
+              className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
               dangerouslySetInnerHTML={{ __html: noticia.cuerpo }}
             ></div>
           </NoticiaContenido>
           <NoticiaTags>
-            {noticia.tags.map((tag, index) => (
-              <Link key={index} href="#">
-                {tag.name}
-              </Link>
-            ))}
+            {noticia.tags
+              ? noticia.tags.map((tag, index) => (
+                  <Link key={index} href="#">
+                    {tag.name}
+                  </Link>
+                ))
+              : null}
           </NoticiaTags>
           <NoticiaVolver>
             <a href="#">Volver a noticias</a>

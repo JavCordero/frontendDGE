@@ -5,6 +5,8 @@ import "../styles/rsuite-default.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
+import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
+
 import "@fortawesome/fontawesome-svg-core/styles.css"; // import Font Awesome CSS
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above

@@ -13,14 +13,14 @@ const NoticiaId = () => {
   useEffect(() => {
     const cargaNoticia = async () => {
       const noticiaObject = await getNoticiaId(router.query.id);
+      console.log(noticiaObject);
       if (noticiaObject) {
         setNoticia(noticiaObject);
         setIsLoaded(true);
       }
     };
     cargaNoticia();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router.query.id]);
   return <>{isLoaded ? <NoticiaComponent noticia={noticia} /> : null}</>;
 };
 

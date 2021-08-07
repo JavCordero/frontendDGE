@@ -18,7 +18,7 @@ const NoticiaId = () => {
       }
     };
     cargaNoticia();
-  }, [router]);
+  }, [router.query.id]);
   return <>{isLoaded ? <NoticiaComponent noticia={noticia} /> : null}</>;
 };
 

@@ -43,7 +43,6 @@ const Eventos = () => {
         setLoadData(true);
       }
     }
-
     verificar();
     LoadItem();
   }, [loadData]);
