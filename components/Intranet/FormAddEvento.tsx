@@ -502,7 +502,7 @@ export const FormAddEvento = ({ idUser }) => {
             <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12">
                 <div
-                  className="cuerpoNoticia"
+                  className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
                   dangerouslySetInnerHTML={{ __html: data }}
                 ></div>
               </MDBCol>

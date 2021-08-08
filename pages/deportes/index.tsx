@@ -12,7 +12,7 @@ const Deportes = () => {
   useEffect(() => {
     const noticiasListas = async () => {
       const noticiasArray = await LoadNoticias("deportes");
-      if (noticiasArray.data.length >= 0) {
+      if (noticiasArray.data.length > 0) {
         setisLoadNotice(true);
         setNoticias(noticiasArray.data);
       }

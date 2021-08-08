@@ -417,7 +417,7 @@ export const Ramas = () => {
             setRama("montanismo");
           }}
         >
-          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+          <MDBCard className="align-items-center text-center px-0 pt-2 my-2">
             <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
@@ -488,8 +488,8 @@ export const Ramas = () => {
               height="120"
             />
             <MDBCardBody>
-              <MDBCardTitle>Rugby Seven</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Rugby</MDBCardTitle>
+              <MDBCardTitle>Seven</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
@@ -509,8 +509,8 @@ export const Ramas = () => {
               height="120"
             />
             <MDBCardBody>
-              <MDBCardTitle>Tae Kwon Do</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Tae</MDBCardTitle>
+              <MDBCardTitle>Kwon Do</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
@@ -551,8 +551,8 @@ export const Ramas = () => {
               height="120"
             />
             <MDBCardBody>
-              <MDBCardTitle>Tenis de Mesa</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Tenis</MDBCardTitle>
+              <MDBCardTitle>de Mesa</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
@@ -593,8 +593,8 @@ export const Ramas = () => {
               height="120"
             />
             <MDBCardBody>
-              <MDBCardTitle>Vóleibol Playa</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Vóleibol</MDBCardTitle>
+              <MDBCardTitle>Playa</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
@@ -671,6 +671,7 @@ export const Ramas = () => {
                     className="w-100"
                     width="200"
                     height="200"
+                    objectFit="cover"
                   />
                 </MDBCol>
                 <MDBCol>
