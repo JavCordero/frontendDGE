@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import { Placeholder } from "rsuite";
 import { Calendario } from "../components/index/Calendario";
@@ -7,21 +6,32 @@ import { Destacados } from "../components/index/Destacados";
 import { Direccion } from "../components/index/Direccion";
 import { Unidad } from "../components/index/Unidad";
 import LoadNoticias from "../hooks/useLoadNoticias";
-import LoadEventosNoPaginate from "../hooks/useLoadEventosNoPaginate";
+import LoadTags from "../hooks/useLoadTags";
 
 export default function Home() {
   const [isLoadNotice, setisLoadNotice] = useState(false);
+  const [isLoadTags, setisLoadTags] = useState(false);
   const [noticias, setNoticias] = useState([]);
+  const [tags, setTags] = useState([]);
 
   useEffect(() => {
     const noticiasListas = async () => {
       const noticiasArray = await LoadNoticias();
+      console.log(noticiasArray);
       if (noticiasArray.data.length > 0) {
         setisLoadNotice(true);
         setNoticias(noticiasArray.data);
       }
     };
+    const tagListos = async () => {
+      const tagsArray = await LoadTags();
+      if (tagsArray.length > 0) {
+        setisLoadTags(true);
+        setTags(tagsArray);
+      }
+    };
     noticiasListas();
+    tagListos();
   }, []);
   return (
     <>
@@ -30,6 +40,7 @@ export default function Home() {
           titulo1="Destacados"
           titulo2="Para tí"
           noticias={noticias}
+          path="/"
         />
       ) : (
         <Placeholder.Graph active height={450} />
@@ -37,8 +48,11 @@ export default function Home() {
       <Unidad />
       <Direccion />
       <Calendario />
-
-      <Categoria />
+      {isLoadTags ? (
+        <Categoria tags={tags} />
+      ) : (
+        <Placeholder.Graph active height={450} />
+      )}
     </>
   );
 }

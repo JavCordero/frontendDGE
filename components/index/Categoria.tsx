@@ -1,41 +1,22 @@
 import React from "react";
-import { MDBBtn, MDBContainer } from "mdb-react-ui-kit";
+import { MDBBtn, MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
+import TitleLine from "../others/TitleLine";
 
-export const Categoria = () => {
+export const Categoria = ({ tags }) => {
   return (
-    <MDBContainer fluid className="bg-light shadow-5 text-dark pb-5">
-      <h2 className="mt-5 mb-4">Categorias</h2>
+    <MDBContainer
+      fluid
+      className="bg-light shadow-5 rounded text-dark pb-5 p-0 mt-2"
+    >
+      <TitleLine>Categorias</TitleLine>
       <MDBContainer>
-        <MDBBtn outline className="m-2">
-          #Actividad
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Beneficios
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Taller
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Noticia
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Postulación
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Pregrado
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Arte
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Cultura
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Entretención
-        </MDBBtn>
-        <MDBBtn outline className="m-2">
-          #Investigación
-        </MDBBtn>
+        <MDBRow className="justify-content-center align-item-center">
+          {tags.map((tag, index) => (
+            <MDBCol size="auto" key={index}>
+              <MDBBtn className="my-1 m-0 p-2 rounded-6">#{tag.label}</MDBBtn>
+            </MDBCol>
+          ))}
+        </MDBRow>
       </MDBContainer>
     </MDBContainer>
   );

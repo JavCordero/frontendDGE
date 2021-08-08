@@ -2,6 +2,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import React from "react";
 import Image from "next/image";
 import Cna from "../../public/ucn-cna.png";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -77,9 +78,7 @@ const Footer = () => {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.0)" }}
       >
         &copy; {new Date().getFullYear()}{" "}
-        <a className="text-dark" href="/">
-          Universidad Católica del Norte
-        </a>
+        <Link href="/">Universidad Católica del Norte</Link>
       </div>
     </MDBFooter>
   );

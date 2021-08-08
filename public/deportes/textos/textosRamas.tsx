@@ -122,15 +122,15 @@ const Textos = {
     ],
     tumbnail: "/deportes/ramas/Balonmano/balonmano",
     texto: (
-      <p>
-        En este deporte participan dos equipos de siete integrantes cada uno. El
-        equipo ganador es aquel que logra anotar más goles durante los 60
-        minutos de partido en 2 tiempos de 30 minutos. Se juega en una cancha
-        rectangular de 40m x 20m y sus arcos son un poco más largos y bajos que
-        los que se ocupan en deportes como futsal. Esta rama participa en
-        competencias Federadas y de la Federación Nacional Universitaria de
-        Deportes – FENAUDE. La Ucn tiene representativos damas y varones
-      </p>
+      <iframe
+        width="100%"
+        height="90%"
+        src="https://www.youtube.com/embed/QxyPbPZxf9A"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     ),
   },
   beisbol: {

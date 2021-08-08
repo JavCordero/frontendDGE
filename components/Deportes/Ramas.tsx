@@ -22,6 +22,11 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Slider from "react-slick";
 import Textos from "../../public/deportes/textos/textosRamas";
+import alert from "/salud/alert.png";
+import Image from "next/image";
+import SearchInput from "../others/SearchInput";
+import TitleLine from "../others/TitleLine";
+import styled from "@emotion/styled";
 
 export const Ramas = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -45,10 +50,16 @@ export const Ramas = () => {
   };
 
   const settings = {
-    customPaging: function (i) {
+    customPaging: function page(i) {
       return (
         <a>
-          <img className="w-100" src={`${Textos[rama].tumbnail}${i + 1}.jpg`} />
+          <Image
+            className="w-100"
+            src={`${Textos[rama].tumbnail}${i + 1}.jpg` as any}
+            width="600"
+            height="600"
+            alt="..."
+          />
         </a>
       );
     },
@@ -62,20 +73,19 @@ export const Ramas = () => {
 
   const Menu = (list, search) => {
     const lista = [
-      <MDBCol name="atletismo">
+      <MDBCol name="atletismo" key="0">
         <div
           onClick={() => {
             setLgShow(true);
             setRama("atletismo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
 
             <MDBCardBody>
@@ -85,20 +95,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="ajedrez">
+      <MDBCol name="ajedrez" key="1">
         <div
           onClick={() => {
             setLgShow(true);
             setRama("ajedrez");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Ajedrez</MDBCardTitle>
@@ -107,20 +116,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="aikido">
+      <MDBCol name="aikido" key="2">
         <div
           onClick={() => {
             setLgShow(true);
             setRama("aikido");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Aikido</MDBCardTitle>
@@ -129,20 +137,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="basquetbol">
+      <MDBCol name="basquetbol" key="3">
         <div
           onClick={() => {
             setLgShow(true);
             setRama("basquetbol");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Básquetbol</MDBCardTitle>
@@ -151,20 +158,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="balonmano">
+      <MDBCol name="balonmano" key="4">
         <div
           onClick={() => {
             setLgShow(true);
             setRama("balonmano");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Balonmano</MDBCardTitle>
@@ -173,20 +179,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="béisbol">
+      <MDBCol name="béisbol" key={5}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("beisbol");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Béisbol</MDBCardTitle>
@@ -195,20 +200,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="ciclismo">
+      <MDBCol name="ciclismo" key={6}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("ciclismo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Ciclismo</MDBCardTitle>
@@ -217,20 +221,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="escalada">
+      <MDBCol name="escalada" key={7}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("escalada");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Escalada</MDBCardTitle>
@@ -239,20 +242,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="fútbol">
+      <MDBCol name="fútbol" key={8}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("futbol");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Fútbol</MDBCardTitle>
@@ -261,20 +263,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="futsal">
+      <MDBCol name="futsal" key={9}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("futsal");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Futsal</MDBCardTitle>
@@ -283,20 +284,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="gimnasia artistica">
+      <MDBCol name="gimnasia artistica" key={10}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("gimnasia");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Gimnasia</MDBCardTitle>
@@ -305,20 +305,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="halterofilia">
+      <MDBCol name="halterofilia" key={11}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("halterofilia");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-1 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Halterofilia</MDBCardTitle>
@@ -327,20 +326,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="hockey">
+      <MDBCol name="hockey" key={12}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("hockey");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Hockey</MDBCardTitle>
@@ -349,20 +347,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="judo">
+      <MDBCol name="judo" key={13}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("judo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Judo</MDBCardTitle>
@@ -371,20 +368,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="kárate">
+      <MDBCol name="kárate" key={14}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("karate");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Kárate</MDBCardTitle>
@@ -393,20 +389,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="kendo">
+      <MDBCol name="kendo" key={15}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("kendo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Kendo</MDBCardTitle>
@@ -415,20 +410,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="montañismo">
+      <MDBCol name="montañismo" key={16}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("montanismo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-0 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Montañismo</MDBCardTitle>
@@ -437,20 +431,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="natación">
+      <MDBCol name="natación" key={17}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("natacion");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Natación</MDBCardTitle>
@@ -459,20 +452,19 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="rugby">
+      <MDBCol name="rugby" key={18}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("rugby");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Rugby</MDBCardTitle>
@@ -481,64 +473,61 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="rugby seven">
+      <MDBCol name="rugby seven" key={19}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("rugbysev");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
-              <MDBCardTitle>Rugby Seven</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Rugby</MDBCardTitle>
+              <MDBCardTitle>Seven</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="tae kwon do">
+      <MDBCol name="tae kwon do" key={20}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("taekwondo");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
-              <MDBCardTitle>Tae Kwon Do</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Tae</MDBCardTitle>
+              <MDBCardTitle>Kwon Do</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="tenis">
+      <MDBCol name="tenis" key={21}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("tenis");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Tenis</MDBCardTitle>
@@ -547,42 +536,40 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="tenis de mesa">
+      <MDBCol name="tenis de mesa" key={22}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("tenismesa");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
-              <MDBCardTitle>Tenis de Mesa</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Tenis</MDBCardTitle>
+              <MDBCardTitle>de Mesa</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="vóleibol">
+      <MDBCol name="vóleibol" key={23}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("voleibol");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Vóleibol</MDBCardTitle>
@@ -591,24 +578,23 @@ export const Ramas = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="vóleibol playa">
+      <MDBCol name="vóleibol playa" key={24}>
         <div
           onClick={() => {
             setLgShow(true);
             setRama("voleibolplaya");
           }}
         >
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
-              <MDBCardTitle>Vóleibol Playa</MDBCardTitle>
-              <MDBCardTitle>&nbsp;</MDBCardTitle>
+              <MDBCardTitle>Vóleibol</MDBCardTitle>
+              <MDBCardTitle>Playa</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
         </div>
@@ -619,14 +605,13 @@ export const Ramas = () => {
     );
     if (newList.length === 0) {
       newList = [
-        <MDBCol name="nada">
-          <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+        <MDBCol name="nada" key={25}>
+          <MDBCard className="align-items-center text-center px-2 pt-2 my-2">
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>No encontrado</MDBCardTitle>
@@ -654,25 +639,14 @@ export const Ramas = () => {
   return (
     <MDBContainer fluid className="w-100">
       <MDBRow>
-        <MDBCol>
-          <h2 className="mt-5 mb-4">Ramas Deportivas UCN</h2>
-        </MDBCol>
-        <MDBCol size="4">
-          <div className="position-relative">
-            <input
-              className="form-control mt-5"
-              placeholder="Buscar una rama"
-              aria-label="Search"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <FontAwesomeIcon
-              className="position-absolute"
-              style={{ top: "10%", right: "5%" }}
-              icon={faSearch}
-              size="2x"
-            ></FontAwesomeIcon>
-          </div>
-        </MDBCol>
+        <TitleLine className="mb-2">Ramas Deportivas UCN</TitleLine>
+        <SearchInput
+          className="mt-3 mb-3 w-50"
+          style={{ minWidth: "250px" }}
+          styleIcon={{ right: "18px" }}
+          placeholder="Buscar una rama"
+          onChange={(e: any) => setSearch(e.target.value)}
+        />
       </MDBRow>
 
       <Modal
@@ -691,7 +665,14 @@ export const Ramas = () => {
             <MDBCol size="4">
               <MDBRow>
                 <MDBCol>
-                  <img src={Textos[rama].fotodt} alt="" className="w-100" />
+                  <Image
+                    src={Textos[rama].fotodt}
+                    alt=""
+                    className="w-100"
+                    width="200"
+                    height="200"
+                    objectFit="cover"
+                  />
                 </MDBCol>
                 <MDBCol>
                   <MDBRow>Director Técnico:</MDBRow>
@@ -719,16 +700,15 @@ export const Ramas = () => {
             <MDBCol size="8">
               <div className="w-100 p-3">
                 <Slider {...settings}>
-                  {Textos[rama].fotos.map((foto) => (
-                    <div>
-                      <img
+                  {Textos[rama].fotos.map((foto, index) => (
+                    <div key={index}>
+                      <Image
                         className="w-100"
                         src={foto}
-                        style={{
-                          maxHeight: "450px",
-                          objectFit: "cover",
-                          minHeight: "450px",
-                        }}
+                        alt="..."
+                        width="1000"
+                        height="600"
+                        objectFit="cover"
                       />
                     </div>
                   ))}
@@ -742,8 +722,8 @@ export const Ramas = () => {
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

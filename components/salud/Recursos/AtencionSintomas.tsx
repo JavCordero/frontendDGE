@@ -25,10 +25,12 @@ los parametros que recibe son:
 const AtencionSintomas = (props) => {
   return (
     <div className="atencion-sintomas">
+      {/* Seccion izquierda */}
       <div>
         <h2 className="atencion-sintomas__sintomas-titulo">
           {props.mensaje ? props.mensaje : "Si... :"}
         </h2>
+
         <div className="atencion-sintomas__sintomas">
           <img
             className="atencion-sintomas__imagen"
@@ -37,11 +39,12 @@ const AtencionSintomas = (props) => {
                 ? props.srcArea
                 : "/salud/areaNoImagen.png"
             }
-            alt=""
+            alt="imagen de area salud"
           />
           {props.children}
         </div>
       </div>
+      {/* Seccion derecha */}
       <div className="atencion-sintomas__contacto">
         {props.noCard ? (
           <>
@@ -65,8 +68,12 @@ const AtencionSintomas = (props) => {
             </h2>
             <div className="atencion-sintomas__contacto-content">
               <MDBCard
-                className=""
-                style={{ width: "18rem", backgroundColor: "rgba(0,0,0,0)" }}
+                className="ml-auto mr-auto"
+                style={{
+                  width: "16rem",
+                  backgroundColor: "rgba(0,0,0,0)",
+                  maxWidth: "100%",
+                }}
               >
                 <Image
                   className="rounded-circle border border-5 border-primary"

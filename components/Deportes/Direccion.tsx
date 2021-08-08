@@ -8,21 +8,33 @@ import {
 } from "mdb-react-ui-kit";
 import Image from "next/image";
 import imageProfile from "../../public/profile.png";
+import TitleLine from "../others/TitleLine";
 
 const Direccion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
-      <h2 className="mt-5 mb-4">Equipo Deportes UCN</h2>
-      <MDBRow className="px-4">
+    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark p-0 pb-5">
+      <TitleLine className="mb-2">Equipo Deportes UCN</TitleLine>
+      <MDBRow
+        className="p-0 m-0"
+        style={{
+          maxWidth: "100%",
+        }}
+      >
         <MDBCol>
           <MDBCard
             className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/EduardoVerdejoGreen.png"}
               alt="..."
+              width="400"
+              height="400"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Eduardo Verdejo Green</p>
@@ -37,12 +49,18 @@ const Direccion = () => {
         <MDBCol>
           <MDBCard
             className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            style={{
+              width: "19rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/SusanaGutierrezDinamarca.png"}
               alt="..."
+              width="400"
+              height="400"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Susana Gutiérrez Dinamarca</p>
@@ -55,16 +73,27 @@ const Direccion = () => {
           </MDBCard>
         </MDBCol>
       </MDBRow>
-      <MDBRow className="px-4 justify-content-md-center">
+      <MDBRow
+        className="p-0 m-0"
+        style={{
+          maxWidth: "100%",
+        }}
+      >
         <MDBCol>
           <MDBCard
             className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/DiegoGonzalezZambrano.png"}
               alt="..."
+              width="400"
+              height="400"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Diego González Zambrano</p>
@@ -81,12 +110,18 @@ const Direccion = () => {
         <MDBCol>
           <MDBCard
             className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
               src={"/deportes/equipo/RicardoJuicaSalinas.png"}
               alt="..."
+              width="400"
+              height="400"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Ricardo Juica Salinas</p>
@@ -101,13 +136,18 @@ const Direccion = () => {
         <MDBCol>
           <MDBCard
             className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-primary"
               src={"/deportes/equipo/FredyLeytonRivera.png"}
               alt="..."
-              style={{}}
+              width="400"
+              height="400"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Fredy Leyton Rivera</p>

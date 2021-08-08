@@ -5,6 +5,7 @@ import { AuthContext } from "../../../../context/AuthContext";
 import CheckLogin from "../../../../hooks/useCheckLogin";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import { FormEditEvento } from "../../../../components/Intranet/FormEditEvento";
+import Link from "next/link";
 
 const Evento = () => {
   const router = useRouter();
@@ -43,10 +44,10 @@ const Evento = () => {
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
-              <a href="/intranet">Intranet</a>
+              <Link href="/intranet">Intranet</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem>
-              <a href="/intranet/noticias">Eventos</a>
+              <Link href="/intranet/noticias">Eventos</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Editar</MDBBreadcrumbItem>
           </MDBBreadcrumb>

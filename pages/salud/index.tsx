@@ -6,7 +6,7 @@ import { Secciones } from "../../components/salud/Secciones";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import { Placeholder } from "rsuite";
 
-const index = () => {
+const Index = () => {
   const [isLoadNotice, setisLoadNotice] = useState(false);
   const [noticias, setNoticias] = useState([]);
   useEffect(() => {
@@ -30,7 +30,12 @@ const index = () => {
       </MDBBreadcrumb>
 
       {isLoadNotice ? (
-        <Destacados noticias={noticias} titulo1="Salud" titulo2="Destacados" />
+        <Destacados
+          noticias={noticias}
+          titulo1="Salud"
+          titulo2="Destacados"
+          path="/salud/"
+        />
       ) : (
         <Placeholder.Graph active height={450} />
       )}
@@ -39,4 +44,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

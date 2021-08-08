@@ -6,8 +6,9 @@ import CheckLogin from "../../../hooks/useCheckLogin";
 import { Loader, Placeholder } from "rsuite";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import { FormAddEvento } from "../../../components/Intranet/FormAddEvento";
+import Link from "next/link";
 
-const agregarevento = () => {
+const AgregarEvento = () => {
   const router = useRouter();
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
@@ -26,6 +27,7 @@ const agregarevento = () => {
       }
     }
     verificar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -41,10 +43,10 @@ const agregarevento = () => {
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
-              <a href="/intranet">Intranet</a>
+              <Link href="/intranet">Intranet</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem>
-              <a href="/intranet/eventos">Eventos</a>
+              <Link href="/intranet/eventos">Eventos</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Nueva Evento</MDBBreadcrumbItem>
           </MDBBreadcrumb>
@@ -55,4 +57,4 @@ const agregarevento = () => {
   );
 };
 
-export default agregarevento;
+export default AgregarEvento;

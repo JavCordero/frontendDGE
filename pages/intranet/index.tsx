@@ -15,7 +15,7 @@ import { Loader, Placeholder } from "rsuite";
 import { AuthContext } from "../../context/AuthContext";
 import CheckLogin from "../../hooks/useCheckLogin";
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
@@ -59,7 +59,7 @@ const index = () => {
                     Permite crear, editar, eliminar y visualizar las noticias
                     del Portal DGE.
                   </MDBCardText>
-                  <Link href="/intranet/noticias">
+                  <Link href="/intranet/noticias" passHref>
                     <MDBBtn>Ir</MDBBtn>
                   </Link>
                 </MDBCardBody>
@@ -73,7 +73,7 @@ const index = () => {
                     Permite crear, editar, eliminar y visualizar los eventos del
                     Portal DGE.
                   </MDBCardText>
-                  <Link href="/intranet/eventos">
+                  <Link href="/intranet/eventos" passHref>
                     <MDBBtn>Ir</MDBBtn>
                   </Link>
                 </MDBCardBody>
@@ -98,4 +98,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

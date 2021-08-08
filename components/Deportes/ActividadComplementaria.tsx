@@ -11,6 +11,8 @@ import { Modal } from "react-bootstrap";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Slider from "react-slick";
 import TextosComplementarios from "../../public/deportes/textos/textosComplementario";
+import Image from "next/image";
+import TitleLine from "../others/TitleLine";
 
 export const ActividadComplementaria = () => {
   const [lgShow, setLgShow] = useState(false);
@@ -25,12 +27,16 @@ export const ActividadComplementaria = () => {
   console.log(TextosComplementarios[rama]);
 
   const settings = {
-    customPaging: function (i) {
+    customPaging: function page(i) {
       return (
         <a>
-          <img
+          <Image
             className="w-100"
-            src={`${TextosComplementarios[rama].tumbnail}${i + 1}.jpg`}
+            src={
+              (TextosComplementarios[rama].tumbnail + (i + 1) + ".jpg") as any
+            }
+            alt="imagen"
+            layout="fill"
           />
         </a>
       );
@@ -45,7 +51,7 @@ export const ActividadComplementaria = () => {
 
   const Menu = (list) => {
     const lista = [
-      <MDBCol name="escuelas">
+      <MDBCol name="escuelas" key={0}>
         <div
           onClick={() => {
             setLgShow(true);
@@ -53,12 +59,11 @@ export const ActividadComplementaria = () => {
           }}
         >
           <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
 
             <MDBCardBody>
@@ -68,7 +73,7 @@ export const ActividadComplementaria = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="cursos">
+      <MDBCol name="cursos" key={1}>
         <div
           onClick={() => {
             setLgShow(true);
@@ -76,12 +81,11 @@ export const ActividadComplementaria = () => {
           }}
         >
           <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Cursos y Talleres</MDBCardTitle>
@@ -90,7 +94,7 @@ export const ActividadComplementaria = () => {
           </MDBCard>
         </div>
       </MDBCol>,
-      <MDBCol name="recreativo">
+      <MDBCol name="recreativo" key={2}>
         <div
           onClick={() => {
             setLgShow(true);
@@ -98,12 +102,11 @@ export const ActividadComplementaria = () => {
           }}
         >
           <MDBCard className="align-items-center text-center py-2 my-2">
-            <img
+            <Image
               src="/Escudo-UCN-Full-Color.png"
               alt=""
               width="120"
               height="120"
-              className="m-3"
             />
             <MDBCardBody>
               <MDBCardTitle>Recreativo Infantil y</MDBCardTitle>
@@ -133,7 +136,8 @@ export const ActividadComplementaria = () => {
     <MDBContainer fluid className="w-100">
       <MDBRow>
         <MDBCol>
-          <h2 className="mt-5 mb-4">&nbsp;</h2>
+          
+          <TitleLine className="mb-2">Actividades</TitleLine>
         </MDBCol>
         <MDBCol size="4"></MDBCol>
       </MDBRow>
@@ -171,16 +175,15 @@ export const ActividadComplementaria = () => {
             <MDBCol size="8">
               <div className="w-100 p-3">
                 <Slider {...settings}>
-                  {TextosComplementarios[rama].fotos.map((foto) => (
-                    <div>
-                      <img
+                  {TextosComplementarios[rama].fotos.map((foto, index) => (
+                    <div key={index}>
+                      <Image
                         className="w-100"
                         src={foto}
-                        style={{
-                          maxHeight: "450px",
-                          objectFit: "cover",
-                          minHeight: "450px",
-                        }}
+                        alt="foto"
+                        width="600"
+                        height="400"
+                        objectFit="cover"
                       />
                     </div>
                   ))}
@@ -194,8 +197,8 @@ export const ActividadComplementaria = () => {
       <ScrollMenu
         wrapperClass="w-100"
         data={menu}
-        arrowLeft={ArrowLeft}
-        arrowRight={ArrowRight}
+        // arrowLeft={ArrowLeft}
+        // arrowRight={ArrowRight}
       />
     </MDBContainer>
   );

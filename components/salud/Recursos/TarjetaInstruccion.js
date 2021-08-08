@@ -6,6 +6,8 @@ los parametros son:
     - srcIcono: ruta del icono que se mostrara en la tarjeta
 */
 
+import Image from "next/image";
+
 const TarjetaInstruccion = (props) => {
   return (
     <div className="tarjetaInstruccion">

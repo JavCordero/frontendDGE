@@ -19,7 +19,7 @@ import Swal from "sweetalert2";
 import deleteNoticia from "../../hooks/useDeleteNoticia";
 import { host } from "../../public/js/host";
 
-const noticias = () => {
+const Noticias = () => {
   const router = useRouter();
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
@@ -81,7 +81,7 @@ const noticias = () => {
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
-              <a href="/intranet">Intranet</a>
+              <Link href="/intranet">Intranet</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Noticias</MDBBreadcrumbItem>
           </MDBBreadcrumb>
@@ -116,6 +116,7 @@ const noticias = () => {
                         width="150"
                         height="100"
                         objectFit="cover"
+                        alt="imagen"
                       ></Image>
                     </td>
                     <td>{noticia.titulo}</td>
@@ -137,7 +138,10 @@ const noticias = () => {
                       >
                         <Icon size="2x" icon="trash" />
                       </MDBBtn>
-                      <Link href={`/intranet/noticias/edit/${noticia.id}`}>
+                      <Link
+                        href={`/intranet/noticias/edit/${noticia.id}`}
+                        passHref
+                      >
                         <MDBBtn className="p-2" color="warning">
                           <Icon size="2x" icon="edit" />
                         </MDBBtn>
@@ -160,4 +164,4 @@ const noticias = () => {
   );
 };
 
-export default noticias;
+export default Noticias;

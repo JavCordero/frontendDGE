@@ -5,8 +5,9 @@ import { Loader, Placeholder } from "rsuite";
 import { AuthContext } from "../../../context/AuthContext";
 import CheckLogin from "../../../hooks/useCheckLogin";
 import { FormAddNoticia } from "../../../components/Intranet/FormAddNoticia";
+import Link from "next/link";
 
-const agregarnoticia = () => {
+const AgregarNoticia = () => {
   const router = useRouter();
   const { checkLogin } = useContext(AuthContext);
   const [isLoged, setIsLoged] = useState(true);
@@ -40,10 +41,10 @@ const agregarnoticia = () => {
           </div>
           <MDBBreadcrumb>
             <MDBBreadcrumbItem>
-              <a href="/intranet">Intranet</a>
+              <Link href="/intranet">Intranet</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem>
-              <a href="/intranet/noticias">Noticias</a>
+              <Link href="/intranet/noticias">Noticias</Link>
             </MDBBreadcrumbItem>
             <MDBBreadcrumbItem active>Nueva Noticia</MDBBreadcrumbItem>
           </MDBBreadcrumb>
@@ -54,4 +55,4 @@ const agregarnoticia = () => {
   );
 };
 
-export default agregarnoticia;
+export default AgregarNoticia;

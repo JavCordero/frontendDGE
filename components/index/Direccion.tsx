@@ -9,15 +9,16 @@ import {
   MDBCol,
   MDBContainer,
 } from "mdb-react-ui-kit";
+import TitleLine from "../others/TitleLine";
 
 export const Direccion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
-      <h2 className="mt-5 mb-4">Dirección General Estudiantil DGE</h2>
-      <MDBRow className="pb-4 justify-content-center">
+    <MDBContainer fluid className="w-100 bg-light shadow-5 rounded text-dark pb-5 p-0">
+      <TitleLine>Dirección General Estudiantil DGE</TitleLine>
+      <MDBRow className="pb-4 ml-auto mr-auto">
         <MDBCol>
           <MDBCard
-            className="my-2"
+            className="my-2 ml-auto mr-auto"
             style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
             <Image
@@ -35,7 +36,7 @@ export const Direccion = () => {
         </MDBCol>
         <MDBCol>
           <MDBCard
-            className="my-2"
+            className="my-2 ml-auto mr-auto"
             style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
             <Image
@@ -53,7 +54,7 @@ export const Direccion = () => {
         </MDBCol>
         <MDBCol>
           <MDBCard
-            className="my-2"
+            className="my-2 ml-auto mr-auto"
             style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
             <Image
@@ -71,7 +72,7 @@ export const Direccion = () => {
         </MDBCol>
         <MDBCol>
           <MDBCard
-            className="my-2"
+            className="my-2 ml-auto mr-auto"
             style={{ width: "15rem", backgroundColor: "rgba(0,0,0,0)" }}
           >
             <Image

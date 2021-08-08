@@ -21,6 +21,7 @@ import {
 
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import Link from "next/link";
+import TitleLine from "../others/TitleLine";
 
 export const Unidad = () => {
   const list = [
@@ -37,7 +38,7 @@ export const Unidad = () => {
 
   const Menu = (list, selected) => {
     return [
-      <MDBCol>
+      <MDBCol key="1">
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faGraduationCap}></FontAwesomeIcon>
           <MDBCardBody>
@@ -49,7 +50,7 @@ export const Unidad = () => {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
-      <MDBCol>
+      <MDBCol key="2">
         <MDBCard className="align-items-center text-center  my-2">
           <FontAwesomeIcon size="6x" icon={faStarOfLife}></FontAwesomeIcon>
           <MDBCardBody>
@@ -80,7 +81,7 @@ export const Unidad = () => {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
-      <MDBCol>
+      <MDBCol key="3">
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBasketballBall}></FontAwesomeIcon>
           <MDBCardBody>
@@ -104,7 +105,7 @@ export const Unidad = () => {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
-      <MDBCol>
+      <MDBCol key="4">
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversity}></FontAwesomeIcon>
           <MDBCardBody>
@@ -116,7 +117,7 @@ export const Unidad = () => {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
-      <MDBCol>
+      <MDBCol key="5">
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBabyCarriage}></FontAwesomeIcon>
           <MDBCardBody>
@@ -128,7 +129,7 @@ export const Unidad = () => {
           </MDBCardBody>
         </MDBCard>
       </MDBCol>,
-      <MDBCol>
+      <MDBCol key="6">
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversalAccess}></FontAwesomeIcon>
           <MDBCardBody>
@@ -161,8 +162,8 @@ export const Unidad = () => {
 
   const menu = menuItems;
   return (
-    <MDBContainer fluid className="w-100">
-      <h2 className="mt-5 mb-4">Unidad de servicio y apoyo estudiantil UCN</h2>
+    <MDBContainer fluid className="w-100 p-0">
+      <TitleLine>Unidad de servicio y apoyo estudiantil UCN</TitleLine>
 
       <ScrollMenu
         wrapperClass="w-100"

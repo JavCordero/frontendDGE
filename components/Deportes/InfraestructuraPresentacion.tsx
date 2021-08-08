@@ -8,21 +8,33 @@ import {
   MDBAccordionItem,
 } from "mdb-react-ui-kit";
 import React from "react";
+import Image from "next/image";
+import TitleLine from "../others/TitleLine";
 
 export const InfraestructuraPresentacion = () => {
   return (
-    <MDBContainer fluid className="w-100 bg-light shadow-5 text-dark pb-5">
-      <h2 className="mt-5 mb-4">Infraestructura Deportiva</h2>
-      <MDBRow className="px-4">
+    <MDBContainer
+      fluid
+      className="w-100 bg-light shadow-5 rounded text-dark p-0 pb-5"
+    >
+      <TitleLine className="mb-2">Infraestructura Deportiva</TitleLine>
+
+      <MDBRow className="p-0 m-0 gy-2">
         <MDBCol>
           <MDBCard
-            className="my-2 ml-auto mr-auto"
-            style={{ width: "20rem", backgroundColor: "rgba(0,0,0,0)" }}
+            className="ml-auto mr-auto"
+            style={{
+              width: "20rem",
+              backgroundColor: "rgba(0,0,0,0)",
+              maxWidth: "100%",
+            }}
           >
-            <img
+            <Image
               className="rounded-circle border border-5 border-primary"
-              src={"/deportes/equipo/FredyLeytonRivera.png"}
+              src={"/deportes/equipo/FredyLeytonRivera.png" as any}
               alt="..."
+              width="600"
+              height="600"
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Fredy Leyton Rivera</p>
