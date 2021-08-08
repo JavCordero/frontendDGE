@@ -31,6 +31,8 @@
   }
 
   &__contacto-content {
+    width: 100%;
+    position: relative;
   }
   &__nombre {
     font-size: $fontSize;
