@@ -24,6 +24,12 @@ import { toast, ToastContainer } from "react-toastify";
 import LoadImage from "../../hooks/useLoadImage";
 import getImagesByUser from "../../hooks/useGetImagesbyUser";
 import { host } from "../../public/js/host";
+import { Form } from "react-bootstrap";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NoticiaHeaderContent from "../noticias/noticia__recursos/NoticiaHeaderContent";
+import image from "next/image";
+import NoticiaHeader from "../noticias/noticia__recursos/NoticiaHeader";
 
 export const FormAddNoticia = ({ idUser }) => {
   const [step, setStep] = useState(0);
@@ -31,7 +37,9 @@ export const FormAddNoticia = ({ idUser }) => {
   const [area, setArea] = useState([]);
   const [tags, setTags] = useState([]);
   const [loadTags, setLoadTags] = useState(false);
-  const [data, setData] = useState("");
+  const [data, setData] = useState(
+    '<p><span style="font-family: Arial; font-size: 18px;">En esta sección puede redactar la noticia.</span></p><p><span style="font-size: 18px;"><span style="color: rgb(241, 241, 241);"><span style="background-color: rgb(255, 0, 0);"><span style="font-family: Arial;"><strong><u><font face="Arial">Antes de editar esta </font>sección<font face="Arial">&nbsp;recuerde leer el manual para insertar videos e imágenes&nbsp;al sistema.&nbsp;</font></u></strong></span></span></span></span></p><p><span style="font-size: 18px;"><span style="font-family: Arial;"><font face="Arial">Insertar videos desde YouTube&nbsp;mediante el </font>botón<font face="Arial">&nbsp;video, pegando el link del video, Ejemplo:</font></span></span></p><div class="se-component se-video-container __se__float-center" contenteditable="false" style="width: 50%; min-width: 100%;"><figure style="height: 56.25%; padding-bottom: 28.13%; margin: auto; width: 50%;"><iframe frameborder="0" allowfullscreen="" src="https://www.youtube.com/embed/g8M5JPsfQYA" data-proportion="true" data-percentage="50,56.25%" data-size="50%,56.25%" data-align="center" style="width: 100%; height: 100%;" data-index="0" data-file-name="g8M5JPsfQYA" data-file-size="0" data-origin="100%,56.25%" data-rotate="" data-rotatex="" data-rotatey=""></iframe></figure></div><p><br></p><hr class="__se__solid"><p><span style="font-family: Arial; font-size: 18px;">Crear tablas:</span></p><table><!--StartFragment--><tbody><tr><td rowspan="2"><div>CARRERAS</div></td><td colspan="6"><div>INGRESOS   ESPECIALES UCN 2021</div></td></tr><tr><td><div>PROFESIONAL</div></td><td><div>EXTRANJERO</div></td><td><div>CEDUC UCN</div></td><td><div>DEPORTISTA</div></td><td><div>PUEBLOS&nbsp;ORIGINARIOS</div></td><td><div>SIT. DISCAP.</div></td></tr><tr><td><div>ANTOFAGASTA</div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td></tr><tr><td><div>ANALÍSTA QUÍMICO</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td></tr><tr><td><div>ARQUITECTURA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div>1</div></td><td><div>1</div></td><td><div>0</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td></tr><tr><td><div>CONTADOR   AUDITOR-CONTADOR PÚBLICO</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>DERECHO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div>2</div></td><td><div>1</div></td><td><div>0</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td></tr><tr><td><div>GEOLOGÍA</div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td></tr><tr><td><div>INGENIERÍA CIVIL</div></td><td><div>2</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL   AMBIENTAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL DE MINAS</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL   EN COMPUTACIÓN E   INF.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;   &nbsp;</div></td><td><div>2</div></td><td><div>2</div></td><td><div>2</div></td><td><div>2</div></td><td><div>2</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL   EN GESTIÓN DE LA CONSTRUCCION</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL   INDUSTRIAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td><td><div><br></div></td></tr><tr><td><div>INGENIERÍA CIVIL METALÚRGICA</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA CIVIL QUÍMICA</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>3</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA   CIVIL-PLAN   COMUN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div>5</div></td><td><div>5</div></td><td><div>5</div></td><td><div>5</div></td><td><div>5</div></td><td><div>1</div></td></tr><tr><td><div>INGENIERÍA   COMERCIAL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td><td><div>1</div></td></tr><!--EndFragment--></tbody></table><hr class="__se__solid"><p><span style="font-family: Arial; font-size: 18px;">Tutorial para cargar imágenes en una noticia:</span><br></p><ol><li style="font-size: 18px; font-weight: bold;"><span style="font-family: Arial; font-size: 18px;"><strong>&nbsp;Hacer clic en elegir archivo en la sección de galería de imágenes.</strong></span></li></ol><div class="se-component se-image-container __se__float-center" contenteditable="false"><figure style="margin: auto; width: 309px;"><img src="/tutorial/imagen1.png" alt="" data-proportion="true" data-size="309px,188px" data-align="center" data-file-name="imagen1.png" data-file-size="0" origin-size="365,224" data-origin="365px,224px" style="width: 309px; height: 188px;" data-index="9"></figure></div><p style="font-size: 18px;"></p><p><span style="font-family: Arial; font-size: 18px;"><strong>&nbsp; &nbsp; 2. Seleccionar el archivo desde el PC</strong></span>​</p><div class="se-component se-image-container __se__float-center" contenteditable="false"><figure style="margin: auto; width: 362px;"><img src="/tutorial/imagen2.png" alt="" data-proportion="true" data-size="362px,221px" data-align="center" data-file-name="imagen2.png" data-file-size="0" origin-size="949,460" data-origin="949px,460px" style="width: 362px; height: 221px;" data-index="7"></figure></div><div><br><span style="font-size: 18px;"><span style="font-family: Arial;"><strong>&nbsp; &nbsp; 3. Clic en subir para cargar la imagen al sistema</strong></span></span><br><br></div><div class="se-component se-image-container __se__float-center" contenteditable="false"><figure style="margin: auto; width: 306px;"><img src="/tutorial/imagen3.png" alt="" data-proportion="true" data-size="306px,173px" data-align="center" data-index="2" data-file-name="imagen3.png" data-file-size="0" origin-size="349,197" data-origin="349px,197px" style="width: 306px; height: 173px;"></figure></div><div><br><span style="font-size: 18px;"><span style="font-family: Arial;">​<strong>&nbsp; &nbsp; 4. Clic donde deseas insertar la imagen... y clic en agregar para agregar la imagen a la noticia.</strong></span></span><br><br></div><div class="se-component se-image-container __se__float-none" contenteditable="false"><figure style="margin: 0px; width: 977px;"><img src="/tutorial/imagen4.png" alt="" data-proportion="true" data-size="977px,214px" data-align="none" data-index="3" data-file-name="imagen4.png" data-file-size="0" origin-size="1263,277" data-origin="977px,214px" style="width: 977px; height: 214px;"></figure></div><div><br><b style="font-family: Arial; font-size: 18px;"><span style="font-family: Arial;">&nbsp; &nbsp; 5. Una vez cargada la imagen, puedes disponer de ella para modificar su tamaño, <font face="Arial">posición</font>&nbsp;u <font face="Arial">orientación</font>.</span></b><span style="font-family: Arial;"></span><br><br></div><div class="se-component se-image-container __se__float-center" contenteditable="false"><figure style="margin: auto; width: 622px;"><img src="/tutorial/imagen5.png" alt="" data-proportion="true" data-size="622px,475px" data-align="center" data-index="4" data-file-name="imagen5.png" data-file-size="0" origin-size="764,583" data-origin="764px,583px" style="width: 622px; height: 475px;"></figure></div>'
+  );
   const [loadImagenes, setLoadImagenes] = useState([]);
 
   const editor = useRef<SunEditorCore>();
@@ -294,6 +302,7 @@ export const FormAddNoticia = ({ idUser }) => {
       }
     }
     cargarImagenes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagen2]);
 
   useEffect(() => {
@@ -325,6 +334,33 @@ export const FormAddNoticia = ({ idUser }) => {
 
   return (
     <div>
+      <MDBRow className="mt-3 justify-content-end align-items-center">
+        <MDBCol size="12" md="6" className="text-right">
+          <i> Para desplazarse presione siguiente o anterior</i>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onPrevious}
+            disabled={step === 0}
+          >
+            Anterior
+          </Button>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onNext}
+            disabled={step === 2}
+          >
+            Siguiente
+          </Button>
+        </MDBCol>
+      </MDBRow>
       <Steps current={step}>
         <Steps.Item title="Datos" description="Noticia" />
         <Steps.Item title="Cuerpo" description="Noticia" />
@@ -338,6 +374,10 @@ export const FormAddNoticia = ({ idUser }) => {
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
+                  maxLength={250}
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="Tooltip on top"
                   className="form-control"
                   type="text"
                   id="titulo"
@@ -346,11 +386,21 @@ export const FormAddNoticia = ({ idUser }) => {
                   value={titulo}
                   onChange={(e) => setTitulo(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  El título debe ser una oración breve, clara y precisa de la
+                  noticia. Este campo es obligatorio. (máximo 100 caracteres)
+                </Form.Text>
               </MDBCol>
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="subtitulo">Subtitulo</ControlLabel>
                 <input
                   className="form-control"
+                  maxLength={250}
                   type="text"
                   id="subtitulo"
                   placeholder="Subtitulo de la noticia"
@@ -358,6 +408,16 @@ export const FormAddNoticia = ({ idUser }) => {
                   value={subTitulo}
                   onChange={(e) => setSubTitulo(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  El subtitulo o bajada de la noticia es una ampliación del
+                  titulo, se debe explicar en breve de que tratará la noticia.
+                  Este campo es obligatorio. (máximo 250 caracteres).
+                </Form.Text>
               </MDBCol>
             </MDBRow>
 
@@ -371,20 +431,41 @@ export const FormAddNoticia = ({ idUser }) => {
                   placeholder="Imagen de la noticia"
                   name="imagen"
                   ref={imagenInput}
-                  onChange={(e) => setImagen(e.target.files[0])}
+                  onChange={(e) => console.log(e.target.files[0])}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  La imagen es un soporte visual que acompaña el contenido y que
+                  sirve para ofrecer una información extra que ayuda a
+                  comprender mejor la noticia. Este campo es obligatorio
+                  (Resoluciones recomendadas 1280 x 720)
+                </Form.Text>
               </MDBCol>
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="descimg">Descripción Imagen</ControlLabel>
                 <input
                   className="form-control"
                   type="text"
+                  maxLength={250}
                   id="descImg"
                   placeholder="Descripción de la imagen"
                   value={descipcion}
                   name="descImg"
                   onChange={(e) => setDescripcion(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Texto alternativo que describe a la imagen. Este campo es
+                  obligatorio (máximo 100 caracteres)
+                </Form.Text>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mx-2">
@@ -405,6 +486,15 @@ export const FormAddNoticia = ({ idUser }) => {
                       </option>
                     ))}
                 </select>
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Corresponde una de las areas de la DGE. Este campo es
+                  obligatorio.
+                </Form.Text>
               </MDBCol>
 
               <MDBCol className="my-3" size="12" md="6">
@@ -422,6 +512,17 @@ export const FormAddNoticia = ({ idUser }) => {
                     onChange={(e) => setTagSelect(e)}
                   />
                 )}
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Incluya etiquetas a la noticia para vincular esta noticia con
+                  otras del sistema. La etiqueta es una sola palabra que
+                  relaciona a la noticia. Escriba la etiqueta y presione enter.
+                  Puede agregar cuantas etiquetas requiera la noticia.
+                </Form.Text>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mx-2 justify-content-center align-items-center">
@@ -432,11 +533,20 @@ export const FormAddNoticia = ({ idUser }) => {
                   name="links"
                   isClearable
                   isMulti
-                  placeholder="Agrega Links de interes..."
+                  placeholder="Agrega Links de interés. Ejemplo: www.ucn.cl"
                   value={links}
                   menuPlacement="auto"
                   onChange={(e) => setLinks(e)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Incluya vínculos o referencias a otras paginas, escriba o
+                  pegue el vinculo y presione enter.
+                </Form.Text>
               </MDBCol>
             </MDBRow>
           </>
@@ -506,12 +616,17 @@ export const FormAddNoticia = ({ idUser }) => {
         {step + 1 === 3 ? (
           <>
             <MDBRow className="mx-2">
-              <MDBCol className="my-3" size="12">
-                <div
-                  className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
-                  dangerouslySetInnerHTML={{ __html: data }}
-                ></div>
-              </MDBCol>
+              <div className="noticia">
+                <NoticiaHeader>
+                  <NoticiaHeaderContent
+                    title={titulo}
+                    src={"/tutorial/imagen1.png"}
+                    alt={descipcion}
+                  >
+                    {subTitulo}
+                  </NoticiaHeaderContent>
+                </NoticiaHeader>
+              </div>
             </MDBRow>
             <ButtonToolbar>
               <Button type="submit" size="lg" color="green">
@@ -523,26 +638,35 @@ export const FormAddNoticia = ({ idUser }) => {
         ) : null}
       </form>
       <hr />
-      <ButtonGroup>
-        <Button
-          className="mb-5"
-          size="lg"
-          appearance="primary"
-          onClick={onPrevious}
-          disabled={step === 0}
-        >
-          Anterior
-        </Button>
-        <Button
-          className="mb-5"
-          size="lg"
-          appearance="primary"
-          onClick={onNext}
-          disabled={step === 2}
-        >
-          Siguiente
-        </Button>
-      </ButtonGroup>
+
+      <MDBRow className="mt-3 mb-5 justify-content-end align-items-center">
+        <MDBCol size="12" md="6" className="text-right">
+          <i> Para desplazarse presione siguiente o anterior</i>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onPrevious}
+            disabled={step === 0}
+          >
+            Anterior
+          </Button>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onNext}
+            disabled={step === 2}
+          >
+            Siguiente
+          </Button>
+        </MDBCol>
+      </MDBRow>
+
       <ToastContainer />
     </div>
   );

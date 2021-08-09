@@ -103,25 +103,16 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
         >
           <MDBContainer fluid className="shadow-5">
             <TitleLine noLine>{titulo2}</TitleLine>
-            <Slider {...settings}>
-              {noticias.map((noticia) => (
-                <MDBCard
-                  background="dark"
-                  className="text-white"
-                  key={noticia.id}
-                >
-                  <MDBCardImage
-                    overlay
-                    src={`${host}${noticia.imagen}`}
-                    alt="..."
-                  />
-                  <MDBCardOverlay className="texto-noticia">
-                    <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
-                    <MDBCardText>{noticia.subtitulo}</MDBCardText>
-                  </MDBCardOverlay>
-                </MDBCard>
-              ))}
-            </Slider>
+            <iframe
+              className=" scrollable"
+              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdge.ucn&tabs=timeline&width=300&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+              height="500"
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            ></iframe>
           </MDBContainer>
         </MDBCol>
       </MDBRow>

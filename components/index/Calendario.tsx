@@ -217,7 +217,7 @@ export const Calendario = () => {
             ).getMonth()}/${new Date(eventSelect.endStr).getFullYear()}`}
           </p>
           <div
-            className="cuerpoNoticia"
+            className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
             dangerouslySetInnerHTML={{
               __html: eventSelect.extendedProps.cuerpo,
             }}

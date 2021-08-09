@@ -293,6 +293,7 @@ export const FormAddEvento = ({ idUser }) => {
       }
     }
     cargarImagenes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagen2]);
 
   useEffect(() => {
@@ -337,6 +338,7 @@ export const FormAddEvento = ({ idUser }) => {
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
                   className="form-control"
+                  maxLength={250}
                   type="text"
                   id="titulo"
                   placeholder="Titulo del evento"
@@ -388,6 +390,7 @@ export const FormAddEvento = ({ idUser }) => {
                 <input
                   className="form-control"
                   type="text"
+                  maxLength={250}
                   id="descImg"
                   placeholder="Descripción de la imagen"
                   value={descipcion}

@@ -38,7 +38,7 @@ export default function Home() {
       {isLoadNotice ? (
         <Destacados
           titulo1="Destacados"
-          titulo2="Para tí"
+          titulo2="Nuestras Redes"
           noticias={noticias}
           path="/"
         />
