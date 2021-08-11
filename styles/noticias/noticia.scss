@@ -1,4 +1,5 @@
 .noticia {
+  $sidebarWidth: 60px; // Se utiliza solo para el calculo responsive del contenido
   margin-top: 10px;
   display: grid;
   grid-template-areas:
@@ -11,21 +12,19 @@
     "relacionados relacionados";
 
   //seccion header
-  $relacionImagen: 0.5625;
   $widthImgHeader: 45rem;
-  $heightImgHeader: $widthImgHeader * $relacionImagen;
   &__header {
     grid-area: header;
+    max-width: 100%;
     //para la imagen principal
   }
 
   //seccion links
-  $widthColumnLink: 13rem;
   $widthLinkContent: 12rem;
   $topDistanceLinkContent: 1rem;
   $fontSizeLinks: 1.3rem;
   &__links {
-    width: $widthColumnLink;
+    width: auto;
     grid-area: links;
     width: 100%;
     display: flex;
@@ -129,6 +128,11 @@
     grid-area: contenido;
     border-top: 1px solid $Black_Shadow;
     border-bottom: 1px solid $Black_Shadow;
+    & * {
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: 100% !important;
+    }
   }
   //seccion tags
   $fontSizeTags: $fontSizeLinks * 0.9;
@@ -180,7 +184,10 @@
     grid-area: relacionados;
   }
 
-  @media screen and (max-width: $widthImgHeader + $widthColumnLink + $widthImgHeader*0.18) {
+  @media screen and (max-width: 1400px) {
+    &__content {
+      max-width: 85vw;
+    }
     grid-template-areas:
       "header header"
       "botones botones"
@@ -190,5 +197,15 @@
       "tags tags"
       "volver volver"
       "relacionados relacionados";
+  }
+  @media screen and (max-width: 450px) {
+    &__content {
+      max-width: 80vw;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    &__content {
+      max-width: 75vw;
+    }
   }
 }

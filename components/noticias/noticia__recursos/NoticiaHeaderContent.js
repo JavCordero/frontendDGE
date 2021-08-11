@@ -16,22 +16,22 @@ const NoticiaHeaderContent = (props) => {
   const widthImagenRem = props.widthRem ? props.widthRem : 45;
   const relacionImagen = 0.5625;
   const heightImagenRem = widthImagenRem * relacionImagen;
-  const responsiveMaxRem = widthImagenRem + widthImagenRem * 0.18;
+  // const responsiveMaxRem = widthImagenRem + widthImagenRem * 0.18;
   const Container = styled.div`
     position: relative;
+    display: block !important;
     margin-left: auto;
     margin-right: auto;
-    width: ${widthImagenRem + "rem"};
-    height: ${heightImagenRem + "rem"};
-    @media screen and (max-width: ${responsiveMaxRem + "rem"}) {
-      width: 100%;
-      height: auto;
-    }
+    width: 95%;
+    max-width: ${widthImagenRem + "rem"};
+    max-height: ${heightImagenRem + "rem"} !important;
+    overflow: hidden;
   `;
   const Imagen = styled.img`
     width: 100%;
-    height: 100%;
+    max-height: ${heightImagenRem + "rem"};
     object-fit: cover;
+    background-position: center;
   `;
 
   const Contenido = styled.div`
