@@ -1,5 +1,4 @@
 .noticia {
-  $sidebarWidth: 60px; // Se utiliza solo para el calculo responsive del contenido
   margin-top: 10px;
   display: grid;
   grid-template-areas:
@@ -12,10 +11,15 @@
     "relacionados relacionados";
 
   //seccion header
-  $widthImgHeader: 45rem;
+  $widthImgHeader: 45rem; //este valor correspon
+  $relacionImagen: 0.5625; //16:9
   &__header {
     grid-area: header;
     max-width: 100%;
+    & > * {
+      max-width: $widthImgHeader;
+      max-height: $widthImgHeader * $relacionImagen;
+    }
     //para la imagen principal
   }
 
@@ -128,10 +132,15 @@
     grid-area: contenido;
     border-top: 1px solid $Black_Shadow;
     border-bottom: 1px solid $Black_Shadow;
+    width: auto;
+    max-width: 80vw;
+    //control responsive de contenido esto debido al control responsive de sun editor
     & * {
-      height: auto !important;
       max-width: 100% !important;
       max-height: 100% !important;
+    }
+    & img {
+      height: auto !important; //esto esta ya que el sun editor no lo hace y distorsiona las imagenes
     }
   }
   //seccion tags
@@ -184,7 +193,8 @@
     grid-area: relacionados;
   }
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: $widthImgHeader*2) {
+    //control responsive de contenido esto debido al control responsive de sun editor
     &__content {
       max-width: 85vw;
     }
@@ -199,11 +209,13 @@
       "relacionados relacionados";
   }
   @media screen and (max-width: 450px) {
+    //control responsive de contenido esto debido al control responsive de sun editor
     &__content {
       max-width: 80vw;
     }
   }
   @media screen and (max-width: 350px) {
+    //control responsive de contenido esto debido al control responsive de sun editor
     &__content {
       max-width: 75vw;
     }
