@@ -30,6 +30,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NoticiaHeaderContent from "../noticias/noticia__recursos/NoticiaHeaderContent";
 import image from "next/image";
 import NoticiaHeader from "../noticias/noticia__recursos/NoticiaHeader";
+import NoticiaLinks from "../noticias/noticia__recursos/NoticiaLinks";
+import NoticiaBotones from "../noticias/noticia__recursos/NoticiaBotones";
+import NoticiaFechaDatos from "../noticias/noticia__recursos/NoticiaFechaDatos";
+import NoticiaContenido from "../noticias/noticia__recursos/NoticiaContenido";
+import NoticiaTags from "../noticias/noticia__recursos/NoticiaTags";
+import Link from "next/link";
 
 export const FormAddNoticia = ({ idUser }) => {
   const [step, setStep] = useState(0);
@@ -57,6 +63,7 @@ export const FormAddNoticia = ({ idUser }) => {
   const [imagen, setImagen] = useState<File | undefined>(undefined);
   const [imagen2, setImagen2] = useState<File | undefined>(undefined);
   const [links, setLinks] = useState([]);
+  const [imageSrc, setImageSrc] = useState("");
 
   const imagenInput = useRef();
   const imagenInput2 = useRef();
@@ -122,6 +129,10 @@ export const FormAddNoticia = ({ idUser }) => {
         }
       });
     }
+  };
+
+  const clickHandle = (link) => {
+    document.location.href = link;
   };
 
   const notify = (mensaje) => toast.error(mensaje);
@@ -375,9 +386,6 @@ export const FormAddNoticia = ({ idUser }) => {
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
                   maxLength={250}
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Tooltip on top"
                   className="form-control"
                   type="text"
                   id="titulo"
@@ -420,7 +428,6 @@ export const FormAddNoticia = ({ idUser }) => {
                 </Form.Text>
               </MDBCol>
             </MDBRow>
-
             <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="imagen">Imagen</ControlLabel>
@@ -431,7 +438,9 @@ export const FormAddNoticia = ({ idUser }) => {
                   placeholder="Imagen de la noticia"
                   name="imagen"
                   ref={imagenInput}
-                  onChange={(e) => console.log(e.target.files[0])}
+                  onChange={(e) => {
+                    setImagen(e.target.files[0]);
+                  }}
                 />
                 <Form.Text muted>
                   <FontAwesomeIcon
@@ -572,7 +581,7 @@ export const FormAddNoticia = ({ idUser }) => {
                     className="form-control"
                     type="file"
                     id="image"
-                    placeholder="Agrega imagenes.."
+                    placeholder="Agrega imágenes.."
                     name="image"
                     ref={imagenInput2}
                     onChange={(e) => setImagen2(e.target.files[0])}
@@ -620,15 +629,59 @@ export const FormAddNoticia = ({ idUser }) => {
                 <NoticiaHeader>
                   <NoticiaHeaderContent
                     title={titulo}
-                    src={"/tutorial/imagen1.png"}
+                    src={imagen ? URL.createObjectURL(imagen) : null}
                     alt={descipcion}
                   >
                     {subTitulo}
                   </NoticiaHeaderContent>
                 </NoticiaHeader>
+                <NoticiaLinks>
+                  {links.map((link, index) => (
+                    <div onClick={() => clickHandle(link.label)} key={index}>
+                      {" "}
+                      Enlace {1 + index}{" "}
+                    </div>
+                  ))}
+                </NoticiaLinks>
+                <NoticiaBotones>
+                  <div>
+                    <button>A+</button>
+                    <button>A-</button>
+                  </div>
+                  <div>
+                    <button>Descargar</button>
+                    <button>Imprimir</button>
+                  </div>
+                </NoticiaBotones>
+                <NoticiaFechaDatos>
+                  <p>
+                    Creado el:
+                    {`${new Date().toLocaleString("es", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}`}
+                  </p>
+                </NoticiaFechaDatos>
+                <NoticiaContenido>
+                  <br />
+                  <div
+                    className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
+                    dangerouslySetInnerHTML={{ __html: data }}
+                  ></div>
+                </NoticiaContenido>
+                <NoticiaTags>
+                  {tagSelect
+                    ? tagSelect.map((tag, index) => (
+                        <Link key={index} href="#">
+                          {tag.label}
+                        </Link>
+                      ))
+                    : null}
+                </NoticiaTags>
               </div>
             </MDBRow>
-            <ButtonToolbar>
+            <ButtonToolbar className="mt-4">
               <Button type="submit" size="lg" color="green">
                 Publicar
               </Button>

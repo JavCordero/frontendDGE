@@ -22,10 +22,21 @@ import editNoticia from "../../hooks/useEditNoticia";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from "react-toastify";
 import router from "next/router";
+import NoticiaHeader from "../noticias/noticia__recursos/NoticiaHeader";
+import NoticiaLinks from "../noticias/noticia__recursos/NoticiaLinks";
+import NoticiaBotones from "../noticias/noticia__recursos/NoticiaBotones";
+import NoticiaFechaDatos from "../noticias/noticia__recursos/NoticiaFechaDatos";
+import NoticiaContenido from "../noticias/noticia__recursos/NoticiaContenido";
+import NoticiaTags from "../noticias/noticia__recursos/NoticiaTags";
+import Link from "next/link";
+import NoticiaHeaderContent from "../noticias/noticia__recursos/NoticiaHeaderContent";
 
 import getImagesByUser from "../../hooks/useGetImagesbyUser";
 import { host } from "../../public/js/host";
 import LoadImage from "../../hooks/useLoadImage";
+import { Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
 export const FormEditNoticia = ({ idUser, noticiaId }) => {
   const [step, setStep] = useState(0);
@@ -50,6 +61,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
   const [imagen, setImagen] = useState<File | undefined>(undefined);
   const [links, setLinks] = useState([]);
   const [imagen2, setImagen2] = useState<File | undefined>(undefined);
+  const [imageSrc, setImageSrc] = useState("");
 
   const imagenInput = useRef();
   const imagenInput2 = useRef();
@@ -118,6 +130,10 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
         }
       });
     }
+  };
+
+  const clickHandle = (link) => {
+    document.location.href = link;
   };
 
   const config = {
@@ -295,6 +311,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
       }
     }
     cargarImagenes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagen2]);
 
   useEffect(() => {
@@ -318,6 +335,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
     async function loadData() {
       const isLoaded = await getNoticiaId(noticiaId);
       console.log(isLoaded);
+      setImageSrc(host + isLoaded.imagen);
       setTitulo(isLoaded.titulo);
       setSubTitulo(isLoaded.subtitulo);
       setDescripcion(isLoaded.desc_img);
@@ -347,6 +365,33 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
   const onPrevious = () => onChange(step - 1);
   return (
     <div>
+      <MDBRow className="mt-3 justify-content-end align-items-center">
+        <MDBCol size="12" md="6" className="text-right">
+          <i> Para desplazarse presione siguiente o anterior</i>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onPrevious}
+            disabled={step === 0}
+          >
+            Anterior
+          </Button>
+        </MDBCol>
+        <MDBCol className="m-1" size="12" md="2">
+          <Button
+            block
+            size="lg"
+            appearance="primary"
+            onClick={onNext}
+            disabled={step === 2}
+          >
+            Siguiente
+          </Button>
+        </MDBCol>
+      </MDBRow>
       <Steps current={step}>
         <Steps.Item title="Datos" description="Noticia" />
         <Steps.Item title="Cuerpo" description="Noticia" />
@@ -360,6 +405,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="titulo">Titulo</ControlLabel>
                 <input
+                  maxLength={250}
                   className="form-control"
                   type="text"
                   id="titulo"
@@ -368,11 +414,21 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   value={titulo}
                   onChange={(e) => setTitulo(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  El título debe ser una oración breve, clara y precisa de la
+                  noticia. Este campo es obligatorio. (máximo 100 caracteres)
+                </Form.Text>
               </MDBCol>
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="subtitulo">Subtitulo</ControlLabel>
                 <input
                   className="form-control"
+                  maxLength={250}
                   type="text"
                   id="subtitulo"
                   placeholder="Subtitulo de la noticia"
@@ -380,9 +436,18 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   value={subTitulo}
                   onChange={(e) => setSubTitulo(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  El subtitulo o bajada de la noticia es una ampliación del
+                  titulo, se debe explicar en breve de que tratará la noticia.
+                  Este campo es obligatorio. (máximo 250 caracteres).
+                </Form.Text>
               </MDBCol>
             </MDBRow>
-
             <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="imagen">Imagen</ControlLabel>
@@ -393,20 +458,43 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   placeholder="Imagen de la noticia"
                   name="imagen"
                   ref={imagenInput}
-                  onChange={(e) => setImagen(e.target.files[0])}
+                  onChange={(e) => {
+                    setImagen(e.target.files[0]);
+                  }}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  La imagen es un soporte visual que acompaña el contenido y que
+                  sirve para ofrecer una información extra que ayuda a
+                  comprender mejor la noticia. Este campo es obligatorio
+                  (Resoluciones recomendadas 1280 x 720)
+                </Form.Text>
               </MDBCol>
               <MDBCol className="my-3" size="12" md="6">
                 <ControlLabel for="descimg">Descripción Imagen</ControlLabel>
                 <input
                   className="form-control"
                   type="text"
+                  maxLength={250}
                   id="descImg"
                   placeholder="Descripción de la imagen"
                   value={descipcion}
                   name="descImg"
                   onChange={(e) => setDescripcion(e.target.value)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Texto alternativo que describe a la imagen. Este campo es
+                  obligatorio (máximo 100 caracteres)
+                </Form.Text>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mx-2">
@@ -426,6 +514,15 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                       </option>
                     ))}
                 </select>
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Corresponde una de las areas de la DGE. Este campo es
+                  obligatorio.
+                </Form.Text>
               </MDBCol>
 
               <MDBCol className="my-3" size="12" md="6">
@@ -443,6 +540,17 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                     onChange={(e) => setTagSelect(e)}
                   />
                 )}
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Incluya etiquetas a la noticia para vincular esta noticia con
+                  otras del sistema. La etiqueta es una sola palabra que
+                  relaciona a la noticia. Escriba la etiqueta y presione enter.
+                  Puede agregar cuantas etiquetas requiera la noticia.
+                </Form.Text>
               </MDBCol>
             </MDBRow>
             <MDBRow className="mx-2 justify-content-center align-items-center">
@@ -453,11 +561,20 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                   name="links"
                   isClearable
                   isMulti
-                  placeholder="Agrega Links de interes..."
+                  placeholder="Agrega Links de interés. Ejemplo: www.ucn.cl"
                   value={links}
                   menuPlacement="auto"
                   onChange={(e) => setLinks(e)}
                 />
+                <Form.Text muted>
+                  <FontAwesomeIcon
+                    className="rs-icon"
+                    icon={faQuestionCircle}
+                    size="1x"
+                  />{" "}
+                  Incluya vínculos o referencias a otras paginas, escriba o
+                  pegue el vinculo y presione enter.
+                </Form.Text>
               </MDBCol>
             </MDBRow>
           </>
@@ -475,7 +592,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
               />
             </MDBCol>
             <MDBCol className="my-3" size="12" md="3">
-              <h5>Galería de imagenes:</h5>
+              <h5>Galería de imágenes:</h5>
               <hr />
               <MDBRow>
                 <MDBCol size="8">
@@ -483,7 +600,7 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                     className="form-control"
                     type="file"
                     id="image"
-                    placeholder="Agrega imagenes.."
+                    placeholder="Agrega imágenes.."
                     name="image"
                     ref={imagenInput2}
                     onChange={(e) => setImagen2(e.target.files[0])}
@@ -496,14 +613,14 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
                 </MDBCol>
               </MDBRow>
               {loadImagenes.map((imagen, index) => (
-                <MDBRow key={index} className="my-2 p-1 border">
+                <MDBRow key={index} className="my-3 p-1 border">
                   <MDBCol size="7">
                     <img
                       src={host + imagen.url}
                       alt="..."
                       style={{
-                        width: "100px",
-                        height: "70px",
+                        width: "80px",
+                        height: "80px",
                         objectFit: "cover",
                       }}
                     />
@@ -528,10 +645,61 @@ export const FormEditNoticia = ({ idUser, noticiaId }) => {
           <>
             <MDBRow className="mx-2">
               <MDBCol className="my-3" size="12">
-                <div
-                  className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
-                  dangerouslySetInnerHTML={{ __html: data }}
-                ></div>
+                <div className="noticia">
+                  <NoticiaHeader>
+                    <NoticiaHeaderContent
+                      title={titulo}
+                      src={imagen ? URL.createObjectURL(imagen) : imageSrc}
+                      alt={descipcion}
+                    >
+                      {subTitulo}
+                    </NoticiaHeaderContent>
+                  </NoticiaHeader>
+                  <NoticiaLinks>
+                    {links.map((link, index) => (
+                      <div onClick={() => clickHandle(link.label)} key={index}>
+                        {" "}
+                        Enlace {1 + index}{" "}
+                      </div>
+                    ))}
+                  </NoticiaLinks>
+                  <NoticiaBotones>
+                    <div>
+                      <button>A+</button>
+                      <button>A-</button>
+                    </div>
+                    <div>
+                      <button>Descargar</button>
+                      <button>Imprimir</button>
+                    </div>
+                  </NoticiaBotones>
+                  <NoticiaFechaDatos>
+                    <p>
+                      Creado el:
+                      {`${new Date().toLocaleString("es", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}`}
+                    </p>
+                  </NoticiaFechaDatos>
+                  <NoticiaContenido>
+                    <br />
+                    <div
+                      className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
+                      dangerouslySetInnerHTML={{ __html: data }}
+                    ></div>
+                  </NoticiaContenido>
+                  <NoticiaTags>
+                    {tagSelect
+                      ? tagSelect.map((tag, index) => (
+                          <Link key={index} href="#">
+                            {tag.label}
+                          </Link>
+                        ))
+                      : null}
+                  </NoticiaTags>
+                </div>
               </MDBCol>
             </MDBRow>
             <ButtonToolbar>

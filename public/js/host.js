@@ -1,2 +1,2 @@
-export const host = "http://201.215.188.113:8000";
-export const hostname = "201.215.188.113";
+export const host = "http://127.0.0.1:8000";
+export const hostname = "127.0.0.1";

@@ -12,6 +12,6 @@ module.exports = withTM({
     defaultLocale: "es",
   },
   images: {
-    domains: ["201.215.188.113"],
+    domains: ["127.0.0.1"],
   },
 });
