@@ -65,7 +65,7 @@ export const NoticiaComponent = ({ noticia }: any) => {
           <NoticiaContenido>
             <br />
             <div
-              className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
+              className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable sunEditorConfig"
               dangerouslySetInnerHTML={{ __html: noticia.cuerpo }}
             ></div>
           </NoticiaContenido>
