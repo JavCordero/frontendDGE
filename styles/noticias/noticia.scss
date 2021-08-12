@@ -15,7 +15,7 @@
   $relacionImagen: 0.5625; //16:9
   &__header {
     grid-area: header;
-    max-width: 100%;
+    max-width: 98%;
     & > * {
       max-width: $widthImgHeader;
       max-height: $widthImgHeader * $relacionImagen;
