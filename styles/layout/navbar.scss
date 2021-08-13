@@ -1,0 +1,86 @@
+@import "../variables/var.scss";
+
+.sidenav__intranet {
+  width: auto;
+  position: fixed;
+  z-index: 100;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+.navbar__mini {
+  margin-left: 5px;
+}
+
+.navbar__full {
+  margin-left: 190px;
+}
+
+.navbar__open_transition {
+  transition-duration: 0.65s !important;
+  transition-property: margin-left !important;
+}
+
+.fc-button-group {
+  flex-wrap: wrap;
+}
+
+.sidenav__color,
+.rs-dropdown-menu,
+.rs-btn-subtle:focus {
+  background-color: $Pantone_7545_C !important;
+  a {
+    color: white !important;
+  }
+}
+
+.button-expand {
+  height: 100%;
+  width: 4vw;
+  background-color: $Pantone_7545_C;
+  position: fixed;
+  text-align: center;
+  svg,
+  span {
+    font-size: 2.5vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.navbar-icon-collapse,
+.navbar-button-close {
+  float: right;
+  margin-right: 1vw;
+}
+
+.hr-success {
+  border: 0.2vw solid;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.color-icon {
+  color: rgba($color: white, $alpha: 0.6);
+}
+
+.icon-active {
+  color: white;
+}
+
+main {
+  margin-right: 2% !important;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    .item-navbar {
+      font-size: 1.5vw;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@import "./layout/navbar.scss";
+@import "./layout/Header.scss";
+@import "./login/login.scss";
+@import "./noticias/noticias.scss";
+@import "./noticias/noticia.scss";
+
+@import "./deportes/deportes.scss";
+
+@import "./others/LoadingCircles.scss";
+@import "./others/SearchInput.scss";
+@import "./others/TitleLine.scss";
+@import "./salud/atencion.scss";
+@import "./salud/recomendaciones.scss";
+@import "./others/Asistente.scss";
+@import "./salud/AtencionSintomas.scss";
+@import "./salud/visado-certificados-medicos.scss";
+@import "./salud/TarjetaInstruccion.scss";
+@import "./noticias/NoticiasPreview.scss";
+@import "./noticias/SunEditorConfig.scss";
+
+.index-noticias-scroll {
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.index-noticias {
+  contain: size;
+}
+
+@media screen and (max-width: 576) {
+  .index-noticias {
+    contain: none !important;
+    width: max-content;
+  }
+}
+
+.img-container {
+  width: 630px;
+  height: 380px;
+
+  position: relative;
+  img {
+    position: absolute;
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
+
+.scrollable {
+  /* Scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border: 1px solid $Pantone_540_C;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $Pantone_540_C;
+    border-radius: 10px;
+  }
+}
+
+.cuerpoNoticia {
+  p {
+    margin: 0;
+  }
+
+  table {
+    border: #b2b2b2 1px solid;
+    td,
+    th {
+      border: black 1px solid;
+    }
+  }
+}
+
+.mr-auto {
+  margin-right: auto;
+}
