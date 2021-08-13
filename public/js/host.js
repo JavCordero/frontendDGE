@@ -1,2 +1,2 @@
-export const host = "http://127.0.0.1:8000";
-export const hostname = "127.0.0.1";
+export const host = "https://backend-dge-xqr3r.ondigitalocean.app";
+export const hostname = "backend-dge-xqr3r.ondigitalocean.app";

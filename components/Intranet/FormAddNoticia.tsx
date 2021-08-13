@@ -1,11 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  ControlLabel,
-  Steps,
-} from "rsuite";
+import { Button, ButtonToolbar, ControlLabel, Steps } from "rsuite";
 import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import LoadAreas from "../../hooks/useLoadArea";
 import CreatableSelect from "react-select/creatable";
