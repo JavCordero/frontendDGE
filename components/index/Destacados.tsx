@@ -37,20 +37,22 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
   };
   const settings2 = {
     arrowsBlock: false,
-    centerPadding: 40,
+    centerPadding: 0,
     dots: true,
     initialSlide: true,
     infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
   };
 
   return (
-    <MDBContainer fluid>
+    <MDBContainer fluid className="mb-3">
       <MDBRow>
-        <MDBCol size="12" sm="9">
+        <MDBCol size="12" sm="9" className="p-1">
           <MDBContainer>
             <TitleLine noLine>{titulo1}</TitleLine>
             <Slider {...settings2}>
-              {noticias.map((noticia) => (
+              {/* {noticias.map((noticia) => (
                 <MDBCard
                   className="text-white"
                   background="dark"
@@ -92,6 +94,42 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
                     </Link>
                   </MDBCardOverlay>
                 </MDBCard>
+              ))} */}
+              {noticias.map((noticia) => (
+                <div key={noticia.id} className="destacado-slide">
+                  <Image
+                    src={`${host}${noticia.imagen}`}
+                    alt="..."
+                    height="720"
+                    width="1280"
+                    objectFit="cover"
+                  />
+                  <Link
+                    href={{
+                      pathname: `${path}noticias/${removeSpecialCharacters(
+                        noticia.titulo
+                      )}`,
+                      query: { id: noticia.id },
+                    }}
+                    passHref
+                  >
+                    <div className="destacado-slide__content">
+                      <h3 className="destacado-slide__content-titulo">
+                        {noticia.titulo}
+                      </h3>
+                      <p className="destacado-slide__content-subtitulo">
+                        {noticia.subtitulo}
+                      </p>
+                      <p className="destacado-slide__content-fecha">{`Creado el ${new Date(
+                        noticia.created_at
+                      ).getDate()} de ${new Date(
+                        noticia.created_at
+                      ).toLocaleDateString(undefined, {
+                        month: "long",
+                      })} de ${new Date(noticia.created_at).getFullYear()}`}</p>
+                    </div>
+                  </Link>
+                </div>
               ))}
             </Slider>
           </MDBContainer>
@@ -101,7 +139,7 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
           sm="3"
           className="index-noticias index-noticias-scroll"
         >
-          <MDBContainer fluid className="shadow-5">
+          <MDBContainer fluid className="">
             <TitleLine noLine>{titulo2}</TitleLine>
             <iframe
               className=" scrollable"

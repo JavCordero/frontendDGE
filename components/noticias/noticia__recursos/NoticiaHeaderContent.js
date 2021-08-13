@@ -55,7 +55,7 @@ const NoticiaHeaderContent = (props) => {
     margin: 0;
   `;
   const Descripcion = styled.p`
-    font-size: min(3.3vw, 2rem);
+    font-size: min(3.3vw, 1.8rem);
     color: white;
     text-align: center;
     line-height: 100%;
