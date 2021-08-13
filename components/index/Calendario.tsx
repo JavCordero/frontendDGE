@@ -107,7 +107,8 @@ export const Calendario = () => {
               locale={esLocale}
               ref={fullCalendar1}
               hiddenDays={[0]}
-              contentHeight={"auto"}
+              contentHeight="auto"
+              dayMaxEventRows={4}
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               events={eventList}
@@ -167,14 +168,15 @@ export const Calendario = () => {
             <Calendar
               locale={esLocale}
               ref={fullCalendar2}
-              height={screen.width < 768 ? "auto" : "100%"}
+              height={screen.width < 768 ? "auto" : "600px"}
               hiddenDays={[0]}
               initialView="listMonth"
               plugins={[listPlugin]}
               events={eventList}
               headerToolbar={{ end: "", left: "" }}
               eventClick={(info) => {
-                console.log(JSON.stringify(info.event.extendedProps));
+                setEventSelect(info.event);
+                setLgShow(true);
               }}
             />
           </MDBCol>
@@ -183,39 +185,57 @@ export const Calendario = () => {
         <Placeholder.Graph active height={450} />
       )}
       <Modal
-        size="sm"
+        size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
       >
-        <Modal.Header
-          style={{ zIndex: 100, border: 0 }}
-          closeButton
-        ></Modal.Header>
+        <Modal.Header style={{ zIndex: 100, border: 0 }} closeButton>
+          <b>{eventSelect.title}</b>
+        </Modal.Header>
         <Modal.Body>
           {eventSelect.extendedProps.imagen ? (
-            <Image
+            <img
               src={`${host}${eventSelect.extendedProps.imagen}`}
-              width="300"
-              height="300"
-              objectFit="cover"
+              className="w-100 m-0"
               alt="..."
             />
           ) : null}
 
-          <p>{eventSelect.title}</p>
-          <p>
-            Inicio:
-            {`${new Date(eventSelect.startStr).getDay()}/${new Date(
-              eventSelect.startStr
-            ).getMonth()}/${new Date(eventSelect.startStr).getFullYear()}`}
+          <br />
+          <p className="m-0">
+            Inicio evento:{" "}
+            {eventSelect.startStr
+              ? new Date(eventSelect.startStr).toLocaleString(undefined, {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+              : null}
           </p>
-          <p>
-            fin:
-            {`${new Date(eventSelect.endStr).getDay()}/${new Date(
-              eventSelect.endStr
-            ).getMonth()}/${new Date(eventSelect.endStr).getFullYear()}`}
+          <p className="m-0">
+            Termino evento:{" "}
+            {eventSelect.endStr
+              ? new Date(eventSelect.endStr).toLocaleString(undefined, {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })
+              : new Date(eventSelect.startStr).toLocaleString(undefined, {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                })}
           </p>
+          <h5>
+            <b>Detalles:</b>
+          </h5>
           <div
             className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
             dangerouslySetInnerHTML={{

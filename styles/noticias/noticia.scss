@@ -11,21 +11,24 @@
     "relacionados relacionados";
 
   //seccion header
-  $relacionImagen: 0.5625;
-  $widthImgHeader: 45rem;
-  $heightImgHeader: $widthImgHeader * $relacionImagen;
+  $widthImgHeader: 45rem; //este valor corresponde al header de la noticia.
+  $relacionImagen: 0.5625; //16:9
   &__header {
     grid-area: header;
+    max-width: 98%;
+    & > * {
+      max-width: $widthImgHeader;
+      max-height: $widthImgHeader * $relacionImagen;
+    }
     //para la imagen principal
   }
 
   //seccion links
-  $widthColumnLink: 13rem;
   $widthLinkContent: 12rem;
   $topDistanceLinkContent: 1rem;
   $fontSizeLinks: 1.3rem;
   &__links {
-    width: $widthColumnLink;
+    width: auto;
     grid-area: links;
     width: 100%;
     display: flex;
@@ -129,6 +132,7 @@
     grid-area: contenido;
     border-top: 1px solid $Black_Shadow;
     border-bottom: 1px solid $Black_Shadow;
+    width: auto;
   }
   //seccion tags
   $fontSizeTags: $fontSizeLinks * 0.9;
@@ -180,7 +184,7 @@
     grid-area: relacionados;
   }
 
-  @media screen and (max-width: $widthImgHeader + $widthColumnLink + $widthImgHeader*0.18) {
+  @media screen and (max-width: $widthImgHeader*2) {
     grid-template-areas:
       "header header"
       "botones botones"
