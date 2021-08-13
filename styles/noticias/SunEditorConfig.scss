@@ -1,0 +1,44 @@
+//Con este archivo se configura el editor SunEditor para que sea responsive al mostrar el contenido de noticias.
+
+.sunEditorConfig {
+  $widthImgHeader: 45rem; //este valor correspon al ancho del header de la noticia se utiliza para calculo responsive. (ver noticia.scss)
+  $minWidthVideo: 200px; //este valor correspon al ancho minimo del video se utiliza para calculo responsive.
+  max-width: 80vw;
+  & * {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+  & img {
+    height: auto !important;
+  }
+  & table {
+    display: block !important;
+    overflow-x: auto !important;
+    border: none !important;
+  }
+
+  & .se-video-container {
+    overflow: hidden !important;
+
+    & > figure {
+      min-width: $minWidthVideo !important;
+      min-height: $minWidthVideo * 0.5625 !important;
+    }
+  }
+
+  @media screen and (max-width: $widthImgHeader*2) {
+    &__content {
+      max-width: 85vw;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    &__content {
+      max-width: 80vw;
+    }
+  }
+  @media screen and (max-width: 350px) {
+    &__content {
+      max-width: 75vw;
+    }
+  }
+}

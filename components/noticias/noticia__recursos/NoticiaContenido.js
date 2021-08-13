@@ -10,10 +10,11 @@
   </NoticiaContenido>
 
   (el contenido no esta estilizado por lo que se espera ingrese con estilo)
+  puede recibir className para estilizar el contenido
 */
 
 const NoticiaContenido = (props) => (
-  <div className="noticia__content">{props.children}</div>
+  <div className={`noticia__content ${props.className}`}>{props.children}</div>
 );
 
 export default NoticiaContenido;
