@@ -185,7 +185,7 @@ export const Calendario = () => {
         <Placeholder.Graph active height={450} />
       )}
       <Modal
-        size="xs"
+        size="lg"
         show={lgShow}
         onHide={() => setLgShow(false)}
         aria-labelledby="example-modal-sizes-title-lg"
