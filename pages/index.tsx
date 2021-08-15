@@ -18,7 +18,7 @@ export default function Home() {
     const noticiasListas = async () => {
       const noticiasArray = await LoadNoticias();
       console.log(noticiasArray);
-      if (noticiasArray.data.length > 0) {
+      if (noticiasArray.data && noticiasArray.data.length > 0) {
         setisLoadNotice(true);
         setNoticias(noticiasArray.data);
       }

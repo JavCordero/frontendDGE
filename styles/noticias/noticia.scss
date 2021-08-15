@@ -135,12 +135,17 @@
     width: auto;
   }
   //seccion tags
-  $fontSizeTags: $fontSizeLinks * 0.9;
+  $fontSizeTags: $fontSizeLinks * 0.6;
   &__tags {
     grid-area: tags;
     border-top: 1px solid $Black_Shadow;
     padding-top: $fontSizeTags * 0.5;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     & > * {
+      margin: 5px;
+      display: inline-block;
       font-weight: bold;
       color: white;
       background: $Pantone_2138_C;
