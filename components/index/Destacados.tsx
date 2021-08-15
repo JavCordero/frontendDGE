@@ -152,12 +152,12 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
         <MDBCol
           size="12"
           sm="3"
-          className="index-noticias index-noticias-scroll"
+          className="index-noticias index-noticias-scroll p-0 m-0"
         >
-          <MDBContainer fluid className="">
+          <MDBContainer fluid className="p-0 m-0">
             <TitleLine noLine>{titulo2}</TitleLine>
             <iframe
-              className=" scrollable"
+              className="scrollable"
               src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fdge.ucn&tabs=timeline&width=300&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
               height="500"
               style={{ border: "none", overflow: "hidden" }}
