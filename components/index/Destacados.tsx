@@ -22,6 +22,19 @@ import Link from "next/link";
 import Image from "next/image";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
 
+const Arrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} destacado-slide__arrow`}
+      style={{
+        ...style,
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
 export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
   const settings = {
     dots: false,
@@ -43,6 +56,8 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
+    nextArrow: <Arrow />,
+    prevArrow: <Arrow />,
   };
 
   return (
