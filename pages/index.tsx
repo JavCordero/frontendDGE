@@ -9,7 +9,6 @@ import LoadNoticias from "../hooks/useLoadNoticias";
 import LoadTags from "../hooks/useLoadTags";
 import { Modal } from "react-bootstrap";
 import LoadAnuncios from "../hooks/useLoadAnuncios";
-import Link from "next/link";
 
 export default function Home() {
   const [isLoadNotice, setisLoadNotice] = useState(false);
@@ -70,9 +69,7 @@ export default function Home() {
       ) : (
         <Placeholder.Graph active height={450} />
       )}
-      <Link href="/noticias" passHref>
-        <h4 className="indexHome__irNoticias">Ver todas las noticias</h4>
-      </Link>
+
       <Unidad />
       <Direccion />
       <Calendario />

@@ -148,6 +148,9 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
               ))}
             </Slider>
           </MDBContainer>
+          <Link href="/noticias" passHref>
+            <h4 className="destacados__irNoticias">Ver todas las noticias</h4>
+          </Link>
         </MDBCol>
         <MDBCol
           size="12"
