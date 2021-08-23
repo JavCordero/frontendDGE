@@ -13,13 +13,13 @@ const NoticiaId = () => {
   useEffect(() => {
     const cargaNoticia = async () => {
       const noticiaObject = await getNoticiaId(router.query.id);
-      if (noticiaObject) {
+      if (noticiaObject.id) {
         setNoticia(noticiaObject);
         setIsLoaded(true);
       }
     };
     cargaNoticia();
-  }, [router.query.id]);
+  }, [router.query.id, isLoaded]);
   return <>{isLoaded ? <NoticiaComponent noticia={noticia} /> : null}</>;
 };
 
