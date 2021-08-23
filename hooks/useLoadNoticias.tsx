@@ -1,7 +1,7 @@
 import { host } from "../public/js/host";
 
-const LoadNoticias = async (area = "", tag = "") => {
-  const url = `${host}/api/v1/noticias?area=${area}&tag=${tag}`;
+const LoadNoticias = async (area = "", tag = "", page) => {
+  const url = `${host}/api/v1/noticias?area=${area}&tag=${tag}&page=${page}`;
   const res = await fetch(url, {
     method: "GET",
     headers: {

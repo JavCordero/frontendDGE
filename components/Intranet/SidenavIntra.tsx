@@ -58,7 +58,7 @@ export const SidenavIntra = ({ children }: any) => {
                   Gestión de eventos
                 </Nav.Item>
               </Link>
-              <Link passHref href="/intranet/eventos">
+              <Link passHref href="/intranet/anuncios">
                 <Nav.Item eventKey="4" icon={<Icon icon="speaker" />}>
                   Crear Anuncio
                 </Nav.Item>

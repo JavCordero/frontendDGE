@@ -7,16 +7,20 @@ import { Direccion } from "../components/index/Direccion";
 import { Unidad } from "../components/index/Unidad";
 import LoadNoticias from "../hooks/useLoadNoticias";
 import LoadTags from "../hooks/useLoadTags";
+import { Modal } from "react-bootstrap";
+import LoadAnuncios from "../hooks/useLoadAnuncios";
 
 export default function Home() {
   const [isLoadNotice, setisLoadNotice] = useState(false);
   const [isLoadTags, setisLoadTags] = useState(false);
   const [noticias, setNoticias] = useState([]);
   const [tags, setTags] = useState([]);
+  const [lgShow, setLgShow] = useState(false);
+  const [anuncioIndex, setAnuncioIndex] = useState({});
 
   useEffect(() => {
     const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias();
+      const noticiasArray = await LoadNoticias("", "", 1);
       console.log(noticiasArray);
       if (noticiasArray.data && noticiasArray.data.length > 0) {
         setisLoadNotice(true);
@@ -30,6 +34,26 @@ export default function Home() {
         setTags(tagsArray);
       }
     };
+
+    async function LoadItem() {
+      const item = await LoadAnuncios();
+      if (Array.isArray(item)) {
+        item.forEach((anuncio) => {
+          switch (anuncio.area_id) {
+            case null:
+              if (anuncio.activo === 1) {
+                console.log("entro?");
+                setAnuncioIndex(anuncio);
+                setLgShow(true);
+              }
+              break;
+            default:
+              break;
+          }
+        });
+      }
+    }
+    LoadItem();
     noticiasListas();
     tagListos();
   }, []);
@@ -53,6 +77,15 @@ export default function Home() {
       ) : (
         <Placeholder.Graph active height={450} />
       )}
+      <Modal
+        size="lg"
+        show={lgShow}
+        onHide={() => setLgShow(false)}
+        aria-labelledby="example-modal-sizes-title-lg"
+      >
+        <Modal.Header closeButton></Modal.Header>
+        <Modal.Body>holi</Modal.Body>
+      </Modal>
     </>
   );
 }

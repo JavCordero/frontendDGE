@@ -1,6 +1,6 @@
 import { host } from "../public/js/host";
-const LoadEventos = async (area = "", tag = "") => {
-  const url = `${host}/api/v1/eventos?area=${area}&tag=${tag}&paginate=true`;
+const LoadEventos = async (area = "", tag = "", page) => {
+  const url = `${host}/api/v1/eventos?area=${area}&tag=${tag}&paginate=true&page=${page}`;
   const res = await fetch(url, {
     method: "GET",
     headers: {

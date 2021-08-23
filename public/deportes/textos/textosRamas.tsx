@@ -274,11 +274,17 @@ const Textos = {
   },
   gimnasia: {
     nombre: "Rama Gimnasia Artística",
-    dt: "No disponible",
+    dt: "Camilo Rodríguez Miranda",
     contacto_dt: "No Disponible",
-    fotodt: "/profile.png",
-    fotos: ["/contenido-no-disponible1.jpg"],
-    tumbnail: "/contenido-no-disponible",
+    fotodt: "/deportes/ramas/Gimnasia/dtgimnasia.jpg",
+    fotos: [
+      "/deportes/ramas/Gimnasia/gimnasia1.jpg",
+      "/deportes/ramas/Gimnasia/gimnasia2.jpg",
+      "/deportes/ramas/Gimnasia/gimnasia3.jpg",
+      "/deportes/ramas/Gimnasia/gimnasia4.jpg",
+      "/deportes/ramas/Gimnasia/gimnasia5.jpg",
+    ],
+    tumbnail: "/deportes/ramas/Gimnasia/gimnasia",
     texto: (
       <p>
         La Gimnasia Artística es una rama de la gimnasia, la cual se caracteriza
@@ -299,8 +305,14 @@ const Textos = {
     dt: "No disponible",
     contacto_dt: "No Disponible",
     fotodt: "/profile.png",
-    fotos: ["/contenido-no-disponible1.jpg"],
-    tumbnail: "/contenido-no-disponible",
+    fotos: [
+      "/deportes/ramas/LevantamientoPesas/levantamiento1.jpg",
+      "/deportes/ramas/LevantamientoPesas/levantamiento2.jpg",
+      "/deportes/ramas/LevantamientoPesas/levantamiento3.jpg",
+      "/deportes/ramas/LevantamientoPesas/levantamiento4.jpg",
+      "/deportes/ramas/LevantamientoPesas/levantamiento5.jpg",
+    ],
+    tumbnail: "/deportes/ramas/LevantamientoPesas/levantamiento",
     texto: (
       <p>
         Deporte que consiste en el levantamiento de halteras o pesas. Los
@@ -347,8 +359,13 @@ const Textos = {
     dt: "No disponible",
     contacto_dt: "No Disponible",
     fotodt: "/profile.png",
-    fotos: ["/contenido-no-disponible1.jpg"],
-    tumbnail: "/contenido-no-disponible",
+    fotos: [
+      "/deportes/ramas/Judo/judo1.jpg",
+      "/deportes/ramas/Judo/judo2.jpg",
+      "/deportes/ramas/Judo/judo3.jpg",
+      "/deportes/ramas/Judo/judo4.jpg",
+    ],
+    tumbnail: "/deportes/ramas/Judo/judo",
     texto: (
       <p>
         El Judo es un deporte de combate, el cual se basa en derribar o

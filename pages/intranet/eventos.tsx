@@ -5,6 +5,9 @@ import {
   MDBBadge,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
+  MDBPagination,
+  MDBPaginationItem,
+  MDBPaginationLink,
   MDBTable,
   MDBTableBody,
   MDBTableHead,
@@ -24,6 +27,9 @@ const Eventos = () => {
   const [isLoged, setIsLoged] = useState(true);
   const [loadData, setLoadData] = useState(false);
   const [item, setItem] = useState([]);
+  const [activePage, setActivePage] = useState(1);
+  const [buscador, setBuscador] = useState("");
+  const [lastPage, setLastPage] = useState(1);
   const { checkLogin } = useContext(AuthContext);
   useEffect(() => {
     async function verificar() {
@@ -36,16 +42,24 @@ const Eventos = () => {
         router.push("/login");
       }
     }
+
+    verificar();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     async function LoadItem() {
-      const item = await LoadEventos();
+      const item = await LoadEventos("", "", activePage);
       if (item.data) {
         setItem(item.data);
-        setLoadData(true);
+        setActivePage(item.current_page);
+        setLastPage(item.last_page);
       }
+      setLoadData(true);
     }
-    verificar();
     LoadItem();
-  }, [loadData]);
+  }, [loadData, activePage]);
 
   const eliminarEvento = async (evento) => {
     Swal.fire({
@@ -164,6 +178,35 @@ const Eventos = () => {
               )}
             </MDBTableBody>
           </MDBTable>
+          <MDBPagination className="mb-5 align-items-center justify-content-center">
+            <MDBPaginationItem
+              onClick={() => setActivePage(activePage - 1)}
+              disabled={activePage === 1}
+            >
+              <MDBPaginationLink tabIndex={-1} aria-disabled="true">
+                Anterior
+              </MDBPaginationLink>
+            </MDBPaginationItem>
+            {Array.apply(1, Array(lastPage)).map((page, i) => (
+              <MDBPaginationItem
+                key={i + 1}
+                onClick={() => {
+                  setActivePage(i + 1);
+                }}
+                active={i + 1 === activePage}
+                aria-current="page"
+              >
+                <MDBPaginationLink>{i + 1}</MDBPaginationLink>
+              </MDBPaginationItem>
+            ))}
+
+            <MDBPaginationItem
+              onClick={() => setActivePage(activePage + 1)}
+              disabled={lastPage === activePage}
+            >
+              <MDBPaginationLink>Siguiente</MDBPaginationLink>
+            </MDBPaginationItem>
+          </MDBPagination>
         </>
       )}
     </>

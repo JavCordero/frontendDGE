@@ -4,10 +4,47 @@ import SearchInput from "../../components/others/SearchInput";
 import NoticiasFilter from "../../components/others/NoticiasFilter";
 import NoticiaPreview from "../../components/noticias/NoticiaPreview";
 import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
+import { useEffect } from "react";
+import LoadNoticias from "../../hooks/useLoadNoticias";
+import { host } from "../../public/js/host";
+import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
 
 const Noticias = () => {
   const [search, setSearch] = useState("");
   const [filtro, setFiltro] = useState("Fecha");
+  const [noticias, setNoticias] = useState([]);
+  const [loadNoticias, setLoadNoticias] = useState(false);
+  const [page, setPage] = useState(1);
+  const [maxPage, setMaxPage] = useState(1);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const y = window.pageYOffset;
+      const maxY =
+        window.document.documentElement.scrollHeight -
+        window.document.documentElement.clientHeight;
+      if (y === maxY) {
+        if (page <= maxPage) {
+          setPage(page + 1);
+        }
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const noticiasListas = async () => {
+      const noticiasArray = await LoadNoticias("", "", page);
+      console.log(noticiasArray);
+      if (noticiasArray.data && noticiasArray.data.length > 0) {
+        noticiasArray.data.forEach((noticia) => {
+          setNoticias((noticias) => [...noticias, noticia]);
+        });
+      }
+      setMaxPage(noticiasArray.last_page);
+      setLoadNoticias(true);
+    };
+    noticiasListas();
+  }, [page]);
   const handdleBuscar = () => {
     console.log("BUSCANDO " + search.trim());
   };
@@ -32,7 +69,25 @@ const Noticias = () => {
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
-        <NoticiaPreview
+        {loadNoticias
+          ? noticias.map((noticia, index) => (
+              <NoticiaPreview
+                key={index}
+                title={noticia.titulo}
+                src={host + noticia.imagen}
+                alt={noticia.desc_img}
+                href={{
+                  pathname: `/noticias/${removeSpecialCharacters(
+                    noticia.titulo
+                  )}`,
+                  query: { id: noticia.id },
+                }}
+              >
+                {noticia.subtitulo}
+              </NoticiaPreview>
+            ))
+          : null}
+        {/* <NoticiaPreview
           title="¿El basquetbol la mejor forma de estar en forma??"
           src="/images/noticias/lorem1.jpg"
           alt="imagen"
@@ -42,53 +97,11 @@ const Noticias = () => {
           ​ es un deporte de equipo, jugado entre dos conjuntos de cinco
           jugadores cada uno durante cuatro períodos o cuartos de diez​ o doce
           minutos cada uno.
-        </NoticiaPreview>
-        <NoticiaPreview
-          title="¿Problemas en la rodilla?"
-          src="/images/noticias/lorem2.jpg"
-          alt="imagen"
-          href="#"
-        >
-          {" "}
-          La rodilla es una articulación que une el hueso del muslo (o fémur) a
-          la parte superior del hueso de la espinilla (o tibia). Está compuesta
-          por huesos, cartílagos, músculos, ligamentos y tendones.
-        </NoticiaPreview>
-        <NoticiaPreview
-          title="UCN vence en el clásico y clasifica al Nacional Universitario"
-          src="/images/noticias/lorem3.jpg"
-          alt="imagen"
-          href="#"
-        >
-          El seleccionado de la Universidad Católica del Norte clasificó al
-          Campeonato Nacional de Fútbol Universitario, tras vencer a su similar
-          de la Universidad de Antofagasta en los partidos de ida y vuelta de la
-          fase clasificatoria del torneo.
-        </NoticiaPreview>
-        <NoticiaPreview
-          title="¿Quieres correr en la maratón UCN?"
-          src="/images/noticias/lorem4.jpg"
-          alt="imagen"
-          href="#"
-        >
-          Preparándote para el evento: ¿Qué OBJETIVO te deberías plantear?
-          ¿Cuánta actividad física es recomendable realizar?
-        </NoticiaPreview>
-        <NoticiaPreview
-          title="El porque es importante comer verduras"
-          src="/images/noticias/lorem5.jpg"
-          alt="imagen"
-          href="/noticias/noticia"
-        >
-          Al año los estudiantes universitarios en promedio solo ingieren solo
-          un 20% de las verduras recomendadas por la OMS . A continuación te
-          presentaremos 5 formas que te ayudarán a presentarles estos alimentos,
-          de una forma más apetitosa.
-        </NoticiaPreview>
+        </NoticiaPreview> */}
       </NoticiaPreviewContainer>
 
       <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
-        <LoadingCircles />
+        {maxPage !== page ? <LoadingCircles /> : null}
       </div>
     </div>
   );

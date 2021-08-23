@@ -287,6 +287,7 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
       }
     }
     cargarImagenes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [imagen2]);
 
   useEffect(() => {
