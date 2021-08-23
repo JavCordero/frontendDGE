@@ -11,7 +11,7 @@ const Index = () => {
   const [noticias, setNoticias] = useState([]);
   useEffect(() => {
     const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias("salud");
+      const noticiasArray = await LoadNoticias("salud", "", 1);
       console.log(noticiasArray);
       if (noticiasArray.data && noticiasArray.data.length > 0) {
         setisLoadNotice(true);

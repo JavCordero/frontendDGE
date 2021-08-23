@@ -87,7 +87,7 @@ const Index = () => {
                     Permite crear un anuncio unico de duración limitada en una
                     página en particular.
                   </MDBCardText>
-                  <MDBBtn href="#">Ir</MDBBtn>
+                  <MDBBtn href="/intranet/anuncios">Ir</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>

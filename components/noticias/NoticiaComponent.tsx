@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { host } from "../../public/js/host";
 import TitleLine from "../others/TitleLine";
 import NoticiaPreview from "./NoticiaPreview";
@@ -13,11 +13,36 @@ import NoticiaRelacionados from "./noticia__recursos/NoticiaRelacionados";
 import NoticiaTags from "./noticia__recursos/NoticiaTags";
 import NoticiaVolver from "./noticia__recursos/NoticiaVolver";
 import Link from "next/link";
+import { useEffect } from "react";
+import LoadNoticias from "../../hooks/useLoadNoticias";
+import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
 
 export const NoticiaComponent = ({ noticia }: any) => {
+  const [relacionados, setRelacionados] = useState([]);
+  const [loadRelacionados, setLoadRelacionados] = useState(false);
+
+  useEffect(() => {
+    relacionados.length = 0;
+    const loadData = async () => {
+      if (noticia.tags) {
+        noticia.tags.forEach(async (tag) => {
+          const noticias = await LoadNoticias("", tag.name, 1);
+          noticias.data.forEach((element) => {
+            if (element.id !== noticia.id) {
+              setRelacionados((relacionados) => [element, ...relacionados]);
+              setLoadRelacionados(true);
+            }
+          });
+        });
+      }
+    };
+    loadData();
+  }, [noticia]);
+
   const clickHandle = (link) => {
     document.location.href = link;
   };
+
   return (
     <>
       {noticia.id ? (
@@ -83,29 +108,26 @@ export const NoticiaComponent = ({ noticia }: any) => {
           </NoticiaVolver>
           <NoticiaRelacionados>
             <TitleLine>Relacionados</TitleLine>
+            {console.log(relacionados.length)}
             <NoticiaPreviewContainer>
-              <NoticiaPreview
-                title="¿El basquetbol la mejor forma de estar en forma??"
-                src="/images/noticias/lorem1.jpg"
-                alt="imagen"
-                href="#"
-              >
-                El baloncesto, básquetbol, básketball o simplemente básquet o
-                básket, ​ es un deporte de equipo, jugado entre dos conjuntos de
-                cinco jugadores cada uno durante cuatro períodos o cuartos de
-                diez​ o doce minutos cada uno.
-              </NoticiaPreview>
-              <NoticiaPreview
-                title="¿Problemas en la rodilla?"
-                src="/images/noticias/lorem2.jpg"
-                alt="imagen"
-                href="#"
-              >
-                La rodilla es una articulación que une el hueso del muslo (o
-                fémur) a la parte superior del hueso de la espinilla (o tibia).
-                Está compuesta por huesos, cartílagos, músculos, ligamentos y
-                tendones.
-              </NoticiaPreview>
+              {loadRelacionados
+                ? relacionados.map((noticiaRelacionada, index) => (
+                    <NoticiaPreview
+                      key={index}
+                      title={noticiaRelacionada.titulo}
+                      src={host + noticiaRelacionada.imagen}
+                      alt={noticiaRelacionada.desc_img}
+                      href={{
+                        pathname: `/noticias/${removeSpecialCharacters(
+                          noticiaRelacionada.titulo
+                        )}`,
+                        query: { id: noticiaRelacionada.id },
+                      }}
+                    >
+                      {noticiaRelacionada.subtitulo}
+                    </NoticiaPreview>
+                  ))
+                : null}
             </NoticiaPreviewContainer>
           </NoticiaRelacionados>
         </div>

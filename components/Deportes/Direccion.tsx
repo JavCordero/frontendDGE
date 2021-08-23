@@ -38,7 +38,7 @@ const Direccion = () => {
             />
             <MDBCardBody className="text-center">
               <p className="m-0 fs-5">Eduardo Verdejo Green</p>
-              <p className="m-0 fs-6">Jefe Deoirtes y Recreación</p>
+              <p className="m-0 fs-6">Jefe Deportes y Recreación</p>
               <p className="m-0 fs-6">
                 <a href="mailto:everdejo@ucn.cl">everdejo@ucn.cl</a>
               </p>
