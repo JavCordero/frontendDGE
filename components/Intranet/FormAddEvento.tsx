@@ -133,6 +133,7 @@ export const FormAddEvento = ({ idUser }) => {
   const config = {
     height: "100%",
     font: ["Arial", "tahoma", "Courier New,Courier"],
+    defaultStyle: "font-family: Arial; font-size:16px; line-height: 1;",
     imageFileInput: false,
     videoFileInput: false,
     buttonList: [

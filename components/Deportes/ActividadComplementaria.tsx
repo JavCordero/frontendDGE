@@ -136,7 +136,6 @@ export const ActividadComplementaria = () => {
     <MDBContainer fluid className="w-100">
       <MDBRow>
         <MDBCol>
-          
           <TitleLine className="mb-2">Actividades</TitleLine>
         </MDBCol>
         <MDBCol size="4"></MDBCol>
@@ -155,7 +154,7 @@ export const ActividadComplementaria = () => {
         </Modal.Header>
         <Modal.Body>
           <MDBRow>
-            <MDBCol size="4">
+            <MDBCol size="12" md="4">
               <MDBRow>
                 <h5 className="my-2">Información</h5>
                 <div
@@ -172,7 +171,7 @@ export const ActividadComplementaria = () => {
                 </div>
               </MDBRow>
             </MDBCol>
-            <MDBCol size="8">
+            <MDBCol size="12" md="8">
               <div className="w-100 p-3">
                 <Slider {...settings}>
                   {TextosComplementarios[rama].fotos.map((foto, index) => (

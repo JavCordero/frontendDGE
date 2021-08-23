@@ -2,6 +2,9 @@ import {
   MDBBadge,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
+  MDBPagination,
+  MDBPaginationItem,
+  MDBPaginationLink,
   MDBTable,
   MDBTableBody,
   MDBTableHead,
@@ -25,6 +28,10 @@ const Noticias = () => {
   const [isLoged, setIsLoged] = useState(true);
   const [loadData, setLoadData] = useState(false);
   const [item, setItem] = useState([]);
+  const [activePage, setActivePage] = useState(1);
+  const [buscador, setBuscador] = useState("");
+  const [lastPage, setLastPage] = useState(1);
+
   useEffect(() => {
     async function verificar() {
       const verificacion = await CheckLogin();
@@ -36,17 +43,26 @@ const Noticias = () => {
         router.push("/login");
       }
     }
+    verificar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log(activePage);
     async function LoadItem() {
-      const item = await LoadNoticias();
+      const item = await LoadNoticias("", "", activePage);
       if (item.data) {
         setItem(item.data);
-        setLoadData(true);
+        setActivePage(item.current_page);
+        setLastPage(item.last_page);
       }
+      setLoadData(true);
     }
 
-    verificar();
     LoadItem();
-  }, [loadData]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loadData, activePage]);
 
   const eliminarNoticia = async (noticia) => {
     Swal.fire({
@@ -122,13 +138,15 @@ const Noticias = () => {
                     <td>{noticia.titulo}</td>
                     <td>{noticia.area.name}</td>
                     <td>
-                      {noticia.tags.map((tag) => (
-                        <h5 key={tag.id}>
-                          <MDBBadge color="success" className="ms-2">
-                            {tag.name}
-                          </MDBBadge>
-                        </h5>
-                      ))}
+                      {noticia.tags
+                        ? noticia.tags.map((tag) => (
+                            <h5 key={tag.id}>
+                              <MDBBadge color="success" className="ms-2">
+                                {tag.name}
+                              </MDBBadge>
+                            </h5>
+                          ))
+                        : null}
                     </td>
                     <td>
                       <MDBBtn
@@ -158,6 +176,35 @@ const Noticias = () => {
               )}
             </MDBTableBody>
           </MDBTable>
+          <MDBPagination className="mb-5 align-items-center justify-content-center">
+            <MDBPaginationItem
+              onClick={() => setActivePage(activePage - 1)}
+              disabled={activePage === 1}
+            >
+              <MDBPaginationLink tabIndex={-1} aria-disabled="true">
+                Anterior
+              </MDBPaginationLink>
+            </MDBPaginationItem>
+            {Array.apply(1, Array(lastPage)).map((page, i) => (
+              <MDBPaginationItem
+                key={i + 1}
+                onClick={() => {
+                  setActivePage(i + 1);
+                }}
+                active={i + 1 === activePage}
+                aria-current="page"
+              >
+                <MDBPaginationLink>{i + 1}</MDBPaginationLink>
+              </MDBPaginationItem>
+            ))}
+
+            <MDBPaginationItem
+              onClick={() => setActivePage(activePage + 1)}
+              disabled={lastPage === activePage}
+            >
+              <MDBPaginationLink>Siguiente</MDBPaginationLink>
+            </MDBPaginationItem>
+          </MDBPagination>
         </>
       )}
     </>

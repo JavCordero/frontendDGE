@@ -2,12 +2,14 @@ const TextosComplementarios = {
   escuelas: {
     nombre: "Escuelas Infantiles",
     fotos: [
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
+      "/deportes/escuelasInfantiles/escuela1.jpg",
+      "/deportes/escuelasInfantiles/escuela2.jpg",
+      "/deportes/escuelasInfantiles/escuela3.jpg",
+      "/deportes/escuelasInfantiles/escuela4.jpg",
+      "/deportes/escuelasInfantiles/escuela5.jpg",
+      "/deportes/escuelasInfantiles/escuela6.jpg",
     ],
-    tumbnail: "/contenido-no-disponible",
+    tumbnail: "/deportes/escuelasInfantiles/escuela",
     texto: (
       <ul>
         <li> Aikido</li>
@@ -23,12 +25,14 @@ const TextosComplementarios = {
   cursos: {
     nombre: "Cursos y Talleres Adultos",
     fotos: [
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
+      "/deportes/cursos/curso1.jpg",
+      "/deportes/cursos/curso2.jpg",
+      "/deportes/cursos/curso3.jpg",
+      "/deportes/cursos/curso4.jpg",
+      "/deportes/cursos/curso5.jpg",
+      "/deportes/cursos/curso6.jpg",
     ],
-    tumbnail: "/contenido-no-disponible",
+    tumbnail: "/deportes/cursos/curso",
     texto: (
       <ul>
         <li> Taller de Pesas</li>
@@ -42,12 +46,16 @@ const TextosComplementarios = {
   recreativo: {
     nombre: "Recreativos Infantil y Competición Adultos",
     fotos: [
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
-      "/contenido-no-disponible1.jpg",
+      "/deportes/recreativos/recreativo1.jpg",
+      "/deportes/recreativos/recreativo2.jpg",
+      "/deportes/recreativos/recreativo3.jpg",
+      "/deportes/recreativos/recreativo4.jpg",
+      "/deportes/recreativos/recreativo5.jpg",
+      "/deportes/recreativos/recreativo6.jpg",
+      "/deportes/recreativos/recreativo7.jpg",
+      "/deportes/recreativos/recreativo8.jpg",
     ],
-    tumbnail: "/contenido-no-disponible",
+    tumbnail: "/deportes/recreativos/recreativo",
     texto: (
       <ul>
         <li> Grupo de Guía Scout</li>

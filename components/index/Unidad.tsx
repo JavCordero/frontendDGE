@@ -42,7 +42,9 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faGraduationCap}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Beneficios UCN</MDBCardTitle>
+            <MDBCardTitle>
+              <Link href="/beneficios/">Beneficios</Link>
+            </MDBCardTitle>
             <MDBCardText>Beneficios Externos</MDBCardText>
             <MDBCardText>Beneficios Internos</MDBCardText>
             <MDBCardText>Renovación de beneficios</MDBCardText>
@@ -109,10 +111,12 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversity}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Arte y Cultura</MDBCardTitle>
-            <MDBCardText>Link 1</MDBCardText>
-            <MDBCardText>Link 2</MDBCardText>
-            <MDBCardText>Link 3</MDBCardText>
+            <MDBCardTitle>
+              <Link href="/artecultura/">Arte y Cultura</Link>
+            </MDBCardTitle>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
             <MDBCardText>Más...</MDBCardText>
           </MDBCardBody>
         </MDBCard>
@@ -121,10 +125,12 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faBabyCarriage}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Jardin Infantil</MDBCardTitle>
-            <MDBCardText>Link 1</MDBCardText>
-            <MDBCardText>Link 2</MDBCardText>
-            <MDBCardText>Link 3</MDBCardText>
+            <MDBCardTitle>
+              <Link href="/jardininfantil/">Jardín Infantil Taqinki</Link>
+            </MDBCardTitle>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
             <MDBCardText>Más...</MDBCardText>
           </MDBCardBody>
         </MDBCard>
@@ -133,13 +139,12 @@ export const Unidad = () => {
         <MDBCard className="align-items-center text-center my-2">
           <FontAwesomeIcon size="6x" icon={faUniversalAccess}></FontAwesomeIcon>
           <MDBCardBody>
-            <MDBCardTitle>Inclusión</MDBCardTitle>
-            <MDBCardText>
-              {" "}
-              <Link href="/">este lleva a home</Link>{" "}
-            </MDBCardText>
-            <MDBCardText>Link 2</MDBCardText>
-            <MDBCardText>Link 3</MDBCardText>
+            <MDBCardTitle>
+              <Link href="/inclusion/">Inclusión</Link>
+            </MDBCardTitle>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
+            <MDBCardText>En Construcción...</MDBCardText>
             <MDBCardText>Más...</MDBCardText>
           </MDBCardBody>
         </MDBCard>

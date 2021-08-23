@@ -662,7 +662,7 @@ export const Ramas = () => {
         </Modal.Header>
         <Modal.Body>
           <MDBRow>
-            <MDBCol size="4">
+            <MDBCol size="12" md="4">
               <MDBRow>
                 <MDBCol>
                   <Image
@@ -697,7 +697,7 @@ export const Ramas = () => {
                 </div>
               </MDBRow>
             </MDBCol>
-            <MDBCol size="8">
+            <MDBCol size="12" md="8">
               <div className="w-100 p-3">
                 <Slider {...settings}>
                   {Textos[rama].fotos.map((foto, index) => (
