@@ -75,10 +75,8 @@ const Index = () => {
     if (area === "inclusion") {
       setInlcusionActive(false);
     }
-    setLoadData(false);
     const edit = await EditActiveAnuncio(id, activo);
-    console.log(edit);
-    setLoadData(true);
+    setLoadData(false);
   };
 
   const eliminarAnuncio = async (anuncio) => {
@@ -119,19 +117,34 @@ const Index = () => {
         router.push("/login");
       }
     }
+
+    verificar();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    anuncioIndex.length = 0;
+    anuncioBeneficios.length = 0;
+    anuncioSalud.length = 0;
+    anuncioDeportes.length = 0;
+    anuncioArte.length = 0;
+    anuncioJardin.length = 0;
+    anuncioInclusion.length = 0;
     async function LoadItem() {
       const item = await LoadAnuncios();
+      console.log(item);
       if (Array.isArray(item)) {
         item.forEach((anuncio) => {
           switch (anuncio.area_id) {
             case null:
-              anuncioIndex.push(anuncio);
+              setAnuncioIndex((anuncioIndex) => [...anuncioIndex, anuncio]);
               if (anuncio.activo === 1) {
                 setIndexActive(true);
               }
               break;
             case 1:
-              anuncioSalud.push(anuncio);
+              setAnuncioSalud((anuncioSalud) => [...anuncioSalud, anuncio]);
               if (anuncio.activo === 1) {
                 setSaludActive(true);
               }
@@ -173,9 +186,7 @@ const Index = () => {
         setLoadData(true);
       }
     }
-    verificar();
     LoadItem();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadData]);
   return (
     <>
