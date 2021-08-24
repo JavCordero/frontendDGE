@@ -37,18 +37,6 @@ const Arrow = (props) => {
 
 export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
   const settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    arrows: false,
-    autoplay: true,
-    className: "center",
-  };
-  const settings2 = {
     arrowsBlock: false,
     centerPadding: 0,
     dots: true,
@@ -66,50 +54,7 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
         <MDBCol size="12" sm="9" className="p-1">
           <MDBContainer>
             <TitleLine noLine>{titulo1}</TitleLine>
-            <Slider {...settings2}>
-              {/* {noticias.map((noticia) => (
-                <MDBCard
-                  className="text-white"
-                  background="dark"
-                  key={noticia.id}
-                >
-                  {console.log(noticia)}
-                  <Image
-                    src={`${host}${noticia.imagen}`}
-                    className="mr-auto ml-auto"
-                    alt="..."
-                    height="450"
-                    width="1000"
-                    objectFit="cover"
-                  />
-
-                  <MDBCardOverlay className="d-flex flex-column justify-content-end">
-                    <Link
-                      href={{
-                        pathname: `${path}noticias/${removeSpecialCharacters(
-                          noticia.titulo
-                        )}`,
-                        query: { id: noticia.id },
-                      }}
-                      passHref
-                    >
-                      <div className="texto-noticia rounded p-3">
-                        <MDBCardTitle>{noticia.titulo}</MDBCardTitle>
-                        <MDBCardText>{noticia.subtitulo}</MDBCardText>
-                        <MDBCardText>
-                          {`Creado el ${new Date(
-                            noticia.created_at
-                          ).getDate()} de ${new Date(
-                            noticia.created_at
-                          ).toLocaleDateString(undefined, {
-                            month: "long",
-                          })} de ${new Date(noticia.created_at).getFullYear()}`}
-                        </MDBCardText>
-                      </div>
-                    </Link>
-                  </MDBCardOverlay>
-                </MDBCard>
-              ))} */}
+            <Slider {...settings}>
               {noticias.map((noticia) => (
                 <div key={noticia.id} className="destacado-slide">
                   <Image
