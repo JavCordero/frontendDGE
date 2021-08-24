@@ -1,17 +1,18 @@
 import { useState } from "react";
 import LoadingCircles from "../../components/others/LoadingCircles";
 import SearchInput from "../../components/others/SearchInput";
-import NoticiasFilter from "../../components/others/NoticiasFilter";
 import NoticiaPreview from "../../components/noticias/NoticiaPreview";
 import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
 import { useEffect } from "react";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import { host } from "../../public/js/host";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
+/*
+Este componente despliega la seccion donde se muestran todas las noticias
 
+*/
 const Noticias = () => {
   const [search, setSearch] = useState("");
-  const [filtro, setFiltro] = useState("Fecha");
   const [noticias, setNoticias] = useState([]);
   const [loadNoticias, setLoadNoticias] = useState(false);
   const [page, setPage] = useState(1);
@@ -48,24 +49,18 @@ const Noticias = () => {
   const handdleBuscar = () => {
     console.log("BUSCANDO " + search.trim());
   };
-
-  const handdleFilter = (newFiltro) => {
-    if (newFiltro === filtro) {
-      return;
-    }
-    setFiltro(newFiltro);
-    console.log("FILTRANDO POR " + newFiltro);
-  };
   return (
     <div className="noticias">
       <div className="noticias__head">
         <SearchInput
           placeholder="Buscar Noticia"
-          value={search}
-          onChange={setSearch}
+          onChange={(e: any) => setSearch(e.target.value)}
           fn={handdleBuscar}
         />
-        <NoticiasFilter fn={handdleFilter} />
+        <select className="noticias__filtro" id="noticiaFiltro">
+          <option value="fecha">Por fecha</option>
+          <option value="destacado">Destacados</option>
+        </select>
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
@@ -87,17 +82,6 @@ const Noticias = () => {
               </NoticiaPreview>
             ))
           : null}
-        {/* <NoticiaPreview
-          title="¿El basquetbol la mejor forma de estar en forma??"
-          src="/images/noticias/lorem1.jpg"
-          alt="imagen"
-          href="#"
-        >
-          El baloncesto, básquetbol, básketball o simplemente básquet o básket,
-          ​ es un deporte de equipo, jugado entre dos conjuntos de cinco
-          jugadores cada uno durante cuatro períodos o cuartos de diez​ o doce
-          minutos cada uno.
-        </NoticiaPreview> */}
       </NoticiaPreviewContainer>
 
       <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
