@@ -67,14 +67,14 @@ export const NoticiaComponent = ({ noticia }: any) => {
               : null}
           </NoticiaLinks>
           <NoticiaBotones>
-            <div>
+            {/* <div>
               <button>A+</button>
               <button>A-</button>
             </div>
             <div>
               <button>Descargar</button>
               <button>Imprimir</button>
-            </div>
+            </div> */}
           </NoticiaBotones>
           <NoticiaFechaDatos>
             <p>
