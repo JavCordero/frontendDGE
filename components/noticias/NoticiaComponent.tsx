@@ -16,8 +16,10 @@ import Link from "next/link";
 import { useEffect } from "react";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
+import { useRouter } from "next/router";
 
 export const NoticiaComponent = ({ noticia }: any) => {
+  const router = useRouter();
   const [relacionados, setRelacionados] = useState([]);
   const [loadRelacionados, setLoadRelacionados] = useState(false);
 
@@ -104,7 +106,7 @@ export const NoticiaComponent = ({ noticia }: any) => {
               : null}
           </NoticiaTags>
           <NoticiaVolver>
-            <a href="#">Volver a noticias</a>
+            <p onClick={() => router.back()}>Volver</p>
           </NoticiaVolver>
           <NoticiaRelacionados>
             <TitleLine>Relacionados</TitleLine>
