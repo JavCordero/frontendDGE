@@ -62,6 +62,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             {!router.route.includes("/intranet") &&
               !router.route.includes("/preguntas-frecuentes") &&
               !router.route.includes("/login") &&
+              !router.route.includes("/noticias") &&
               router.route !== "/" && (
                 <Asistente
                   href="/preguntas-frecuentes"
