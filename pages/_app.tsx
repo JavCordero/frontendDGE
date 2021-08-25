@@ -59,12 +59,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           </SidenavIntra>
         ) : (
           <>
-            {(router.route.includes("/salud/") ||
-              router.route === "/salud") && (
-              <Asistente href="/" src="/salud/avatar-salud.png">
-                Tienes preguntas, haz clic acá…
-              </Asistente>
-            )}
+            {!router.route.includes("/intranet") &&
+              !router.route.includes("/preguntas-frecuentes") &&
+              !router.route.includes("/login") &&
+              router.route !== "/" && (
+                <Asistente
+                  href="/preguntas-frecuentes"
+                  src="/salud/avatar-salud.png"
+                >
+                  Tienes preguntas, haz clic acá…
+                </Asistente>
+              )}
             <NavbarPublic>
               <Component {...pageProps} />
             </NavbarPublic>

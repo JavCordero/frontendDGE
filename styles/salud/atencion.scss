@@ -28,6 +28,8 @@
     cursor: pointer;
     outline: none;
     border: none;
+    background-color: $Pantone_300_C;
+
     &:hover {
       opacity: 0.8;
     }
