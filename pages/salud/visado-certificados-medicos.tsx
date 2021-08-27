@@ -55,7 +55,13 @@ const visadoCertificadosMedicos = () => {
             por el área de salud, el cual deberás presentar en tu unidad
             académica.
           </TarjetaInstruccion>
-          <Button>Ir al formulario</Button>
+          <a
+            href="https://forms.gle/GCc9rvpsrCYj3pxe6"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <Button>Ir al formulario</Button>
+          </a>
         </div>
       </div>
     </>

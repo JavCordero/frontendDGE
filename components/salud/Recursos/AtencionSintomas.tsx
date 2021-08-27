@@ -20,6 +20,7 @@ los parametros que recibe son:
 - srcEncargado: la imagen del encargado (si aplica).
 - srcArea: imagen del area de atencion medica.
 - noCard: si es true, se mostrara el componente sin contacto en el lado derecho, en caso de que el nombre del encargado no exista incluir, por defecto false.
+- link: correspondiente a la url donde se solicita la hora, se espera que se una urtl tipo: "https://www.google.com"
 */
 
 const AtencionSintomas = (props) => {
@@ -53,9 +54,15 @@ const AtencionSintomas = (props) => {
                 ? props.mensajeContacto
                 : "Solicita hora con nuestros profesionales de la salud:"}
             </h2>
-            <button className="atencion-sintomas__hora atencion-sintomas__hora--noCard">
-              Solicitar hora
-            </button>
+            <a
+              href={props.link ? props.link : "#"}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <button className="atencion-sintomas__hora atencion-sintomas__hora--noCard">
+                Solicitar hora
+              </button>
+            </a>
             <p className="atencion-sintomas__contacto-subTitulo">
               El tiempo de respuesta está sujeto a la demanda. Consultas
               areasalud@ucn.cl
@@ -95,9 +102,15 @@ const AtencionSintomas = (props) => {
                       ? props.cargoEncargado
                       : "Cargo"}
                   </p>
-                  <button className="atencion-sintomas__hora">
-                    Tomar hora
-                  </button>
+                  <a
+                    href={props.link ? props.link : "#"}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <button className="atencion-sintomas__hora">
+                      Tomar hora
+                    </button>
+                  </a>
                 </MDBCardBody>
               </MDBCard>
             </div>
