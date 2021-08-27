@@ -21,18 +21,18 @@ const Index = () => {
         {/* esto es para los cuadros de seleccion de opciones de preguntas por area, usa el mismo estilo que los cuadros de opciones en atenciones de salud */}
         <div className="salud-atencion__opciones-grupo">
           <button
-            value="deportes"
-            className="salud-atencion__opcion"
-            onClick={(e: any) => setSeccion(e.target.value)}
-          >
-            Deportes
-          </button>
-          <button
             value="salud"
             className="salud-atencion__opcion"
             onClick={(e: any) => setSeccion(e.target.value)}
           >
             Salud
+          </button>
+          <button
+            value="deportes"
+            className="salud-atencion__opcion"
+            onClick={(e: any) => setSeccion(e.target.value)}
+          >
+            Deportes
           </button>
         </div>
 
