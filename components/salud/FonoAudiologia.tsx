@@ -13,6 +13,8 @@ const FonoAudiologia = () => {
       nombreEncargado="Eveling Miranda Roco"
       cargoEncargado="Fonoaudiologa"
       mensaje="Si tienes algunos de estos síntomas:"
+      link="https://bit.ly/3cjiyF7"
+      
     >
       <p>Mala respiración / Velocidad del habla</p>
       <p>Disfonía / Cuidado de voz</p>
