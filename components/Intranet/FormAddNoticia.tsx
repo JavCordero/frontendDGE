@@ -547,8 +547,8 @@ export const FormAddNoticia = ({ idUser }) => {
                     icon={faQuestionCircle}
                     size="1x"
                   />{" "}
-                  Incluya vínculos o referencias a otras paginas, escriba o
-                  pegue el vinculo y presione enter.
+                  (Opcional) Incluya vínculos o referencias a otras paginas,
+                  escriba o pegue el vinculo y presione enter.
                 </Form.Text>
               </MDBCol>
             </MDBRow>
