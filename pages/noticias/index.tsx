@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import { host } from "../../public/js/host";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
+import styled from "@emotion/styled";
 /*
 Este componente despliega la seccion donde se muestran todas las noticias
 
@@ -18,19 +19,25 @@ const Noticias = () => {
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const y = window.pageYOffset;
-      const maxY =
-        window.document.documentElement.scrollHeight -
-        window.document.documentElement.clientHeight;
-      if (y === maxY) {
-        if (page <= maxPage) {
-          setPage(page + 1);
-        }
-      }
-    });
-  }, []);
+  const ButtonVerMas = styled.button`
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #e5e5e5;
+      color: #000;
+    }
+  `;
+  const handdleNextPage = () => {
+    setPage(page + 1);
+  };
 
   useEffect(() => {
     const noticiasListas = async () => {
@@ -49,6 +56,7 @@ const Noticias = () => {
   const handdleBuscar = () => {
     console.log("BUSCANDO " + search.trim());
   };
+
   return (
     <div className="noticias">
       <div className="noticias__head">
@@ -64,29 +72,34 @@ const Noticias = () => {
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
-        {loadNoticias
-          ? noticias.map((noticia, index) => (
-              <NoticiaPreview
-                key={index}
-                title={noticia.titulo}
-                src={host + noticia.imagen}
-                alt={noticia.desc_img}
-                href={{
-                  pathname: `/noticias/${removeSpecialCharacters(
-                    noticia.titulo
-                  )}`,
-                  query: { id: noticia.id },
-                }}
-              >
-                {noticia.subtitulo}
-              </NoticiaPreview>
-            ))
-          : null}
+        {loadNoticias ? (
+          noticias.map((noticia, index) => (
+            <NoticiaPreview
+              key={index}
+              title={noticia.titulo}
+              src={host + noticia.imagen}
+              alt={noticia.desc_img}
+              href={{
+                pathname: `/noticias/${removeSpecialCharacters(
+                  noticia.titulo
+                )}`,
+                query: { id: noticia.id },
+              }}
+            >
+              {noticia.subtitulo}
+            </NoticiaPreview>
+          ))
+        ) : (
+          <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+            <LoadingCircles />
+          </div>
+        )}
       </NoticiaPreviewContainer>
-
-      <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
-        {maxPage !== page ? <LoadingCircles /> : null}
-      </div>
+      {maxPage !== page && (
+        <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
+          <ButtonVerMas onClick={handdleNextPage}>Ver más...</ButtonVerMas>
+        </div>
+      )}
     </div>
   );
 };
