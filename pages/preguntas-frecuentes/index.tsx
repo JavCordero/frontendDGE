@@ -4,10 +4,17 @@ import { useState } from "react";
 import Link from "next/link";
 import { MDBBreadcrumb, MDBBreadcrumbItem } from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Index = () => {
-  const [seccion, setSeccion] = useState("salud");
   const router = useRouter();
+  const [seccion, setSeccion] = useState("salud");
+  useEffect(() => {
+    //Por defecto se cargara la seccion de salud ruta. "/preguntas-frecuentes"
+    //en caso de ingresar a la ruta "/preguntas-frecuentes?id=deportes" se cargara la seccion deportes.
+    const id = router.query.id ? router.query.id : "salud";
+    setSeccion(String(id));
+  }, [router]);
   return (
     <div>
       <MDBBreadcrumb>
