@@ -112,7 +112,7 @@ export const NoticiaComponent = ({ noticia }: any) => {
             <TitleLine>Relacionados</TitleLine>
             {console.log(relacionados.length)}
             <NoticiaPreviewContainer>
-              {/* el slice es para mostrar maximo 7 elementos en destacados */}
+              {/* el slice es para mostrar maximo 7 elementos en relacionados */}
               {loadRelacionados
                 ? relacionados.slice(0, 7).map((noticiaRelacionada, index) => (
                     <NoticiaPreview
