@@ -1,35 +1,43 @@
 import { useState } from "react";
 import LoadingCircles from "../../components/others/LoadingCircles";
 import SearchInput from "../../components/others/SearchInput";
-import NoticiasFilter from "../../components/others/NoticiasFilter";
 import NoticiaPreview from "../../components/noticias/NoticiaPreview";
 import NoticiaPreviewContainer from "../../components/noticias/NoticiaPreviewContainer";
 import { useEffect } from "react";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import { host } from "../../public/js/host";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
+import styled from "@emotion/styled";
+/*
+Este componente despliega la seccion donde se muestran todas las noticias
 
+*/
 const Noticias = () => {
   const [search, setSearch] = useState("");
-  const [filtro, setFiltro] = useState("Fecha");
   const [noticias, setNoticias] = useState([]);
   const [loadNoticias, setLoadNoticias] = useState(false);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const y = window.pageYOffset;
-      const maxY =
-        window.document.documentElement.scrollHeight -
-        window.document.documentElement.clientHeight;
-      if (y === maxY) {
-        if (page <= maxPage) {
-          setPage(page + 1);
-        }
-      }
-    });
-  }, []);
+  const ButtonVerMas = styled.button`
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #e5e5e5;
+      color: #000;
+    }
+  `;
+  const handdleNextPage = () => {
+    setPage(page + 1);
+  };
 
   useEffect(() => {
     const noticiasListas = async () => {
@@ -49,60 +57,49 @@ const Noticias = () => {
     console.log("BUSCANDO " + search.trim());
   };
 
-  const handdleFilter = (newFiltro) => {
-    if (newFiltro === filtro) {
-      return;
-    }
-    setFiltro(newFiltro);
-    console.log("FILTRANDO POR " + newFiltro);
-  };
   return (
     <div className="noticias">
       <div className="noticias__head">
         <SearchInput
           placeholder="Buscar Noticia"
-          value={search}
-          onChange={setSearch}
+          onChange={(e: any) => setSearch(e.target.value)}
           fn={handdleBuscar}
         />
-        <NoticiasFilter fn={handdleFilter} />
+        <select className="noticias__filtro" id="noticiaFiltro">
+          <option value="fecha">Por fecha</option>
+          <option value="destacado">Destacados</option>
+        </select>
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
-        {loadNoticias
-          ? noticias.map((noticia, index) => (
-              <NoticiaPreview
-                key={index}
-                title={noticia.titulo}
-                src={host + noticia.imagen}
-                alt={noticia.desc_img}
-                href={{
-                  pathname: `/noticias/${removeSpecialCharacters(
-                    noticia.titulo
-                  )}`,
-                  query: { id: noticia.id },
-                }}
-              >
-                {noticia.subtitulo}
-              </NoticiaPreview>
-            ))
-          : null}
-        {/* <NoticiaPreview
-          title="¿El basquetbol la mejor forma de estar en forma??"
-          src="/images/noticias/lorem1.jpg"
-          alt="imagen"
-          href="#"
-        >
-          El baloncesto, básquetbol, básketball o simplemente básquet o básket,
-          ​ es un deporte de equipo, jugado entre dos conjuntos de cinco
-          jugadores cada uno durante cuatro períodos o cuartos de diez​ o doce
-          minutos cada uno.
-        </NoticiaPreview> */}
+        {loadNoticias ? (
+          noticias.map((noticia, index) => (
+            <NoticiaPreview
+              key={index}
+              title={noticia.titulo}
+              src={host + noticia.imagen}
+              alt={noticia.desc_img}
+              href={{
+                pathname: `/noticias/${removeSpecialCharacters(
+                  noticia.titulo
+                )}`,
+                query: { id: noticia.id },
+              }}
+            >
+              {noticia.subtitulo}
+            </NoticiaPreview>
+          ))
+        ) : (
+          <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+            <LoadingCircles />
+          </div>
+        )}
       </NoticiaPreviewContainer>
-
-      <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
-        {maxPage !== page ? <LoadingCircles /> : null}
-      </div>
+      {maxPage !== page && (
+        <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
+          <ButtonVerMas onClick={handdleNextPage}>Ver más...</ButtonVerMas>
+        </div>
+      )}
     </div>
   );
 };

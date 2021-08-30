@@ -9,6 +9,8 @@
 @import "./others/LoadingCircles.scss";
 @import "./others/SearchInput.scss";
 @import "./others/TitleLine.scss";
+@import "./others/Destacado.scss";
+@import "./others/404.scss";
 @import "./salud/atencion.scss";
 @import "./salud/recomendaciones.scss";
 @import "./others/Asistente.scss";
@@ -17,6 +19,7 @@
 @import "./salud/TarjetaInstruccion.scss";
 @import "./noticias/NoticiasPreview.scss";
 @import "./noticias/SunEditorConfig.scss";
+@import "./destacados/destacados.scss";
 
 .index-noticias-scroll {
   overflow-y: hidden;
