@@ -55,7 +55,8 @@ export const Destacados = ({ titulo1, titulo2, noticias, path }) => {
           <MDBContainer>
             <TitleLine noLine>{titulo1}</TitleLine>
             <Slider {...settings}>
-              {noticias.map((noticia) => (
+              {/* el slice es para mostrar maximo 7 elementos en destacados */}
+              {noticias.slice(0, 7).map((noticia) => (
                 <div key={noticia.id} className="destacado-slide">
                   <Image
                     src={`${host}${noticia.imagen}`}
