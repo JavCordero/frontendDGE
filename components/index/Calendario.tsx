@@ -121,21 +121,21 @@ export const Calendario = () => {
                   text: "Salud",
                   click: async () => {
                     deleteItem();
-                    cargarEvento("salud");
+                    cargarEvento("Salud");
                   },
                 },
                 Deportes: {
                   text: "Deportes",
                   click: () => {
                     deleteItem();
-                    cargarEvento("deportes");
+                    cargarEvento("Deportes");
                   },
                 },
                 Beneficios: {
                   text: "Beneficios",
                   click: () => {
                     deleteItem();
-                    cargarEvento("beneficios");
+                    cargarEvento("Beneficios");
                   },
                 },
                 Todos: {

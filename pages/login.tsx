@@ -121,7 +121,7 @@ const Login = () => {
 
           <div className="login__footer">
             Si tiene problemas para ingresar al sistema contactar a
-            correo@correo.cl
+            vra.dge@ucn.cl
           </div>
         </div>
       </div>
