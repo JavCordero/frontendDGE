@@ -1,8 +1,10 @@
+
 .noticias {
   &__head {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    // padding: 0 100px;
     margin: 25px 0;
     width: 100%;
   }
@@ -16,7 +18,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 25px;
+      // padding: 0 25px;
     }
   }
   @media screen and (max-width: $w-550) {

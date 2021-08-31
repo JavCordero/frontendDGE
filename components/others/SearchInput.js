@@ -23,6 +23,7 @@ const SearchInput = (props) => (
       onChange={props.onChange}
       style={props.styleInput}
       aria-label="Search"
+      onKeyPress={(e) => e.key === "Enter" && props.fn()}
     />
     <label
       style={props.styleIcon}

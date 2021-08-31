@@ -80,10 +80,13 @@ const Noticias = () => {
         <SearchInput
           placeholder="Buscar Noticia por titulo"
           onChange={(e: any) => setSearch(e.target.value)}
+          fn = {busquedaPorTitulo}
         />
-        <div onClick={busquedaPorTitulo} className="mr-3 btn btn-info">
-          Buscar
-        </div>
+        {/* en caso de querer implementar funcionalidad filtro, descomentar lo siguiente: */}
+        {/* <select className="noticias__filtro" id="noticiaFiltro">
+          <option value="fecha">Por fecha</option>
+          <option value="destacado">Destacados</option>
+        </select> */}
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
