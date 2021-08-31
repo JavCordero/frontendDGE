@@ -18,6 +18,7 @@ const Noticias = () => {
   const [loadNoticias, setLoadNoticias] = useState(false);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
+  const [disableButton, setDisableButton] = useState(false);
 
   const ButtonVerMas = styled.button`
     background-color: #f5f5f5;
@@ -36,13 +37,16 @@ const Noticias = () => {
     }
   `;
   const handdleNextPage = () => {
-    setPage(page + 1);
+    if (page === maxPage) {
+      setDisableButton(true);
+    } else {
+      setPage(page + 1);
+    }
   };
 
   useEffect(() => {
     const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias("", "", page);
-      console.log(noticiasArray);
+      const noticiasArray = await LoadNoticias("", "", page, search);
       if (noticiasArray.data && noticiasArray.data.length > 0) {
         noticiasArray.data.forEach((noticia) => {
           setNoticias((noticias) => [...noticias, noticia]);
@@ -53,18 +57,33 @@ const Noticias = () => {
     };
     noticiasListas();
   }, [page]);
-  const handdleBuscar = () => {
-    console.log("BUSCANDO " + search.trim());
+
+  const busquedaPorTitulo = () => {
+    noticias.length = 0;
+    const buscarNoticia = async () => {
+      const noticiasArray = await LoadNoticias("", "", page, search);
+      console.log(noticiasArray);
+      if (noticiasArray.data && noticiasArray.data.length > 0) {
+        noticiasArray.data.forEach((noticia) => {
+          setNoticias((noticias) => [...noticias, noticia]);
+        });
+      }
+      setMaxPage(noticiasArray.last_page);
+      setLoadNoticias(true);
+    };
+    buscarNoticia();
   };
 
   return (
     <div className="noticias">
       <div className="noticias__head">
         <SearchInput
-          placeholder="Buscar Noticia"
+          placeholder="Buscar Noticia por titulo"
           onChange={(e: any) => setSearch(e.target.value)}
-          fn={handdleBuscar}
         />
+        <div onClick={busquedaPorTitulo} className="mr-3 btn btn-info">
+          Buscar
+        </div>
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
@@ -89,7 +108,12 @@ const Noticias = () => {
       </NoticiaPreviewContainer>
       {maxPage !== page && (
         <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
-          <ButtonVerMas onClick={handdleNextPage}>Ver más...</ButtonVerMas>
+          <ButtonVerMas
+            style={{ display: disableButton ? "none" : "unset" }}
+            onClick={handdleNextPage}
+          >
+            Ver más...
+          </ButtonVerMas>
         </div>
       )}
     </div>

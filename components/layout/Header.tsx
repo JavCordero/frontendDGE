@@ -3,6 +3,7 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -24,25 +25,12 @@ const Header = () => {
         />
       </div>
       <nav className="header__enlaces">
-        <a href="#">Home</a>
-        <a href="#">Mi portal</a>
-        <a href="#">Online UCN</a>
-        <a href="#">Noticias UCN</a>
-        <a href="#">Campus UCN</a>
+        <Link href="/">Home</Link>
+        <a href="https://ssb.ucn.cl/">Mi portal</a>
+        <a href="https://online.ucn.cl/">Online UCN</a>
+        <a href="https://www.noticias.ucn.cl/">Noticias UCN</a>
+        <a href="https://campusvirtual.ucn.cl/">Campus UCN</a>
       </nav>
-      <div className="header__busqueda">
-        <form className="d-flex input-group w-auto">
-          <input
-            type="search"
-            className="form-control"
-            placeholder=""
-            aria-label="Search"
-          />
-          <MDBBtn color="primary" size="sm" className="m-0">
-            <FontAwesomeIcon icon={faSearch} size="1x"></FontAwesomeIcon>
-          </MDBBtn>
-        </form>
-      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ export default function Home() {
   const [noticias, setNoticias] = useState([]);
   const [tags, setTags] = useState([]);
   const [lgShow, setLgShow] = useState(false);
-  const [anuncioIndex, setAnuncioIndex] = useState({});
+  const [anuncioIndex, setAnuncioIndex] = useState({ texto: "" });
 
   useEffect(() => {
     const noticiasListas = async () => {
@@ -42,7 +42,6 @@ export default function Home() {
           switch (anuncio.area_id) {
             case null:
               if (anuncio.activo === 1) {
-                console.log("entro?");
                 setAnuncioIndex(anuncio);
                 setLgShow(true);
               }
@@ -85,7 +84,12 @@ export default function Home() {
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Header closeButton></Modal.Header>
-        <Modal.Body>holi</Modal.Body>
+        <Modal.Body>
+          <div
+            className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable py-0"
+            dangerouslySetInnerHTML={{ __html: anuncioIndex.texto }}
+          ></div>
+        </Modal.Body>
       </Modal>
     </>
   );
