@@ -69,6 +69,7 @@ export default function Home() {
       ) : (
         <Placeholder.Graph active height={450} />
       )}
+
       <Unidad />
       <Direccion />
       <Calendario />

@@ -16,8 +16,10 @@ import Link from "next/link";
 import { useEffect } from "react";
 import LoadNoticias from "../../hooks/useLoadNoticias";
 import removeSpecialCharacters from "../../utils/removeSpecialCharacters";
+import { useRouter } from "next/router";
 
 export const NoticiaComponent = ({ noticia }: any) => {
+  const router = useRouter();
   const [relacionados, setRelacionados] = useState([]);
   const [loadRelacionados, setLoadRelacionados] = useState(false);
 
@@ -67,14 +69,14 @@ export const NoticiaComponent = ({ noticia }: any) => {
               : null}
           </NoticiaLinks>
           <NoticiaBotones>
-            <div>
+            {/* <div>
               <button>A+</button>
               <button>A-</button>
             </div>
             <div>
               <button>Descargar</button>
               <button>Imprimir</button>
-            </div>
+            </div> */}
           </NoticiaBotones>
           <NoticiaFechaDatos>
             <p>
@@ -104,14 +106,15 @@ export const NoticiaComponent = ({ noticia }: any) => {
               : null}
           </NoticiaTags>
           <NoticiaVolver>
-            <a href="#">Volver a noticias</a>
+            <p onClick={() => router.back()}>Volver</p>
           </NoticiaVolver>
           <NoticiaRelacionados>
             <TitleLine>Relacionados</TitleLine>
             {console.log(relacionados.length)}
             <NoticiaPreviewContainer>
+              {/* el slice es para mostrar maximo 7 elementos en relacionados */}
               {loadRelacionados
-                ? relacionados.map((noticiaRelacionada, index) => (
+                ? relacionados.slice(0, 7).map((noticiaRelacionada, index) => (
                     <NoticiaPreview
                       key={index}
                       title={noticiaRelacionada.titulo}

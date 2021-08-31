@@ -13,6 +13,8 @@ const Medicina = () => {
       nombreEncargado=""
       cargoEncargado="Medico"
       mensaje=""
+      noCard
+      link="https://bit.ly/3cjiyF7"
     >
       <p>Dato 1</p>
       <p>Dato 2</p>

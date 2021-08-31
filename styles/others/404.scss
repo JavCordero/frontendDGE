@@ -1,0 +1,10 @@
+.error404 { 
+  & > h3 {
+    font-weight: lighter;
+    font-size: 2rem;
+    color: $Pantone_Black_C;
+    font-style: italic;
+    text-align: center;
+    margin: 7vw;
+  }
+}
