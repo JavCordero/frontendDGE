@@ -59,7 +59,10 @@ const Noticias = () => {
   }, [page]);
 
   const busquedaPorTitulo = () => {
+    setLoadNoticias(false);
     noticias.length = 0;
+    setPage(1);
+    setMaxPage(1);
     const buscarNoticia = async () => {
       const noticiasArray = await LoadNoticias("", "", page, search);
       console.log(noticiasArray);
@@ -79,9 +82,13 @@ const Noticias = () => {
       <div className="noticias__head">
         <SearchInput
           placeholder="Buscar Noticia por titulo"
-          onChange={(e: any) => setSearch(e.target.value)}
-          fn = {busquedaPorTitulo}
+          onChange={(e: any) => {
+            const busqueda = e.target.value.replace(/[^a-z0-9]/g, " ");
+            return setSearch(busqueda);
+          }}
+          fn={busquedaPorTitulo}
         />
+        {!loadNoticias && <LoadingCircles />}
         {/* en caso de querer implementar funcionalidad filtro, descomentar lo siguiente: */}
         {/* <select className="noticias__filtro" id="noticiaFiltro">
           <option value="fecha">Por fecha</option>
