@@ -18,7 +18,6 @@ const Noticias = () => {
   const [loadNoticias, setLoadNoticias] = useState(false);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
-  const [disableButton, setDisableButton] = useState(false);
 
   const ButtonVerMas = styled.button`
     background-color: #f5f5f5;
@@ -51,13 +50,13 @@ const Noticias = () => {
     setLoadNoticias(true);
   };
 
-  const handdleNextPage = () => {
-    cargarNoticias(page + 1, search, noticias);
-  };
-
   useEffect(() => {
     cargarNoticias(1, "", []);
   }, []);
+
+  const handdleNextPage = () => {
+    cargarNoticias(page + 1, search, noticias);
+  };
 
   const busquedaPorTitulo = () => {
     setLoadNoticias(false);
@@ -110,12 +109,7 @@ const Noticias = () => {
       </NoticiaPreviewContainer>
       {maxPage !== page && (
         <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
-          <ButtonVerMas
-            style={{ display: disableButton ? "none" : "unset" }}
-            onClick={handdleNextPage}
-          >
-            Ver más...
-          </ButtonVerMas>
+          <ButtonVerMas onClick={handdleNextPage}>Ver más...</ButtonVerMas>
         </div>
       )}
     </div>

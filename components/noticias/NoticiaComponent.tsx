@@ -69,6 +69,7 @@ export const NoticiaComponent = ({ noticia }: any) => {
               : null}
           </NoticiaLinks>
           <NoticiaBotones>
+            {/* en caso de querer implementar funcionalidad botones en noticias descomentar esto */}
             {/* <div>
               <button>A+</button>
               <button>A-</button>
