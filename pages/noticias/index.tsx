@@ -83,7 +83,7 @@ const Noticias = () => {
         <SearchInput
           placeholder="Buscar Noticia por titulo"
           onChange={(e: any) => {
-            const busqueda = e.target.value.replace(/[^a-z0-9]/g, " ");
+            const busqueda = e.target.value;
             return setSearch(busqueda);
           }}
           fn={busquedaPorTitulo}
@@ -97,8 +97,9 @@ const Noticias = () => {
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
-        {loadNoticias
-          ? noticias.map((noticia, index) => (
+        {loadNoticias ? (
+          noticias.length > 0 ? (
+            noticias.map((noticia, index) => (
               <NoticiaPreview
                 key={index}
                 title={noticia.titulo}
@@ -114,7 +115,10 @@ const Noticias = () => {
                 {noticia.subtitulo}
               </NoticiaPreview>
             ))
-          : null}
+          ) : (
+            <p>Sin coincidencias.</p>
+          )
+        ) : null}
       </NoticiaPreviewContainer>
       {maxPage !== page && (
         <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
