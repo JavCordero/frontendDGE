@@ -42,11 +42,11 @@ const Noticias = () => {
       console.log(noticiasArray.data);
       setNoticias([...noti, ...noticiasArray.data]);
       setPage(pag);
+      setMaxPage(noticiasArray.last_page);
     } else {
       setNoticias([]);
     }
 
-    setMaxPage(noticiasArray.last_page);
     setLoadNoticias(true);
   };
 
