@@ -36,42 +36,33 @@ const Noticias = () => {
       color: #000;
     }
   `;
-  const handdleNextPage = () => {
-    if (page === maxPage) {
-      setDisableButton(true);
+
+  const cargarNoticias = async (pag, searc, noti) => {
+    const noticiasArray = await LoadNoticias("", "", pag, searc);
+    if (noticiasArray.data && noticiasArray.data.length > 0) {
+      console.log(noticiasArray.data);
+      setNoticias([...noti, ...noticiasArray.data]);
+      setPage(pag);
     } else {
-      setPage(page + 1);
+      setNoticias([]);
     }
+
+    setMaxPage(noticiasArray.last_page);
+    setLoadNoticias(true);
+  };
+
+  const handdleNextPage = () => {
+    cargarNoticias(page + 1, search, noticias);
   };
 
   useEffect(() => {
-    const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias("", "", page, search);
-      if (noticiasArray.data && noticiasArray.data.length > 0) {
-        noticiasArray.data.forEach((noticia) => {
-          setNoticias((noticias) => [...noticias, noticia]);
-        });
-      }
-      setMaxPage(noticiasArray.last_page);
-      setLoadNoticias(true);
-    };
-    noticiasListas();
-  }, [page]);
+    cargarNoticias(1, "", []);
+  }, []);
 
   const busquedaPorTitulo = () => {
-    noticias.length = 0;
-    const buscarNoticia = async () => {
-      const noticiasArray = await LoadNoticias("", "", page, search);
-      console.log(noticiasArray);
-      if (noticiasArray.data && noticiasArray.data.length > 0) {
-        noticiasArray.data.forEach((noticia) => {
-          setNoticias((noticias) => [...noticias, noticia]);
-        });
-      }
-      setMaxPage(noticiasArray.last_page);
-      setLoadNoticias(true);
-    };
-    buscarNoticia();
+    setLoadNoticias(false);
+    setMaxPage(1);
+    cargarNoticias(1, search, []);
   };
 
   return (
@@ -79,16 +70,24 @@ const Noticias = () => {
       <div className="noticias__head">
         <SearchInput
           placeholder="Buscar Noticia por titulo"
-          onChange={(e: any) => setSearch(e.target.value)}
+          onChange={(e: any) => {
+            const busqueda = e.target.value;
+            return setSearch(busqueda);
+          }}
+          fn={busquedaPorTitulo}
         />
-        <div onClick={busquedaPorTitulo} className="mr-3 btn btn-info">
-          Buscar
-        </div>
+        {!loadNoticias && <LoadingCircles />}
+        {/* en caso de querer implementar funcionalidad filtro, descomentar lo siguiente: */}
+        {/* <select className="noticias__filtro" id="noticiaFiltro">
+          <option value="fecha">Por fecha</option>
+          <option value="destacado">Destacados</option>
+        </select> */}
       </div>
       <div className="noticias__line"></div>
       <NoticiaPreviewContainer>
-        {loadNoticias
-          ? noticias.map((noticia, index) => (
+        {loadNoticias ? (
+          noticias.length > 0 ? (
+            noticias.map((noticia, index) => (
               <NoticiaPreview
                 key={index}
                 title={noticia.titulo}
@@ -104,7 +103,10 @@ const Noticias = () => {
                 {noticia.subtitulo}
               </NoticiaPreview>
             ))
-          : null}
+          ) : (
+            <p>Sin coincidencias.</p>
+          )
+        ) : null}
       </NoticiaPreviewContainer>
       {maxPage !== page && (
         <div className="d-flex justify-content-center align-items-center mt-1 mb-5">
