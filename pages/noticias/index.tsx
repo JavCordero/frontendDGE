@@ -36,45 +36,33 @@ const Noticias = () => {
       color: #000;
     }
   `;
-  const handdleNextPage = () => {
-    if (page === maxPage) {
-      setDisableButton(true);
+
+  const cargarNoticias = async (pag, searc, noti) => {
+    const noticiasArray = await LoadNoticias("", "", pag, searc);
+    if (noticiasArray.data && noticiasArray.data.length > 0) {
+      console.log(noticiasArray.data);
+      setNoticias([...noti, ...noticiasArray.data]);
+      setPage(pag);
     } else {
-      setPage(page + 1);
+      setNoticias([]);
     }
+
+    setMaxPage(noticiasArray.last_page);
+    setLoadNoticias(true);
+  };
+
+  const handdleNextPage = () => {
+    cargarNoticias(page + 1, search, noticias);
   };
 
   useEffect(() => {
-    const noticiasListas = async () => {
-      const noticiasArray = await LoadNoticias("", "", page, search);
-      if (noticiasArray.data && noticiasArray.data.length > 0) {
-        noticiasArray.data.forEach((noticia) => {
-          setNoticias((noticias) => [...noticias, noticia]);
-        });
-      }
-      setMaxPage(noticiasArray.last_page);
-      setLoadNoticias(true);
-    };
-    noticiasListas();
-  }, [page]);
+    cargarNoticias(1, "", []);
+  }, []);
 
   const busquedaPorTitulo = () => {
     setLoadNoticias(false);
-    noticias.length = 0;
-    setPage(1);
     setMaxPage(1);
-    const buscarNoticia = async () => {
-      const noticiasArray = await LoadNoticias("", "", page, search);
-      console.log(noticiasArray);
-      if (noticiasArray.data && noticiasArray.data.length > 0) {
-        noticiasArray.data.forEach((noticia) => {
-          setNoticias((noticias) => [...noticias, noticia]);
-        });
-      }
-      setMaxPage(noticiasArray.last_page);
-      setLoadNoticias(true);
-    };
-    buscarNoticia();
+    cargarNoticias(1, search, []);
   };
 
   return (
