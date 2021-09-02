@@ -12,6 +12,6 @@ module.exports = withTM({
     defaultLocale: "es",
   },
   images: {
-    domains: ["backend-dge-xqr3r.ondigitalocean.app"],
+    domains: ["localhost"],
   },
 });
