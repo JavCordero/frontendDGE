@@ -54,7 +54,7 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
   const [imagen2, setImagen2] = useState<File | undefined>(undefined);
 
   const imagenInput = useRef();
-  const imagenInput2 = useRef();
+  const imagenInput2: any = useRef();
 
   const insertImage = (url) => {
     editor.current.insertHTML(`<img src="${host + url}" />`);
@@ -63,8 +63,8 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
   const addImage = async (e) => {
     e.preventDefault();
     const nuevaImagen = await LoadImage(imagen2, idUser);
-    setImagen2(undefined);
-    console.log(nuevaImagen);
+    imagenInput2.current.value = "";
+    setLoadImagenes((loadImagenes) => [...loadImagenes, nuevaImagen.imagen]);
   };
 
   const editarEvento = async (e) => {
@@ -115,6 +115,7 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
   const config = {
     height: "100%",
     font: ["Arial", "tahoma", "Courier New,Courier"],
+    defaultStyle: "font-family: Arial; font-size:16px; line-height: 1;",
     imageFileInput: false,
     videoFileInput: false,
     buttonList: [
@@ -278,17 +279,6 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
       ],
     ],
   };
-
-  useEffect(() => {
-    async function cargarImagenes() {
-      const isLoaded = await getImagesByUser(idUser);
-      if (isLoaded.length > 0) {
-        setLoadImagenes(isLoaded);
-      }
-    }
-    cargarImagenes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imagen2]);
 
   useEffect(() => {
     async function cargarAreas() {
@@ -518,12 +508,18 @@ export const FormEditEvento = ({ idUser, eventoId }) => {
               <MDBCol className="my-3" size="12">
                 <div
                   className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
+                  style={{
+                    height: "100%",
+                    fontFamily: "Arial",
+                    fontSize: "16px",
+                    lineHeight: "1",
+                  }}
                   dangerouslySetInnerHTML={{ __html: data }}
                 ></div>
               </MDBCol>
             </MDBRow>
             <ButtonToolbar>
-              <Button type="submit" size="lg" color="green">
+              <Button type="submit" size="lg" color="green" className="px-5">
                 Publicar
               </Button>
               <i> *El evento será publicado según el area</i>

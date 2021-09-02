@@ -20,7 +20,11 @@ const NoticiaId = () => {
     };
     cargaNoticia();
   }, [router.query.id, isLoaded]);
-  return <>{isLoaded ? <NoticiaComponent noticia={noticia} /> : <p>Cargando...</p>}</>;
+  return (
+    <>
+      {isLoaded ? <NoticiaComponent noticia={noticia} /> : <p>Cargando...</p>}
+    </>
+  );
 };
 
 export default NoticiaId;

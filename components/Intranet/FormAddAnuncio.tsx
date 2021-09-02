@@ -37,7 +37,7 @@ export const FormAddAnuncio = ({ idUser }) => {
 
   const [imagen2, setImagen2] = useState<File | undefined>(undefined);
 
-  const imagenInput2 = useRef();
+  const imagenInput2: any = useRef();
 
   const insertImage = (url) => {
     editor.current.insertHTML(
@@ -48,8 +48,8 @@ export const FormAddAnuncio = ({ idUser }) => {
   const addImage = async (e) => {
     e.preventDefault();
     const nuevaImagen = await LoadImage(imagen2, idUser);
-    setImagen2(undefined);
-    console.log(nuevaImagen);
+    imagenInput2.current.value = "";
+    setLoadImagenes((loadImagenes) => [...loadImagenes, nuevaImagen.imagen]);
   };
 
   const crearAnuncio = async (e) => {
@@ -253,17 +253,6 @@ export const FormAddAnuncio = ({ idUser }) => {
   };
 
   useEffect(() => {
-    async function cargarImagenes() {
-      const isLoaded = await getImagesByUser(idUser);
-      if (isLoaded.length > 0) {
-        setLoadImagenes(isLoaded);
-      }
-    }
-    cargarImagenes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imagen2]);
-
-  useEffect(() => {
     async function cargarAreas() {
       const isLoaded = await LoadAreas();
       if (isLoaded.length > 0) {
@@ -325,7 +314,7 @@ export const FormAddAnuncio = ({ idUser }) => {
                   maxLength={250}
                   type="text"
                   id="descripcion"
-                  placeholder="Titulo del evento"
+                  placeholder="Descripción del anuncio"
                   name="descripcion"
                   value={descripcion}
                   onChange={(e) => setDescripcion(e.target.value)}
@@ -446,16 +435,26 @@ export const FormAddAnuncio = ({ idUser }) => {
                   </div>
                   <div
                     className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable py-0"
+                    style={{
+                      height: "100%",
+                      fontFamily: "Arial",
+                      fontSize: "16px",
+                      lineHeight: "1",
+                    }}
                     dangerouslySetInnerHTML={{ __html: data }}
                   ></div>
                 </div>
               </div>
             </MDBRow>
             <ButtonToolbar>
-              <Button type="submit" size="lg" color="green">
+              <Button type="submit" size="lg" color="green" className="px-5">
                 Publicar
               </Button>
-              <i> *El evento será publicado según el area</i>
+              <i>
+                {" "}
+                *El anuncio estará disponible para habilitarlo desde el panel de
+                anuncios
+              </i>
             </ButtonToolbar>
           </>
         ) : null}

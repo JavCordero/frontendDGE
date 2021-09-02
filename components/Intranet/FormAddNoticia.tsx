@@ -57,10 +57,9 @@ export const FormAddNoticia = ({ idUser }) => {
   const [imagen, setImagen] = useState<File | undefined>(undefined);
   const [imagen2, setImagen2] = useState<File | undefined>(undefined);
   const [links, setLinks] = useState([]);
-  const [imageSrc, setImageSrc] = useState("");
 
   const imagenInput = useRef();
-  const imagenInput2 = useRef();
+  const imagenInput2: any = useRef();
 
   const insertImage = (url) => {
     editor.current.insertHTML(`<img src="${host + url}" />`);
@@ -69,8 +68,8 @@ export const FormAddNoticia = ({ idUser }) => {
   const addImage = async (e) => {
     e.preventDefault();
     const nuevaImagen = await LoadImage(imagen2, idUser);
-    setImagen2(undefined);
-    console.log(nuevaImagen);
+    imagenInput2.current.value = "";
+    setLoadImagenes((loadImagenes) => [...loadImagenes, nuevaImagen.imagen]);
   };
 
   const crearNoticia = async (e) => {
@@ -134,6 +133,7 @@ export const FormAddNoticia = ({ idUser }) => {
   const config = {
     height: "100%",
     font: ["Arial", "tahoma", "Courier New,Courier"],
+    defaultStyle: "font-family: Arial; font-size:16px; line-height: 1;",
     imageFileInput: false,
     videoFileInput: false,
     buttonList: [
@@ -297,18 +297,6 @@ export const FormAddNoticia = ({ idUser }) => {
       ],
     ],
   };
-
-  useEffect(() => {
-    async function cargarImagenes() {
-      const isLoaded = await getImagesByUser(idUser);
-      console.log(isLoaded);
-      if (isLoaded.length > 0) {
-        setLoadImagenes(isLoaded);
-      }
-    }
-    cargarImagenes();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [imagen2]);
 
   useEffect(() => {
     async function cargarAreas() {
@@ -661,6 +649,12 @@ export const FormAddNoticia = ({ idUser }) => {
                   <br />
                   <div
                     className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable"
+                    style={{
+                      height: "100%",
+                      fontFamily: "Arial",
+                      fontSize: "16px",
+                      lineHeight: "1",
+                    }}
                     dangerouslySetInnerHTML={{ __html: data }}
                   ></div>
                 </NoticiaContenido>
@@ -676,7 +670,7 @@ export const FormAddNoticia = ({ idUser }) => {
               </div>
             </MDBRow>
             <ButtonToolbar className="mt-4">
-              <Button type="submit" size="lg" color="green">
+              <Button type="submit" size="lg" color="green" className="px-5">
                 Publicar
               </Button>
               <i> *La noticia será publicada según el area</i>

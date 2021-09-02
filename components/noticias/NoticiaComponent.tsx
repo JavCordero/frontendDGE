@@ -94,6 +94,12 @@ export const NoticiaComponent = ({ noticia }: any) => {
             <br />
             <div
               className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable sunEditorConfig"
+              style={{
+                height: "100%",
+                fontFamily: "Arial",
+                fontSize: "16px",
+                lineHeight: "1",
+              }}
               dangerouslySetInnerHTML={{ __html: noticia.cuerpo }}
             ></div>
           </NoticiaContenido>
