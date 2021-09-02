@@ -72,6 +72,12 @@ const Deportes = () => {
         <Modal.Body>
           <div
             className="se-wrapper-inner se-wrapper-wysiwyg sun-editor-editable py-0"
+            style={{
+              height: "100%",
+              fontFamily: "Arial",
+              fontSize: "16px",
+              lineHeight: "1",
+            }}
             dangerouslySetInnerHTML={{ __html: anuncioDeportes.texto }}
           ></div>
         </Modal.Body>
