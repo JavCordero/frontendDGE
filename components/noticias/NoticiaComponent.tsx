@@ -42,7 +42,10 @@ export const NoticiaComponent = ({ noticia }: any) => {
   }, [noticia]);
 
   const clickHandle = (link) => {
-    document.location.href = link;
+    if (!link.includes("https://") || !link.includes("http://")) {
+      link = `https://${link}`;
+    }
+    window.open(link, "_blank");
   };
 
   return (

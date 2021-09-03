@@ -56,9 +56,7 @@ const Index = () => {
                 headerTitle="¿Pregunta SALUD 1?"
               >
                 <p>
-                  La respuesta a la pregunta es que si. porque es una pregunta
-                  de salud. y es una pregunta de salud. y es una pregunta de
-                  salud. Lorem ipsum dolor sit amet consectetur adipisicing
+                  La respuesta a la pregunta es que si.Lorem ipsum dolor sit amet consectetur adipisicing
                   elit. Quam vero accusamus minima neque quisquam id
                   consequuntur fugiat est temporibus laborum.
                 </p>
@@ -68,35 +66,35 @@ const Index = () => {
                 className="text-justify"
                 headerTitle="¿Pregunta SALUD 2?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
               <MDBAccordionItem
                 collapseId="panelsStayOpen-collapse"
                 className="text-justify"
                 headerTitle="¿Pregunta SALUD 3?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
               <MDBAccordionItem
                 collapseId="panelsStayOpen-collapse"
                 className="text-justify"
                 headerTitle="¿Pregunta SALUD 4?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
               <MDBAccordionItem
                 collapseId="panelsStayOpen-collapse"
                 className="text-justify"
                 headerTitle="¿Pregunta SALUD 5?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
               <MDBAccordionItem
                 collapseId="panelsStayOpen-collapse"
                 className="text-justify"
                 headerTitle="¿Pregunta SALUD 6?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
             </div>
           )}
@@ -118,7 +116,7 @@ const Index = () => {
                 className="text-justify"
                 headerTitle="¿Pregunta deporte 2?"
               >
-                <p>La respuesta a la pregunta es que no.</p>
+                <p>La respuesta a la pregunta es que si.</p>
               </MDBAccordionItem>
             </div>
           )}
