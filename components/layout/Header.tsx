@@ -26,10 +26,22 @@ const Header = () => {
       </div>
       <nav className="header__enlaces">
         <Link href="/">Home</Link>
-        <a href="https://ssb.ucn.cl/">Mi portal</a>
-        <a href="https://online.ucn.cl/">Online UCN</a>
-        <a href="https://www.noticias.ucn.cl/">Noticias UCN</a>
-        <a href="https://campusvirtual.ucn.cl/">Campus UCN</a>
+        <a rel="noreferrer" target="_blank" href="https://ssb.ucn.cl/">
+          Mi portal
+        </a>
+        <a rel="noreferrer" target="_blank" href="https://online.ucn.cl/">
+          Online UCN
+        </a>
+        <a rel="noreferrer" target="_blank" href="https://www.noticias.ucn.cl/">
+          Noticias UCN
+        </a>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="https://campusvirtual.ucn.cl/"
+        >
+          Campus UCN
+        </a>
       </nav>
     </div>
   );
