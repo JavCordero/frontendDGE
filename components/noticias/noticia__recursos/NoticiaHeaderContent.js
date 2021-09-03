@@ -33,7 +33,7 @@ const NoticiaHeaderContent = (props) => {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40%;
+    height: auto;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 10;
@@ -43,6 +43,7 @@ const NoticiaHeaderContent = (props) => {
     justify-content: center;
     align-items: center;
     padding: 0 4px;
+    padding-bottom: 3px;
   `;
 
   const Titulo = styled.h2`
