@@ -53,7 +53,7 @@ export const Secciones = () => {
           <MDBCard className="align-items-center text-center  py-2 my-2">
             <FontAwesomeIcon size="3x" icon={faFileAlt}></FontAwesomeIcon>
             <MDBCardBody>
-              <MDBCardTitle>Visado de Cerificados</MDBCardTitle>
+              <MDBCardTitle>Visado de Certificados</MDBCardTitle>
               <MDBCardTitle>Medicos</MDBCardTitle>
             </MDBCardBody>
           </MDBCard>
