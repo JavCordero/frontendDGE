@@ -61,7 +61,7 @@ import {
                 <img className="ml-auto mr-auto" src="https://www.noticias.ucn.cl/wp-content/files_mf/cache/th_7445c7bc99903fe147f3c84bdb82a492_tiendauniversitaria4.jpg"
                   alt="Tienda Universitaria Antofagasta" style={{display: "block"}}/> 
 
-                <Link href="https://www.noticias.ucn.cl/wp-content/files_mf/cache/th_7445c7bc99903fe147f3c84bdb82a492_tiendauniversitaria4.jpg">
+                <Link href="https://tienda-universitaria.vercel.app/">
                   <div className="d-flex justify-content-center">
                     <MDBBtn className="my-1 m-0 p-2 rounded-6">Ir a la Tienda Universitaria</MDBBtn>
                   </div>
